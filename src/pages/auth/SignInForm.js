@@ -23,22 +23,10 @@ function SignInForm() {
     username: "",
     password: "",
   });
-  const { username, password } = signInData;
 
   const [errors, setErrors] = useState({});
 
   const history = useHistory();
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    try {
-      const { data } = await axios.post("/dj-rest-auth/login/", signInData);
-      setCurrentUser(data.user);
-      history.push("/");
-    } catch (err) {
-      setErrors(err.response?.data);
-    }
-  };
 
   const handleChange = (event) => {
     setSignInData({
@@ -47,11 +35,27 @@ function SignInForm() {
     });
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const { data } = await axios.post("/dj-rest-auth/login/", signInData);
+      setCurrentUser(data.user);
+      history.push("/");
+    } catch (err) {
+      if (err.response && err.response.data && typeof err.response.data === "object") {
+        setErrors(err.response.data);
+      } else {
+        setErrors({ non_field_errors: ["An unexpected error occurred."] });
+      }
+    }
+  };
+
   return (
     <Row className={styles.Row}>
       <Col className="my-auto p-0 p-md-2" md={6}>
         <Container className={`${appStyles.Content} p-4 `}>
-          <h1 className={styles.Header}>sign in</h1>
+          <h1 className={styles.Header}>Sign In</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="username">
               <Form.Label className="d-none">Username</Form.Label>
@@ -60,7 +64,7 @@ function SignInForm() {
                 placeholder="Username"
                 name="username"
                 className={styles.Input}
-                value={username}
+                value={signInData.username}
                 onChange={handleChange}
               />
             </Form.Group>
@@ -77,7 +81,7 @@ function SignInForm() {
                 placeholder="Password"
                 name="password"
                 className={styles.Input}
-                value={password}
+                value={signInData.password}
                 onChange={handleChange}
               />
             </Form.Group>
@@ -90,7 +94,7 @@ function SignInForm() {
               className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
               type="submit"
             >
-              Sign in
+              Sign In
             </Button>
             {errors.non_field_errors?.map((message, idx) => (
               <Alert key={idx} variant="warning" className="mt-3">
