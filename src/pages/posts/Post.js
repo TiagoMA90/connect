@@ -5,7 +5,6 @@ import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
-import { data } from "msw/lib/types/context";
 
 const Post = (props) => {
   const {

@@ -6,15 +6,22 @@ import "./api/axiosDefaults";
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 import PostCreateForm from "./pages/posts/PostCreateForm";
+import PostsPage from "./pages/posts/PostsPage";
 import PostPage from "./pages/posts/PostPage";
+import { useCurrentUser } from "./contexts/CurrentUserContext";
 
 function App() {
+  const currentUser = useCurrentUser();
+  const profile_id = currentUser?.profile || "";
+
   return (
     <div className={styles.App}>
       <NavBar />
       <Container className={styles.Main}>
         <Switch>
-          <Route exact path="/" render={() => <h1>Home page</h1>} />
+          <Route exact path="/" render={() => < PostsPage message="We could not find what you were looking for. Search for another keyword" />} />
+          <Route exact path="/feed" render={() => < PostsPage message="No results have been found. Search another keyword or follow a User." filter={`owner__followed__owner__profile=${profile_id}&`} />} />
+          <Route exact path="/liked" render={() => < PostsPage message="We could not find what you were looking for. Search for another keyword or like a post" filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`} />} />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/posts/create" render={() => <PostCreateForm />} />
