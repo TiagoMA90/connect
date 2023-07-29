@@ -9,7 +9,7 @@ import { Container } from 'react-bootstrap'
 import appStyles from '../../App.module.css'
 import { axiosReq } from '../../api/axiosDefaults';
 
-const PopularProfiles = () => {
+const PopularProfiles = ({ mobile }) => {
     const [profileData, setProfileData] = useState({
         pageProfile: { results: [] },
         popularProfiles: { results: [] },
@@ -35,13 +35,21 @@ const PopularProfiles = () => {
     }, [currentUser]);
 
     return (
-        <Container className={appStyles.Content}>
+        <Container className={`${appStyles.Content} ${mobile && 'd-lg-none text-center mb-3'}`}>
             {popularProfiles.results.length ? (
                 <>
                     <p>Popular Profiles</p>
-                    {popularProfiles.results.map((profile) => (
-                        <p key={profile.id}>{profile.owner}</p>
-                    ))}
+                    {mobile ? (
+                        <div className="d-flex justify-content-around">
+                            {popularProfiles.results.slice(0,5).map((profile) => (
+                                <p key={profile.id}>{profile.owner}</p>
+                            ))}
+                        </div>
+                    ) : (
+                        popularProfiles.results.map((profile) => (
+                            <p key={profile.id}>{profile.owner}</p>
+                        ))
+                    )}
                 </>
             ) : (
                 <Asset spinner />
@@ -49,5 +57,6 @@ const PopularProfiles = () => {
         </Container>
     );
 };
+    
 
 export default PopularProfiles
