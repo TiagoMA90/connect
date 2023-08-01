@@ -27,7 +27,7 @@ function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
   const currentUser = useCurrentUser();
   const {id} = useParams();
-  const setProfileData = useSetProfileData();
+  const {setProfileData} = useSetProfileData();
   const {pageProfile} = useProfileData();
   const [profile] = pageProfile.results;
   const is_owner = currentUser?.username === profile?.owner;
@@ -37,7 +37,7 @@ function ProfilePage() {
     const fetchData = async () => {
       try {
         const [{data: pageProfile}] = await Promise.all([
-          axiosReq.get(`/profiles/&{id}/`)
+          axiosReq.get(`/profiles/${id}/`)
         ])
         setProfileData(prevState => ({
           ...prevState,
@@ -45,7 +45,7 @@ function ProfilePage() {
         }))
         setHasLoaded(true);
       } catch(err) {
-        console.log(err);
+        console.log(err)
       }
     };
     fetchData();
@@ -70,11 +70,11 @@ function ProfilePage() {
             </Col>
             <Col xs={3} className="my-2">
               <div>{profile?.followers_count}</div>
-              <div>followers</div>
+              <div>Followers</div>
             </Col>
             <Col xs={3} className="my-2">
               <div>{profile?.following_count}</div>
-              <div>following</div>
+              <div>ollowing</div>
             </Col>
           </Row>
         </Col>
