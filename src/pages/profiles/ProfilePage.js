@@ -7,6 +7,7 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
 import Asset from "../../components/Asset";
+
 import styles from "../../styles/ProfilePage.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
@@ -15,17 +16,14 @@ import PopularProfiles from "./PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
-
-import { useSetProfileData } from "../../contexts/ProfileDataContext";
 import { useProfileData } from "../../contexts/ProfileDataContext";
+import { useSetProfileData } from "../../contexts/ProfileDataContext";
 
 import { Button } from "react-bootstrap";
 import { Image } from "react-bootstrap";
-
-import { fetchMoreData } from "../../utils/utils";
-
 import InfiniteScroll from "react-infinite-scroll-component";
 import Post from "../posts/Post";
+import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
 
 function ProfilePage() {
@@ -35,7 +33,7 @@ function ProfilePage() {
   const currentUser = useCurrentUser();
   const { id } = useParams();
 
-  const { setProfileData } = useSetProfileData();
+  const { setProfileData, handleFollow } = useSetProfileData();
   const { pageProfile } = useProfileData();
 
   const [profile] = pageProfile.results;
@@ -102,7 +100,7 @@ function ProfilePage() {
             ) : (
               <Button
                 className={`${btnStyles.Button} ${btnStyles.Black}`}
-                onClick={() => {}}
+                onClick={() => handleFollow(profile)}
               >
                 follow
               </Button>
@@ -116,7 +114,7 @@ function ProfilePage() {
   const mainProfilePosts = (
     <>
       <hr />
-      <p className="text-center">{profile?.owner}'s submissions</p>
+      <p className="text-center">{profile?.owner}'s posts</p>
       <hr />
       {profilePosts.results.length ? (
         <InfiniteScroll
