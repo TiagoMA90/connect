@@ -52,21 +52,21 @@ export function ProfileEditDropdown({ id }) {
           aria-label="edit-profile"
         >
           <i className="fas fa-edit" />
-          Edit Bio
+          Edit Profile
         </Dropdown.Item>
         <Dropdown.Item
           onClick={() => history.push(`/profiles/${id}/edit/username`)}
           aria-label="edit-username"
         >
           <i className="far fa-id-card" />
-          Change username
+          Change Username
         </Dropdown.Item>
         <Dropdown.Item
           onClick={() => history.push(`/profiles/${id}/edit/password`)}
           aria-label="edit-password"
         >
           <i className="fas fa-key" />
-          Update password
+          Update Password
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
