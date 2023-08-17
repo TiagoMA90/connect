@@ -16,6 +16,7 @@ import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import ContactCreateForm from "./pages/contacts/ContactCreateForm";
+import ProfileDeleteForm from "./pages/profiles/ProfileDeleteForm";
 import NotFound from './components/NotFound';
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
           <Route exact path="/profiles/:id/edit/username" render={() => <UsernameForm />} />
           <Route exact path="/profiles/:id/edit/password" render={() => <UserPasswordForm />} />
           <Route exact path="/profiles/:id/edit" render={() => <ProfileEditForm />} />
+          <Route exact path="/profiles/:id/delete" render={() => <ProfileDeleteForm id={profile_id} />} />
           <Route exact path="/contact/" render={() => <ContactCreateForm />} />
           <Route component={NotFound} />
         </Switch>
