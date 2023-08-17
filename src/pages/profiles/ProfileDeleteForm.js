@@ -11,7 +11,6 @@ const ProfileDeleteForm = ({ id }) => {
   const handleDelete = async () => {
     try {
       await axios.delete(`/profiles/${id}/delete/`);
-      setCurrentUser(null);
       localStorage.removeItem("accessToken");
       history.push("/signup");
     } catch (error) {
