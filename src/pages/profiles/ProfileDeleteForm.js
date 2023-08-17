@@ -5,12 +5,19 @@ import { Col, Container, Row } from "react-bootstrap";
 import appStyles from "../../App.module.css";
 import buttonStyles from "../../styles/Button.module.css";
 
+import { removeTokenTimestamp } from "../../utils/utils";
+
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+
 const ProfileDeleteForm = ({ id }) => {
+  const setCurrentUser = useSetCurrentUser();
   const history = useHistory();
 
   const handleDelete = async () => {
     try {
       await axios.delete(`/profiles/${id}/delete/`);
+      setCurrentUser(null);
+      removeTokenTimestamp();
       localStorage.removeItem("accessToken");
       history.push("/signup");
     } catch (error) {
