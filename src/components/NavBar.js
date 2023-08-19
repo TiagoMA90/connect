@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Navbar } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { Nav } from "react-bootstrap";
@@ -18,6 +18,7 @@ const NavBar = () => {
   const setCurrentUser = useSetCurrentUser();
 
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
+  const [isMobile, setIsMobile] = useState(false);
 
   const handleSignOut = async () => {
     try {
@@ -29,6 +30,19 @@ const NavBar = () => {
     }
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 767);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const addPostIcon = (
     <NavLink
       className={styles.NavLink}
@@ -38,6 +52,7 @@ const NavBar = () => {
       <i className="far fa-plus-square"></i>Add post
     </NavLink>
   );
+
   const loggedInIcons = (
     <>
       <NavLink
@@ -65,6 +80,7 @@ const NavBar = () => {
       </NavLink>
     </>
   );
+
   const loggedOutIcons = (
     <>
       <NavLink
@@ -113,13 +129,15 @@ const NavBar = () => {
             >
               <i className="fas fa-home"></i>Home
             </NavLink>
-            <NavLink
-              className={styles.NavLink}
-              activeClassName={styles.Active}
-              to="/contact"
-            >
-              <i className="fas fa-envelope"></i>Contact
-            </NavLink>
+            {isMobile && (
+              <NavLink
+                className={styles.NavLink}
+                activeClassName={styles.Active}
+                to="/contact"
+              >
+                <i className="fas fa-envelope"></i>Contact
+              </NavLink>
+            )}
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
         </Navbar.Collapse>
