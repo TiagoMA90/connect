@@ -1,0 +1,61 @@
+.container {
+    background-color: #ffffff;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px #0000001a;
+  }
+  
+  .heading {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .chatBox {
+    background-color: #eeeeee;
+    border: 1px solid #ccc;
+    padding: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  .chatMessage {
+    margin-bottom: 10px;
+  }
+  
+  .chatMessage strong {
+    font-weight: bold;
+  }
+  
+  .messageInput {
+    display: flex;
+    margin-top: 10px;
+  }
+  
+  .messageInput input[type="text"] {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .messageInput button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .hidden {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+  }
+  
+  .visible {
+    max-height: 300px;
+    padding: 10px;
+  }
