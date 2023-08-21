@@ -19,7 +19,7 @@ const ProfileDeleteForm = ({ id }) => {
       setCurrentUser(null);
       removeTokenTimestamp();
       localStorage.removeItem("accessToken");
-      history.push("/signup");
+      history.push("/");
     } catch (error) {
       console.error("Error deleting profile:", error.message);
     }
