@@ -9,7 +9,8 @@ const ChatComponent = () => {
   const fetchComments = async () => {
     try {
       const response = await axios.get('https://djangorestframework-api-38c4a098777a.herokuapp.com/comments/');
-      setComments(response.data.results); 
+      setComments(response.data.results);
+      console.log(await axios.get('https://djangorestframework-api-38c4a098777a.herokuapp.com/comments/')) 
     } catch (error) {
       console.error('Error fetching comments:', error);
     }
@@ -32,6 +33,7 @@ const ChatComponent = () => {
               owner={comment.owner}
               updated_at={comment.updated_at}
               content={comment.content}
+              post={comment.post}
             />
           ))
         ) : (

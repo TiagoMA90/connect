@@ -35,7 +35,7 @@ const ProfileDeleteForm = ({ id }) => {
               className={`${buttonStyles.Button} ${buttonStyles.Wide} ${buttonStyles.Bright}`}
               onClick={handleDelete}
             >
-              Delete Profile
+              Delete Profile {/* Tutor - "Delete profile" does not delete the profile untill the user deletes the browser cookies and refreshed the pages manually // Err401??? */}
             </button>
           </div>
         </Col>

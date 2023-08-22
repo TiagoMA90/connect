@@ -11,7 +11,7 @@ const ChatComment = (props) => {
     owner,
     updated_at,
     content,
-    posts_id,
+    post,
   } = props;
 
 
@@ -26,8 +26,8 @@ const ChatComment = (props) => {
           <span className={styles.Owner}>{owner}</span>
           <span className={styles.Date}>{updated_at}</span>
           <p>{content}</p>
-          <Link to={`/posts/${posts_id}`}>
-            View Post {/* iew Post does not redirect to the correct Post*/}
+          <Link to={`/posts/${post}/`}>
+            View Post
           </Link>
         </Media.Body>
       </Media>
