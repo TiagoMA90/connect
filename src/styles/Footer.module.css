@@ -1,6 +1,7 @@
 .container {
     border: 1px solid #dadadf;
     background-color: white;
+    border-radius: 2px;
 }
   
 .contactAndIconsContainer {

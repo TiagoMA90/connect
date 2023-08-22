@@ -3,6 +3,7 @@
   border: 1px solid #dadadf;
   margin-bottom: 10px;
   text-align: center;
+  border-radius: 2px;
 }
   
 .Post figure, h5 {
