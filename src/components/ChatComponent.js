@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Container } from 'react-bootstrap'; // Import Container
 import styles from '../styles/ChatComponent.module.css';
 import ChatComment from '../components/ChatComment';
 
@@ -10,7 +11,7 @@ const ChatComponent = () => {
     try {
       const response = await axios.get('https://djangorestframework-api-38c4a098777a.herokuapp.com/comments/');
       setComments(response.data.results);
-      console.log(await axios.get('https://djangorestframework-api-38c4a098777a.herokuapp.com/comments/')) 
+      console.log(await axios.get('https://djangorestframework-api-38c4a098777a.herokuapp.com/comments/'));
     } catch (error) {
       console.error('Error fetching comments:', error);
     }
@@ -21,8 +22,11 @@ const ChatComponent = () => {
   }, []);
 
   return (
-    <div className={styles.container}>
-      <p>Latest Comments</p>
+    <Container className={`${styles.container} ${styles.Content}`}>
+      <div className="text-center">
+        <p>Latest Comments</p>
+        <hr/>
+      </div>
       <div className={styles.chatBox}>
         {comments.length > 0 ? (
           comments.map((comment) => (
@@ -40,7 +44,7 @@ const ChatComponent = () => {
           <p>No comments available.</p>
         )}
       </div>
-    </div>
+    </Container>
   );
 };
 

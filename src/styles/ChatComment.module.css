@@ -1,41 +1,41 @@
 .commentContainer {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
   
-  .commentHeader {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-  }
+.commentHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
   
-  .commentProfileLink {
-    text-decoration: none;
-    color: #333;
-  }
+.commentProfileLink {
+  text-decoration: none;
+  color: #333;
+}
   
-  .commentProfileImage {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
+.commentProfileImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
   
-  .commentOwner {
-    font-weight: bold;
-    margin-right: 5px;
-  }
+.commentOwner {
+  font-weight: bold;
+  margin-right: 5px;
+}
   
-  .commentDate {
-    color: #999;
-    font-size: 0.8rem;
-  }
+.commentDate {
+  color: #999;
+  font-size: 0.8rem;
+}
   
-  .commentContent {
-    margin-top: 5px;
-  }
+.commentContent {
+  margin-top: 5px;
+}
   
-  .editFormContainer {
-    margin-top: 10px;
-  }
+.editFormContainer {
+  margin-top: 10px;
+}
