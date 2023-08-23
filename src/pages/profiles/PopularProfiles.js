@@ -14,11 +14,11 @@ const PopularProfiles = ({ mobile }) => {
         mobile ? "d-lg-none text-center mb-3" : ""
       }`}
     >
-      {popularProfiles.results.length ? (
-        <div className="text-center">
-          <p>Most followed profiles</p>
-          <hr/>
-          {mobile ? (
+      <div className="text-center">
+        <p>Most followed profiles</p>
+        <hr />
+        {popularProfiles.results.length ? (
+          mobile ? (
             <div className="d-flex justify-content-around">
               {popularProfiles.results.slice(0, 4).map((profile) => (
                 <Profile key={profile.id} profile={profile} mobile />
@@ -28,11 +28,11 @@ const PopularProfiles = ({ mobile }) => {
             popularProfiles.results.map((profile) => (
               <Profile key={profile.id} profile={profile} />
             ))
-          )}
-        </div>
-      ) : (
-        <Asset spinner />
-      )}
+          )
+        ) : (
+          <p>No users available</p>
+        )}
+      </div>
     </Container>
   );
 };

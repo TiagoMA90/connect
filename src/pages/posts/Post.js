@@ -1,6 +1,5 @@
 import React from "react";
 
-import axios from "axios";
 import { axiosRes } from "../../api/axiosDefaults";
 
 import styles from "../../styles/Post.module.css";
@@ -15,6 +14,8 @@ import { Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { MoreDropdown } from "../../components/MoreDropdown";
+
+import Report from "../../components/Report"; 
 
 const Post = (props) => {
   const {
@@ -130,6 +131,7 @@ const Post = (props) => {
             <i className="far fa-comments" />
           </Link>
           {comments_count}
+          <Report postId={id} />
         </div>
       </Card.Body>
     </Card>

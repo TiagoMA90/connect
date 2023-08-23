@@ -20,7 +20,7 @@ import CommentCreateForm from "../comments/CommentCreateForm";
 import Asset from "../../components/Asset";
 
 import PopularProfiles from "../profiles/PopularProfiles";
-import Footer from '../../components/Footer';
+import Footer from "../../components/Footer";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function PostPage() {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Container } from 'react-bootstrap'; // Import Container
+import { Container } from 'react-bootstrap';
 import styles from '../styles/ChatComponent.module.css';
 import ChatComment from '../components/ChatComment';
 
