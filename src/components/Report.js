@@ -4,21 +4,20 @@ import Modal from "react-bootstrap/Modal";
 import axios from 'axios';
 
 
-function Report({ postId }) {
+function Report({ post }) {
   const [showModal, setShowModal] = useState(false);
   const [reason, setReason] = useState("");
   const [isReporting, setIsReporting] = useState(false);
 
   const handleReport = async () => {
     setIsReporting(true);
-
     try {
-      await axios.post(`/posts/${postId}/report/`, { reason });
+      await axios.post(`https://djangorestframework-api-38c4a098777a.herokuapp.com/reports/${post.Id}/`, { reason });
       setShowModal(false);
-      // Display a success message or take any desired action
+      // FIXDisplay a success message /or eleborate New component
     } catch (error) {
       console.error("Error reporting post:", error);
-      // Handle error reporting, e.g., display an error message
+      // FIXHandle error / display an error message
     } finally {
       setIsReporting(false);
     }

@@ -20,6 +20,7 @@ import CommentCreateForm from "../comments/CommentCreateForm";
 import Asset from "../../components/Asset";
 
 import PopularProfiles from "../profiles/PopularProfiles";
+import ChatComponent from '../../components/ChatComponent';
 import Footer from "../../components/Footer";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
@@ -88,6 +89,7 @@ function PostPage() {
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         <PopularProfiles />
+        <ChatComponent />
         <Footer />
       </Col>
     </Row>

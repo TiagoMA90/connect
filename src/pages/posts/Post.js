@@ -1,11 +1,7 @@
 import React from "react";
-
 import { axiosRes } from "../../api/axiosDefaults";
-
 import styles from "../../styles/Post.module.css";
-
 import Avatar from "../../components/Avatar";
-
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card } from "react-bootstrap";
 import { Media } from "react-bootstrap";
@@ -14,8 +10,7 @@ import { Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { MoreDropdown } from "../../components/MoreDropdown";
-
-import Report from "../../components/Report"; 
+import Report from "../../components/Report";
 
 const Post = (props) => {
   const {
@@ -41,6 +36,7 @@ const Post = (props) => {
   const handleEdit = () => {
     history.push(`/posts/${id}/edit`);
   };
+
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/posts/${id}/`);
@@ -92,7 +88,12 @@ const Post = (props) => {
           </Link>
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
-            {is_owner && postPage && <MoreDropdown handleEdit={handleEdit} handleDelete={handleDelete} />}
+            {is_owner && postPage && (
+              <MoreDropdown
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+              />
+            )}
           </div>
         </Media>
       </Card.Body>
@@ -131,7 +132,9 @@ const Post = (props) => {
             <i className="far fa-comments" />
           </Link>
           {comments_count}
-          <Report postId={id} />
+          {currentUser ? (
+            <Report post={id} />
+          ) : null}
         </div>
       </Card.Body>
     </Card>
