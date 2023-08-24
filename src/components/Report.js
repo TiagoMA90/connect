@@ -3,21 +3,22 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import axios from 'axios';
 
-
 function Report({ post }) {
   const [showModal, setShowModal] = useState(false);
   const [reason, setReason] = useState("");
   const [isReporting, setIsReporting] = useState(false);
+  const [error, setError] = useState("");
 
   const handleReport = async () => {
     setIsReporting(true);
+    setError(""); // Clear any previous error messages
     try {
-      await axios.post(`https://djangorestframework-api-38c4a098777a.herokuapp.com/reports/${post.Id}/`, { reason });
+      await axios.post(`https://djangorestframework-api-38c4a098777a.herokuapp.com/reports/${post.ID}/`, { reason });
       setShowModal(false);
-      // FIXDisplay a success message /or eleborate New component
+      // Display a success message to the user if needed
     } catch (error) {
       console.error("Error reporting post:", error);
-      // FIXHandle error / display an error message
+      setError("An error occurred while reporting the post. Please try again later."); // Set an error message
     } finally {
       setIsReporting(false);
     }
@@ -34,6 +35,7 @@ function Report({ post }) {
           <Modal.Title>Report Post</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          {error && <p className="error-message">{error}</p>}
           <p>Choose a reason for reporting this post:</p>
           <select
             value={reason}
