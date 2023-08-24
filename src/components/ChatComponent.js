@@ -41,7 +41,7 @@ const ChatComponent = () => {
             />
           ))
         ) : (
-          <p>No comments available.</p>
+          <p className="text-center">No comments available.</p>
         )}
       </div>
     </Container>

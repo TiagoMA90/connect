@@ -27,7 +27,7 @@ const ChatComment = (props) => {
           <span className={styles.Date}>{updated_at}</span>
           <p>{content}</p>
           <Link to={`/posts/${post}/`}>
-            View Post
+            <small>• View Post •</small>
           </Link>
         </Media.Body>
       </Media>
@@ -36,3 +36,18 @@ const ChatComment = (props) => {
 };
 
 export default ChatComment;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
