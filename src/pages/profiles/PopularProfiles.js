@@ -15,7 +15,7 @@ const PopularProfiles = ({ mobile }) => {
       }`}
     >
       <div className="text-center">
-        <p>Most followed profiles</p>
+        <p>Popular Profiles</p>
         <hr />
         {popularProfiles.results.length ? (
           mobile ? (

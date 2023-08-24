@@ -24,10 +24,10 @@ const ChatComment = (props) => {
         </Link>
         <Media.Body className="align-self-center ml-2">
           <span className={styles.Owner}>{owner}</span>
-          <span className={styles.Date}>{updated_at}</span>
+          <small><span className={styles.Date}>• {updated_at}</span></small>
           <p>{content}</p>
           <Link to={`/posts/${post}/`}>
-            <small>• View Post •</small>
+            <small>➥ View Post</small>
           </Link>
         </Media.Body>
       </Media>

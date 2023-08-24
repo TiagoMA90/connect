@@ -9,7 +9,6 @@ import Container from "react-bootstrap/Container";
 
 import Post from "./Post";
 import Asset from "../../components/Asset";
-import { NavLink } from "react-router-dom";
 
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PostsPage.module.css";

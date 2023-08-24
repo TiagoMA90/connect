@@ -11,14 +11,14 @@ function Report({ post }) {
 
   const handleReport = async () => {
     setIsReporting(true);
-    setError(""); // Clear any previous error messages
+    setError("");
     try {
-      await axios.post(`https://djangorestframework-api-38c4a098777a.herokuapp.com/reports/${post.ID}/`, { reason });
+      await axios.post(`https://djangorestframework-api-38c4a098777a.herokuapp.com/report/posts/${post}/`, { reason }); // Tutor! - This Endpoint dos not communicate with the API???!
       setShowModal(false);
-      // Display a success message to the user if needed
+      // Fixthis Display a success message to the user or create a redirect component!
     } catch (error) {
       console.error("Error reporting post:", error);
-      setError("An error occurred while reporting the post. Please try again later."); // Set an error message
+      setError("An error occurred while reporting the post. Please try again later.");
     } finally {
       setIsReporting(false);
     }

@@ -4,6 +4,7 @@
   margin-bottom: 10px;
   text-align: center;
   border-radius: 2px;
+  box-shadow: 0 2px 4px #0000001a;
 }
   
 .Post figure, h5 {
