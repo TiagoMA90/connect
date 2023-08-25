@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container } from 'react-bootstrap';
-import styles from '../styles/ChatComponent.module.css';
-import ChatComment from './ChatComment';
+import styles from '../styles/CommunityComments.module.css';
+import ChatComment from './SnipetComments';
 
-const ChatComponent = () => {
+const CommunityComments = () => {
   const [comments, setComments] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const fetchComments = async () => {
     try {
       const response = await axios.get('https://djangorestframework-api-38c4a098777a.herokuapp.com/comments/');
       setComments(response.data.results);
-      console.log(await axios.get('https://djangorestframework-api-38c4a098777a.herokuapp.com/comments/'));
     } catch (error) {
-      console.error('Error fetching comments:', error);
+      setError(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -25,10 +28,14 @@ const ChatComponent = () => {
     <Container className={`${styles.container} ${styles.Content}`}>
       <div className="text-center">
         <p>Latest Comments</p>
-        <hr/>
+        <hr />
       </div>
       <div className={styles.chatBox}>
-        {comments.length > 0 ? (
+        {loading ? (
+          <p className="text-center">Loading comments...</p>
+        ) : error ? (
+          <p className="text-center">Error fetching comments.</p>
+        ) : comments.length > 0 ? (
           comments.map((comment) => (
             <ChatComment
               key={comment.id}
@@ -48,4 +55,4 @@ const ChatComponent = () => {
   );
 };
 
-export default ChatComponent;
+export default CommunityComments;

@@ -4,7 +4,7 @@ import Avatar from './Avatar';
 import { Media } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const ChatComment = (props) => {
+const SnipetComments = (props) => {
   const {
     profile_id,
     profile_image,
@@ -13,7 +13,6 @@ const ChatComment = (props) => {
     content,
     post,
   } = props;
-
 
   return (
     <>
@@ -35,4 +34,4 @@ const ChatComment = (props) => {
   );
 };
 
-export default ChatComment;
+export default SnipetComments;

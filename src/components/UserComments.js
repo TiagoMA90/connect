@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container } from 'react-bootstrap';
-import styles from '../styles/ChatComponent.module.css';
-import ChatComment from './ChatComment';
+import styles from '../styles/CommunityComments.module.css';
+import SnipetComments from './SnipetComments';
 
 const FilteredComments = ({ profileId }) => {
   const [comments, setComments] = useState([]);
@@ -41,7 +41,7 @@ const FilteredComments = ({ profileId }) => {
       <div className={styles.chatBox}>
         {comments.length > 0 ? (
           comments.map((comment) => (
-            <ChatComment
+            <SnipetComments
               key={comment.id}
               profile_id={comment.profile_id}
               profile_image={comment.profile_image}
