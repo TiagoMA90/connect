@@ -36,18 +36,3 @@ const ChatComment = (props) => {
 };
 
 export default ChatComment;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

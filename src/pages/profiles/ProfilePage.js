@@ -28,6 +28,8 @@ import NoResults from "../../assets/no-results.png";
 
 import PopularProfiles from "../profiles/PopularProfiles";
 import Footer from '../../components/Footer';
+import FilteredComments from '../../components/UserComments';
+
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -118,7 +120,7 @@ function ProfilePage() {
   const mainProfilePosts = (
     <>
       <hr />
-      <p className="text-center">{profile?.owner}'s posts</p>
+      <p className="text-center">{profile?.owner}'s Posts</p>
       <hr />
       {profilePosts.results.length ? (
         <InfiniteScroll
@@ -156,6 +158,7 @@ function ProfilePage() {
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         <PopularProfiles />
+        <FilteredComments profileId={profile?.id} />
         <Footer />
       </Col>
     </Row>
