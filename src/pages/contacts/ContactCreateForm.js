@@ -11,6 +11,7 @@ import Container from "react-bootstrap/Container";
 import btnStyles from "../../styles/Button.module.css";
 import Form from "react-bootstrap/Form";
 
+import Footer from '../../components/Footer';
 import ContactSuccessForm from './ContactSuccessForm';
 
 const ContactCreateForm = () => {
@@ -32,6 +33,7 @@ const ContactCreateForm = () => {
   };
 
   return (
+    <>
     <Container className={`${appStyles.Content} p-4 mt-2`}>
       <Row className="mb-3">
         <Col>
@@ -69,6 +71,8 @@ const ContactCreateForm = () => {
         </Col>
       </Row>
     </Container>
+    <Footer />
+    </>
   );
 };
 
