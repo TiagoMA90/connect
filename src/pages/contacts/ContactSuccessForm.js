@@ -1,6 +1,5 @@
 import React from 'react';
 import appStyles from "../../App.module.css";
-import Footer from '../../components/Footer';
 
 const ContactSuccessForm = () => {
   return (

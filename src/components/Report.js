@@ -5,18 +5,31 @@ import { Button, Modal, Form } from "react-bootstrap";
 const Report = ({ post }) => {
   const [showModal, setShowModal] = useState(false);
   const [reason, setReason] = useState("");
-  const handleClose = () => setShowModal(false);
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const handleClose = () => {
+    setReason(""); // Reset the reason field when closing the modal
+    setShowModal(false);
+    setErrorMsg("");
+  };
+
   const handleShow = () => setShowModal(true);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axiosRes.post(`/reports/`, { post: post.id, reason });
+      const data = {
+        post_id: post.id, // Ensure that "post_id" is correctly set
+        reason
+      };
+
+      await axiosRes.post(`/reports/`, data);
       handleClose();
-      // Create a Component/Success message if the Report succeeds.
+      // Create a Component - success message or update the UI after reporting.
     } catch (err) {
       console.log(err);
-      // Handle the error, show an error message, etc.
+      console.log(err.response);
+      setErrorMsg("An error occurred while reporting this post. Please try again.");
     }
   };
 
@@ -30,6 +43,7 @@ const Report = ({ post }) => {
           <Modal.Title>Report Post</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          {errorMsg && <div className="error-message">{errorMsg}</div>}
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="reportReason">
               <Form.Label>Reason for Reporting</Form.Label>
