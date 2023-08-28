@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { Container } from 'react-bootstrap';
 import styles from '../styles/CommunityComments.module.css';
@@ -8,16 +8,16 @@ const FilteredComments = ({ profileId }) => {
   const [comments, setComments] = useState([]);
   const [profile, setProfile] = useState(null);
 
-  const fetchProfileDetails = async () => {
+  const fetchProfileDetails = useCallback(async () => {
     try {
       const response = await axios.get(`https://djangorestframework-api-38c4a098777a.herokuapp.com/profiles/${profileId}/`);
       setProfile(response.data);
     } catch (error) {
       console.error('Error fetching profile details:', error);
     }
-  };
+  }, [profileId]);
 
-  const fetchComments = async () => {
+  const fetchComments = useCallback(async () => {
     try {
       const response = await axios.get('https://djangorestframework-api-38c4a098777a.herokuapp.com/comments/');
       const filteredComments = response.data.results.filter(comment => comment.profile_id === profileId);
@@ -25,12 +25,12 @@ const FilteredComments = ({ profileId }) => {
     } catch (error) {
       console.error('Error fetching comments:', error);
     }
-  };
+  }, [profileId]);
 
   useEffect(() => {
     fetchProfileDetails();
     fetchComments();
-  }, [profileId]);
+  }, [fetchProfileDetails, fetchComments]);
 
   return (
     <Container className={`${styles.container} ${styles.Content}`}>
