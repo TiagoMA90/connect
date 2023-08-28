@@ -5,30 +5,19 @@ import { Button, Modal, Form } from "react-bootstrap";
 const Report = ({ post }) => {
   const [showModal, setShowModal] = useState(false);
   const [reason, setReason] = useState("");
-  const [errorMsg, setErrorMsg] = useState("");
-
-  const handleClose = () => {
-    setReason(""); // Reset the reason field when closing the modal
-    setShowModal(false);
-    setErrorMsg("");
-  };
-
+  const [errorMsg, setErrorMsg] = useState(""); // State to hold the error message
+  const handleClose = () => setShowModal(false);
   const handleShow = () => setShowModal(true);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const data = {
-        post_id: post.id, // Ensure that "post_id" is correctly set
-        reason
-      };
-
-      await axiosRes.post(`/reports/`, data);
+      await axiosRes.post(`/reports/`, { post: post.id, reason });
       handleClose();
       // Create a Component - success message or update the UI after reporting.
     } catch (err) {
       console.log(err);
-      console.log(err.response);
+      console.log(err.response)
       setErrorMsg("An error occurred while reporting this post. Please try again.");
     }
   };
