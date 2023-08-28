@@ -21,7 +21,7 @@ const ContactCreateForm = () => {
 
   const onSubmit = async (data) => {
     try {
-      await axios.post('https://djangorestframework-api-38c4a098777a.herokuapp.com/contact/', data);
+      await axios.post('https://djangorestframework-api-38c4a098777a.herokuapp.com/contacts/', data);
       setSuccessMessage('Thank you for the feedback! We are reading your message!');
       setErrorMessage('');
       reset();

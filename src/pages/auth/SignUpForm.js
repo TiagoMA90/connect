@@ -53,6 +53,15 @@ const SignUpForm = () => {
 
   return (
     <Row className={styles.Row}>
+      <Col
+        md={6}
+        className={`my-auto d-none d-md-block p-2 ${styles.SignUpCol}`}
+      >
+        <Image
+          className={`${appStyles.FillerImage}`}
+          src={"https://res.cloudinary.com/dmbdqco85/image/upload/v1693137912/de6646bd23f002763369a3fc4d85ed35_bz8czt.gif"}
+        />
+      </Col>
       <Col className="my-auto py-2 p-md-2" md={6}>
         <Container className={`${appStyles.Content} p-4 `}>
           <h1 className={styles.Header}>Sign Up</h1>
@@ -129,15 +138,7 @@ const SignUpForm = () => {
           </Link>
         </Container>
       </Col>
-      <Col
-        md={6}
-        className={`my-auto d-none d-md-block p-2 ${styles.SignUpCol}`}
-      >
-        <Image
-          className={`${appStyles.FillerImage}`}
-          src={"https://codeinstitute.s3.amazonaws.com/AdvancedReact/hero2.jpg"}
-        />
-      </Col>
+      
     </Row>
   );
 };

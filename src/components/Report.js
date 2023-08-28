@@ -13,9 +13,9 @@ function Report({ post }) {
     setIsReporting(true);
     setError("");
     try {
-      await axios.post(`https://djangorestframework-api-38c4a098777a.herokuapp.com/report/posts/${post}/`, { reason }); // Tutor! - This Endpoint dos not communicate with the API???!
+      await axios.post(`/reports/`, { post: post, reason: reason }); // Tutor!Help! - This Endpoint does not communicate with the API???!
       setShowModal(false);
-      // Fixthis Display a success message to the user or create a redirect component!
+      // Fixthis: Create a component here to redirect users to a a success page!
     } catch (error) {
       console.error("Error reporting post:", error);
       setError("An error occurred while reporting the post. Please try again later.");
