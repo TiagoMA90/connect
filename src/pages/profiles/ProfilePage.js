@@ -28,7 +28,7 @@ import NoResults from "../../assets/no-results.png";
 
 import PopularProfiles from "../profiles/PopularProfiles";
 import Footer from '../../components/Footer';
-import FilteredComments from '../../components/UserComments';
+import FilteredComments from '../../components/FilteredComments';
 
 
 function ProfilePage() {

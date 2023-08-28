@@ -10,7 +10,6 @@ import { Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { MoreDropdown } from "../../components/MoreDropdown";
-import Report from "../../components/Report";
 
 const Post = (props) => {
   const {
@@ -132,9 +131,6 @@ const Post = (props) => {
             <i className="far fa-comments" />
           </Link>
           {comments_count}
-          {currentUser ? (
-            <Report post={id} />
-          ) : null}
         </div>
       </Card.Body>
     </Card>
@@ -142,3 +138,4 @@ const Post = (props) => {
 };
 
 export default Post;
+
