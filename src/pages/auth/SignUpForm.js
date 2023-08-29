@@ -7,6 +7,8 @@ import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
+import Footer from '../../components/Footer';
+
 import {
   Form,
   Button,
@@ -132,11 +134,12 @@ const SignUpForm = () => {
           </Form>
         </Container>
 
-        <Container className={`mt-3 ${appStyles.Content}`}>
+        <Container className={`mt-2 ${appStyles.Content}`}>
           <Link className={styles.Link} to="/signin">
             Already have an account? <span>Sign in</span>
           </Link>
         </Container>
+        <Footer />
       </Col>
       
     </Row>

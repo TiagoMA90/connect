@@ -20,6 +20,7 @@ import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { useRedirect } from "../../hooks/useRedirect";
 
 import { setTokenTimestamp } from "../../utils/utils";
+import Footer from '../../components/Footer';
 
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
@@ -110,11 +111,12 @@ function SignInForm() {
             ))}
           </Form>
         </Container>
-        <Container className={`mt-3 ${appStyles.Content}`}>
+        <Container className={`mt-2 ${appStyles.Content}`}>
           <Link className={styles.Link} to="/signup">
             Don't have an account? <span>Sign up now!</span>
           </Link>
         </Container>
+        <Footer />
       </Col>
       <Col
         md={6}
