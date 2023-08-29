@@ -93,7 +93,7 @@ function PostsPage({ message, filter = "" }) {
         <CommunityComments /> {/* CommunityComments visible for desktop */}
         <Footer /> {/* Footer visible for desktop */}
       </Col>
-      {/* Show CommunityComments only on mobile devices */}
+      {/* Show CommunityComments only visible for mobile devices */}
       <Col className="d-block d-md-none p-0 p-lg-2">
         <CommunityComments />
       </Col>

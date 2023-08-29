@@ -158,8 +158,12 @@ function ProfilePage() {
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         <PopularProfiles />
-        <FilteredComments profileId={profile?.id} />
-        <Footer />
+        <FilteredComments profileId={profile?.id} /> {/* FilteredComments visible for desktop */}
+        <Footer /> {/* Footer visible for desktop */}
+      </Col>
+      {/* FilteredComments only visible for mobile devices */}
+      <Col className="d-block d-md-none p-0 p-lg-2">
+        <FilteredComments profileId={profile?.id}/>
       </Col>
     </Row>
   );
