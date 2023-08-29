@@ -1,27 +1,20 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-
+import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-
 import Post from "./Post";
 import Asset from "../../components/Asset";
-
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PostsPage.module.css";
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
-
 import NoResults from "../../assets/no-results.png";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
-
 import PopularProfiles from "../profiles/PopularProfiles";
-import CommunityComments from '../../components/CommunityComments';
-import Footer from '../../components/Footer';
+import CommunityComments from "../../components/CommunityComments";
+import Footer from "../../components/Footer";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function PostsPage({ message, filter = "" }) {
@@ -58,24 +51,31 @@ function PostsPage({ message, filter = "" }) {
         <PopularProfiles mobile />
 
         <i className={`fas fa-search ${styles.SearchIcon}`} />
-        <Form className={styles.SearchBar} onSubmit={(event) => event.preventDefault()}>
-          <Form.Control type="text" className="mr-sm-2" placeholder="Search" value={query} onChange={(event) => setQuery(event.target.value)} />
+        <Form
+          className={styles.SearchBar}
+          onSubmit={(event) => event.preventDefault()}
+        >
+          <Form.Control
+            type="text"
+            className="mr-sm-2"
+            placeholder="Search"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+          />
         </Form>
-
 
         {hasLoaded ? (
           <>
             {posts.results.length ? (
-              <InfiniteScroll children={
-                posts.results.map((post) => (
+              <InfiniteScroll
+                children={posts.results.map((post) => (
                   <Post key={post.id} {...post} setPosts={setPosts} />
-                ))
-              }
-              dataLength={posts.results.length}
-              loader={<Asset spinner />}
-              hasMore={!!posts.next}
-              next={() => fetchMoreData(posts, setPosts)}
-            />
+                ))}
+                dataLength={posts.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!posts.next}
+                next={() => fetchMoreData(posts, setPosts)}
+              />
             ) : (
               <Container className={appStyles.Content}>
                 <Asset src={NoResults} message={message} />
@@ -90,8 +90,12 @@ function PostsPage({ message, filter = "" }) {
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
         <PopularProfiles />
+        <CommunityComments /> {/* CommunityComments visible for desktop */}
+        <Footer /> {/* Footer visible for desktop */}
+      </Col>
+      {/* Show CommunityComments only on mobile devices */}
+      <Col className="d-block d-md-none p-0 p-lg-2">
         <CommunityComments />
-        <Footer />
       </Col>
     </Row>
   );
