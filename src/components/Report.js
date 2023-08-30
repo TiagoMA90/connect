@@ -74,19 +74,21 @@ const ReportModal = ({ isOpen, onRequestClose, onSubmit, reason, handleReasonCha
       overlayClassName={styles['report-overlay']}
     >
       <h5><i class="fa-solid fa-triangle-exclamation"></i> You are about to make a report!</h5>
-      <p>Before you file a report make sure this Post goes against our rules & guidelines.</p>
-      <p>We highly encourage our community to participate and share posts. However, if the post falls under Spam, Innapropriate content or any other sort of inadequate submition, we will tak action.</p>
+      <p>Before you file a report make sure this Post goes against our rules & community guidelines.{/* Create a component with Rules & Guidelines? */}</p>
+      <p>We highly encourage our community to participate and share posts. However, if the post falls under Spam, Innapropriate content or any other sort of inadequate submition, we will take action.</p>
       <form onSubmit={onSubmit}>
         <div>
           <label htmlFor="reason">Reason:</label>
           <br/>
-          <select id="reason" value={reason} onChange={handleReasonChange}>
+          <select id="reason" className={styles['reason-input']} value={reason} onChange={handleReasonChange}>
             <option value="spam">Spam</option>
             <option value="inappropriate">Inappropriate Content</option>
             <option value="other">Other...</option>
           </select>
         </div>
         <div>
+        <br/>
+        <p>Please, give in a brief descrition as to why you are reporting this post.</p>
           <label htmlFor="description">Description (optional):</label>
           <textarea
             id="description"
