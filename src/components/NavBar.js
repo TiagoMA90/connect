@@ -13,6 +13,7 @@ import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 
 import { removeTokenTimestamp } from "../utils/utils";
 
+{/* Navigation Bar Component */}
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
@@ -20,6 +21,7 @@ const NavBar = () => {
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
   const [isMobile, setIsMobile] = useState(false);
 
+  {/* Handles AUTHentication - Sign Out */}
   const handleSignOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");

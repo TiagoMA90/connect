@@ -4,10 +4,12 @@ import { Container } from 'react-bootstrap';
 import styles from '../styles/CommunityComments.module.css';
 import SnipetComments from './SnipetComments';
 
+{/* Filtered Comments Component */}
 const FilteredComments = ({ profileId }) => {
   const [comments, setComments] = useState([]);
   const [profile, setProfile] = useState(null);
 
+  {/* Fetches Profiles & Comments by Profile respectively, by each endpoints */}
   const fetchProfileDetails = useCallback(async () => {
     try {
       const response = await axios.get(`https://djangorestframework-api-38c4a098777a.herokuapp.com/profiles/${profileId}/`);
@@ -32,6 +34,7 @@ const FilteredComments = ({ profileId }) => {
     fetchComments();
   }, [fetchProfileDetails, fetchComments]);
 
+  {/* Filtered(User) Comments Structure */}
   return (
     <Container className={`${styles.container} ${styles.Content}`}>
       <div className="text-center">

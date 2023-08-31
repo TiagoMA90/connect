@@ -4,7 +4,9 @@ import Container from 'react-bootstrap/Container';
 import styles from '../styles/Footer.module.css';
 import TermsOfService from "../components/TermsOfService";
 
+{/* Footer Component */}
 const Footer = () => {
+  {/* Properties for the modal of TermsOfService inside the Footer */}
   const [isTermsModalOpen, setIsTermsModalOpen] = useState(false);
 
   const openTermsModal = () => {
@@ -15,6 +17,7 @@ const Footer = () => {
     setIsTermsModalOpen(false);
   };
 
+  {/* Footer Strcuture */}
   return (
     <Container className={`${styles.container} p-4 mt-2`}>
       <div className={styles.contactContainer}>
@@ -26,7 +29,7 @@ const Footer = () => {
               activeClassName={styles.Active}
               to="/contact"
             >
-              <i className="fas fa-envelope"></i>
+              <i className="fas fa-envelope"></i> {/* redirects to the Contact component */}
             </NavLink>
             <a
               className={styles.NavLink}
@@ -34,7 +37,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className="fab fa-github"></i>
+              <i className="fab fa-github"></i> {/* Opens a new tab for Github */}
             </a>
             <a
               className={styles.NavLink}
@@ -42,12 +45,12 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className="fa-brands fa-x-twitter"></i>
+              <i className="fa-brands fa-x-twitter"></i> {/* Opens the a new tab fot X */}
             </a>
           </div>
         </div>
         <div className={styles.copyright}>
-          <span>© 2023 Copyright • Connect • <a href="#" onClick={openTermsModal}>Terms of Service</a></span>
+          <span>© 2023 Copyright • Connect • <a href="#" onClick={openTermsModal}>Terms of Service</a></span> {/* Opens the modal for TermsOfService */}
         </div>
       </div>
       <TermsOfService isOpen={isTermsModalOpen} onRequestClose={closeTermsModal} />

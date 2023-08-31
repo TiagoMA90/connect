@@ -4,12 +4,14 @@ import Modal from 'react-modal';
 import styles from '../styles/Report.module.css';
 import btnStyles from "../styles/Button.module.css";
 
+{/* Report functionality for the Post Id - Opens a Modal to report the Post that has been flagged, 1/3-Reasons + Description */}
 const Report = ({ postId }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [reason, setReason] = useState('spam');
   const [description, setDescription] = useState('');
   const [success, setSuccess] = useState(false);
 
+  {/* Opens &/or closes the Modal according to Submit or Cancel */}
   const openModal = () => {
     setIsOpen(true);
   };
@@ -18,14 +20,17 @@ const Report = ({ postId }) => {
     setIsOpen(false);
   };
 
+  {/* Selects the Reason to Report the Post */}
   const handleReasonChange = (event) => {
     setReason(event.target.value);
   };
 
+  {/* Submits the description for the Report of a Post */}
   const handleDescriptionChange = (event) => {
     setDescription(event.target.value);
   };
 
+  {/* Handles the Report functionality - Submits to the Report to the endpoint /reports/ (Post Id, Reason & Description) */}
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -47,7 +52,7 @@ const Report = ({ postId }) => {
         <i className="fa-regular fa-flag"></i>
       </span>
       {success ? (
-        <p>Post reported successfully!</p>
+        <p>This Post has been successfully reported!</p>
       ) : (
         <ReportModal
           isOpen={isOpen}
@@ -63,6 +68,7 @@ const Report = ({ postId }) => {
   );
 };
 
+{/* Report Structure - Modal */}
 const ReportModal = ({ isOpen, onRequestClose, onSubmit, reason, handleReasonChange, description, handleDescriptionChange }) => {
   return (
     <Modal
@@ -98,8 +104,8 @@ const ReportModal = ({ isOpen, onRequestClose, onSubmit, reason, handleReasonCha
         </div>
         <div className={styles['button-container']}>
           <div style={{ textAlign: 'center' }}>
-            <button className={`${btnStyles.Button} ${btnStyles.Bright}`} type="submit">Report</button>
-            <button className={`${btnStyles.Button} ${btnStyles.Bright}`} type="button" onClick={onRequestClose}>Cancel</button>
+            <button className={`${btnStyles.Button} ${btnStyles.Bright}`} type="submit">Report</button> {/* Submits the Report */}
+            <button className={`${btnStyles.Button} ${btnStyles.Bright}`} type="button" onClick={onRequestClose}>Cancel</button> {/* Cancels the Report */}
           </div>
         </div>
       </form>
