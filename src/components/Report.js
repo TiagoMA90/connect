@@ -63,7 +63,6 @@ const Report = ({ postId }) => {
   );
 };
 
-{/* Pop Up Modal for the Report! - Come back here (Make it a separate component /as page???) */}
 const ReportModal = ({ isOpen, onRequestClose, onSubmit, reason, handleReasonChange, description, handleDescriptionChange }) => {
   return (
     <Modal
@@ -74,8 +73,8 @@ const ReportModal = ({ isOpen, onRequestClose, onSubmit, reason, handleReasonCha
       overlayClassName={styles['report-overlay']}
     >
       <h5><i class="fa-solid fa-triangle-exclamation"></i> You are about to make a report!</h5>
-      <p>Before you file a report make sure this Post goes against our rules & community guidelines.{/* Create a component with Rules & Guidelines? */}</p>
       <p>We highly encourage our community to participate and share posts. However, if the post falls under Spam, Innapropriate content or any other sort of inadequate submition, we will take action.</p>
+      <p>Before you file a report against a fellow community user, make sure this Post goes against the Rules & Community guidelines of the "Code of Conduct" in the Terms of Service.</p>
       <form onSubmit={onSubmit}>
         <div>
           <label htmlFor="reason">Reason:</label>

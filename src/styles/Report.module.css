@@ -4,6 +4,8 @@
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
+  border: 1px solid #dadadf;
+  border-radius: 2px;
   background-color: white;
   position: absolute;
   top: 50%;

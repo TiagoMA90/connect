@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
-
 import styles from '../styles/Footer.module.css';
+import TermsOfService from "../components/TermsOfService";
 
 const Footer = () => {
+  const [isTermsModalOpen, setIsTermsModalOpen] = useState(false);
+
+  const openTermsModal = () => {
+    setIsTermsModalOpen(true);
+  };
+
+  const closeTermsModal = () => {
+    setIsTermsModalOpen(false);
+  };
+
   return (
     <Container className={`${styles.container} p-4 mt-2`}>
       <div className={styles.contactContainer}>
@@ -37,9 +47,10 @@ const Footer = () => {
           </div>
         </div>
         <div className={styles.copyright}>
-          <span>© 2023 Copyright • Connect</span>
+          <span>© 2023 Copyright • Connect • <a href="#" onClick={openTermsModal}>Terms of Service</a></span>
         </div>
       </div>
+      <TermsOfService isOpen={isTermsModalOpen} onRequestClose={closeTermsModal} />
     </Container>
   );
 };
