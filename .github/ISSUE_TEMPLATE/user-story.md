@@ -7,4 +7,4 @@ assignees: ''
 
 ---
 
-As a User ** role ** I can ** ability ** so that ** outcome **
+As a ** role ** I can ** ability ** so that ** outcome **
