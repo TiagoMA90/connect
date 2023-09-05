@@ -46,9 +46,9 @@ const FollowedProfiles = ({ mobile, followedId }) => {
       }`}
     >
       <div className="text-center">
-        <p>Followed Profiles</p>
+        <p>{followedId}'s Followers</p>
         <hr />
-        <div className="text-center">
+        <div className={`text-center ${mobile ? "d-flex flex-wrap justify-content-center" : ""}`}>
           {followedProfiles.length > 0 ? (
             followedProfiles.map((profile) => (
               <Profile key={profile.id} profile={profile.profileDetails} mobile={mobile} />

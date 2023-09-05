@@ -145,7 +145,8 @@ function ProfilePage() {
   return (
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <PopularProfiles mobile />
+        <FollowedProfiles followedId={profile?.owner} mobile />
+        {/*<PopularProfiles mobile /> Leave this commented*/}
         <Container className={appStyles.Content}>
           {hasLoaded ? (
             <>
@@ -158,8 +159,8 @@ function ProfilePage() {
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-      <FollowedProfiles followedId={profile?.owner} />
-        <PopularProfiles />
+        <FollowedProfiles followedId={profile?.owner} />
+        {/*<PopularProfiles /> Leave this commented*/}
         <FilteredComments profileId={profile?.id} /> {/* FilteredComments visible for desktop */}
         <Footer /> {/* Footer visible for desktop */}
       </Col>
