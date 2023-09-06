@@ -26,6 +26,7 @@ import Post from "../posts/Post";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
 
+import FollowingProfiles from "../profiles/FollowingProfiles";
 import FollowedProfiles from "../profiles/FollowedProfiles";
 import PopularProfiles from "../profiles/PopularProfiles";
 import Footer from '../../components/Footer';
@@ -146,6 +147,7 @@ function ProfilePage() {
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <FollowedProfiles followedId={profile?.owner} mobile />
+        <FollowingProfiles ownerId={profile?.id} mobile />
         {/*<PopularProfiles mobile /> Leave this commented*/}
         <Container className={appStyles.Content}>
           {hasLoaded ? (
@@ -160,6 +162,7 @@ function ProfilePage() {
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         <FollowedProfiles followedId={profile?.owner} />
+        <FollowingProfiles ownerId={profile?.id} />
         {/*<PopularProfiles /> Leave this commented*/}
         <FilteredComments profileId={profile?.id} /> {/* FilteredComments visible for desktop */}
         <Footer /> {/* Footer visible for desktop */}
