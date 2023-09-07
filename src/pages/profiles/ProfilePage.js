@@ -32,7 +32,7 @@ import PopularProfiles from "../profiles/PopularProfiles";
 import Footer from '../../components/Footer';
 import FilteredComments from '../../components/FilteredComments';
 
-
+{/* ProfilePage Component */}
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
   const [profilePosts, setProfilePosts] = useState({ results: [] });
@@ -143,12 +143,13 @@ function ProfilePage() {
     </>
   );
 
+  {/* ProfilePage Structure */}
   return (
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <FollowedProfiles followedId={profile?.owner} mobile />
-        <FollowingProfiles ownerId={profile?.id} mobile />
         {/*<PopularProfiles mobile /> Leave this commented*/}
+        <FollowingProfiles ownerId={profile?.id} mobile />
+        <FollowedProfiles followedId={profile?.owner} mobile />
         <Container className={appStyles.Content}>
           {hasLoaded ? (
             <>
@@ -161,9 +162,9 @@ function ProfilePage() {
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        <FollowedProfiles followedId={profile?.owner} />
-        <FollowingProfiles ownerId={profile?.id} />
         {/*<PopularProfiles /> Leave this commented*/}
+        <FollowingProfiles ownerId={profile?.id} />
+        <FollowedProfiles followedId={profile?.owner} />
         <FilteredComments profileId={profile?.id} /> {/* FilteredComments visible for desktop */}
         <Footer /> {/* Footer visible for desktop */}
       </Col>

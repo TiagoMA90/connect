@@ -20,6 +20,7 @@ import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
 
+{/* PostCreateForm Component */}
 function PostCreateForm() {
   useRedirect('loggedOut')
   const [errors, setErrors] = useState({});
@@ -115,6 +116,7 @@ function PostCreateForm() {
     </div>
   );
 
+  {/* PostCreateForm Structure */}
   return (
     <Form onSubmit={handleSubmit}>
       <Row>

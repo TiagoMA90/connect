@@ -5,9 +5,11 @@ import Asset from "../../components/Asset";
 import Profile from "./Profile";
 import { useProfileData } from "../../contexts/ProfileDataContext";
 
+{/* PopularProfiles Component */}
 const PopularProfiles = ({ mobile }) => {
   const { popularProfiles } = useProfileData();
 
+  {/* PopularProfiles Structure */}
   return (
     <Container
       className={`${appStyles.Content} ${

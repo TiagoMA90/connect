@@ -8,6 +8,7 @@ import styles from "../../styles/CommentCreateEditForm.module.css";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 
+{/* CommentCreateForm Component */}
 function CommentCreateForm(props) {
   const { post, setPost, setComments, profileImage, profile_id } = props;
   const [content, setContent] = useState("");
@@ -41,6 +42,7 @@ function CommentCreateForm(props) {
     }
   };
 
+  {/* CommentCreateForm Structure */}
   return (
     <Form className="mt-2" onSubmit={handleSubmit}>
       <Form.Group>

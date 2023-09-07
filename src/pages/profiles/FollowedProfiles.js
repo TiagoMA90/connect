@@ -4,9 +4,10 @@ import axios from "axios";
 import appStyles from "../../App.module.css";
 import Profile from "./Profile";
 
+{/* FollowedProfiles Component */}
 const FollowedProfiles = ({ mobile, followedId }) => {
   const [followedProfiles, setFollowedProfiles] = useState([]);
-
+  {/* Fetches all profiles id from endpoint /profiles/id */}
   const fetchProfileDetails = async (profileId) => {
     try {
       const response = await axios.get(`https://djangorestframework-api-38c4a098777a.herokuapp.com/profiles/${profileId}/`);
@@ -16,14 +17,15 @@ const FollowedProfiles = ({ mobile, followedId }) => {
       return null;
     }
   };
-
+  
+  {/* From the endpoint /followers/ get the followedId */}
   useEffect(() => {
     if (followedId) {
       axios.get(`https://djangorestframework-api-38c4a098777a.herokuapp.com/followers/`)
         .then(async (response) => {
           const filteredProfiles = response.data.results.filter(profile => profile.followed_name === followedId);
           
-          // Fetch profile details for each followed profile
+          {/* Fetch profile details for each followed profile */}
           const profilesWithDetails = await Promise.all(filteredProfiles.map(async (profile) => {
             const profileDetails = await fetchProfileDetails(profile.owner_id);
             return {
@@ -39,11 +41,13 @@ const FollowedProfiles = ({ mobile, followedId }) => {
     }
   }, [followedId]);
 
+  {/* FollowedProfiles Structure */}
   return (
     <Container
       className={`${appStyles.Content} ${
         mobile ? "d-lg-none text-center mb-3" : ""
       }`}
+      style={{ marginTop: "10px" }} // Note to self: applied CSS margin-top: 10px;
     >
       <div className="text-center">
         <p>{followedId}'s Followers</p>

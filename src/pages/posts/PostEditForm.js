@@ -25,6 +25,7 @@ import btnStyles from "../../styles/Button.module.css";
 import { useHistory } from "react-router";
 import { useParams } from "react-router";
 
+{/* PostEditForm Component */}
 function PostEditForm() {
   const [errors, setErrors] = useState({});
 
@@ -138,6 +139,7 @@ function PostEditForm() {
     </div>
   );
 
+  {/* PostEditForm Structure */}
   return (
     <Form onSubmit={handleSubmit}>
       <Row>

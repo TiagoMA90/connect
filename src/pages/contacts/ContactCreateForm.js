@@ -14,6 +14,7 @@ import Form from "react-bootstrap/Form";
 import Footer from '../../components/Footer';
 import ContactSuccessForm from './ContactSuccessForm';
 
+{/* ContactCreateForm Component */}
 const ContactCreateForm = () => {
   const { register, handleSubmit, reset } = useForm();
   const [successMessage, setSuccessMessage] = useState('');
@@ -32,6 +33,7 @@ const ContactCreateForm = () => {
     }
   };
 
+  {/* ContactCreateForm Structure */}
   return (
     <>
     <Container className={`${appStyles.Content} p-4 mt-2`}>

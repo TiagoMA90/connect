@@ -14,7 +14,7 @@ const TermsOfService = ({ isOpen, onRequestClose }) => {
       shouldCloseOnOverlayClick={false} // Prevents closing on overlay click
       shouldCloseOnEsc={false} // Prevents closing on escape key
     >
-      <h2>Connect Social Media App Terms of Service</h2>
+      <h2><i class="fa-solid fa-scale-balanced"></i> Connect - Terms of Service</h2>
       <p>Welcome to Connect, a social media platform that connects people from all around the world. Please read these Terms of Service carefully before using the Connect app, as they govern your use of our services. By using the Connect app, you agree to these Terms.</p>
       <strong>1. Acceptance of Terms</strong>
       <p>By accessing or using the Connect app, you agree to be bound by these Terms and any additional terms that may apply to specific features, content, or offerings within the App. If you are using the App on behalf of an organization or entity, you represent and warrant that you have the authority to accept these Terms on their behalf.</p>

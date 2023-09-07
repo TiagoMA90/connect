@@ -4,10 +4,11 @@ import axios from "axios";
 import appStyles from "../../App.module.css";
 import Profile from "./Profile";
 
+{/* FollowingProfiles Component */}
 const FollowingProfiles = ({ mobile, ownerId }) => {
   const [followingProfiles, setFollowingProfiles] = useState([]);
   const [ownerUsername, setOwnerUsername] = useState("");
-
+  {/* Fetches all profiles details from endpoint /prodiles/id */}
   const fetchProfileDetails = async (profileId) => {
     try {
       const response = await axios.get(`https://djangorestframework-api-38c4a098777a.herokuapp.com/profiles/${profileId}/`);
@@ -18,7 +19,7 @@ const FollowingProfiles = ({ mobile, ownerId }) => {
     }
   };
 
-  {/* Fetches the username associated to a ownerId */}
+  {/* Fetches usernames associated to a ownerId from the endpoint /profiles/ */}
   useEffect(() => {
     const fetchOwnerUsername = async () => {
       try {
@@ -57,6 +58,7 @@ const FollowingProfiles = ({ mobile, ownerId }) => {
     }
   }, [ownerId]);
 
+  {/* FollowingProfiles Structure */}
   return (
     <Container
       className={`${appStyles.Content} ${
@@ -64,7 +66,7 @@ const FollowingProfiles = ({ mobile, ownerId }) => {
       }`}
     >
       <div className="text-center">
-        <p>{ownerUsername}'s Following</p>
+        <p>{ownerUsername}'s Followings</p>
         <hr />
         <div className={`text-center ${mobile ? "d-flex flex-wrap justify-content-center" : ""}`}>
           {followingProfiles.length > 0 ? (

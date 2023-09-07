@@ -12,6 +12,7 @@ import { useHistory } from "react-router-dom";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import Report from "../../components/Report";
 
+{/* Post Component */}
 const Post = (props) => {
   const {
     id,
@@ -78,6 +79,7 @@ const Post = (props) => {
     }
   };
 
+  {/* Post Structure */}
   return (
     <Card className={styles.Post}>
       <Card.Body>
