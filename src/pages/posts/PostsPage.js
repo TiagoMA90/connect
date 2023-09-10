@@ -17,7 +17,7 @@ import CommunityComments from "../../components/CommunityComments";
 import Footer from "../../components/Footer";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-{/* PostsPage Component */}
+// PostsPage Component
 function PostsPage({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -46,7 +46,7 @@ function PostsPage({ message, filter = "" }) {
     };
   }, [filter, query, pathname, currentUser]);
 
-  {/* PostsPage Structure */}
+  // PostsPage Structure
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>

@@ -26,13 +26,13 @@ import Post from "../posts/Post";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
 
-import FollowingProfiles from "../profiles/FollowingProfiles";
-import FollowedProfiles from "../profiles/FollowedProfiles";
-import PopularProfiles from "../profiles/PopularProfiles";
+// import FollowingProfiles from "../profiles/FollowingProfiles";
+// import FollowedProfiles from "../profiles/FollowedProfiles";
+// import PopularProfiles from "../profiles/PopularProfiles";
 import Footer from '../../components/Footer';
 import FilteredComments from '../../components/FilteredComments';
 
-{/* ProfilePage Component */}
+// ProfilePage Component
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
   const [profilePosts, setProfilePosts] = useState({ results: [] });
@@ -143,13 +143,13 @@ function ProfilePage() {
     </>
   );
 
-  {/* ProfilePage Structure */}
+  // ProfilePage Structure
   return (
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        {/*<PopularProfiles mobile /> Leave this commented*/}
-        <FollowingProfiles ownerId={profile?.id} mobile />
-        <FollowedProfiles followedId={profile?.owner} mobile />
+        {/*<PopularProfiles mobile /> */}
+        {/*<FollowingProfiles ownerId={profile?.id} mobile /> UNCOMMENT !!! BUGGED*/}
+        {/*<FollowedProfiles followedId={profile?.owner} mobile /> UNCOMMENT !!! BUGGED*/}
         <Container className={appStyles.Content}>
           {hasLoaded ? (
             <>
@@ -162,10 +162,12 @@ function ProfilePage() {
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        {/*<PopularProfiles /> Leave this commented*/}
-        <FollowingProfiles ownerId={profile?.id} />
-        <FollowedProfiles followedId={profile?.owner} />
-        <FilteredComments profileId={profile?.id} /> {/* FilteredComments visible for desktop */}
+        {/*<PopularProfiles /> */}
+        {/*<FollowingProfiles ownerId={profile?.id} /> UNCOMMENT !!! BUGGED*/}
+        {/*<FollowedProfiles followedId={profile?.owner} /> UNCOMMENT !!! BUGGED*/}
+        {profile?.id && (
+          <FilteredComments profileId={profile.id} />
+        )} {/* FilteredComments visible for desktop */} 
         <Footer /> {/* Footer visible for desktop */}
       </Col>
       {/* FilteredComments only visible for mobile devices */}

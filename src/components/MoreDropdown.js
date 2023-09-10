@@ -3,7 +3,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import styles from "../styles/MoreDropdown.module.css";
 import { useHistory } from "react-router";
 
-{/* Dropdown menu for Posts & Comments */}
+// Dropdown menu for Posts & Comments
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
     <i
     className ="fa-solid fa-caret-down"
@@ -15,7 +15,7 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
     />
   ));
 
-{/* Dropdown menu for Posts & Comments */}
+// Dropdown menu for Posts & Comments
 export const MoreDropdown = ({ handleEdit, handleDelete }) => {
   return (
     <Dropdown className="ml-auto">
@@ -43,7 +43,7 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
   );
 };
 
-{/* Dropdown menu for the User Profile */}
+// Dropdown menu for the User Profile
 export function ProfileEditDropdown({ id }) {
   const history = useHistory();
   return (

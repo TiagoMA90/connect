@@ -4,11 +4,11 @@ import axios from "axios";
 import appStyles from "../../App.module.css";
 import Profile from "./Profile";
 
-{/* FollowingProfiles Component */}
+// FollowingProfiles Component
 const FollowingProfiles = ({ mobile, ownerId }) => {
   const [followingProfiles, setFollowingProfiles] = useState([]);
   const [ownerUsername, setOwnerUsername] = useState("");
-  {/* Fetches all profiles details from endpoint /prodiles/id */}
+  // Fetches all profiles details from endpoint /prodiles/id
   const fetchProfileDetails = async (profileId) => {
     try {
       const response = await axios.get(`https://djangorestframework-api-38c4a098777a.herokuapp.com/profiles/${profileId}/`);
@@ -19,7 +19,7 @@ const FollowingProfiles = ({ mobile, ownerId }) => {
     }
   };
 
-  {/* Fetches usernames associated to a ownerId from the endpoint /profiles/ */}
+  // Fetches usernames associated to a ownerId from the endpoint /profiles/
   useEffect(() => {
     const fetchOwnerUsername = async () => {
       try {
@@ -36,7 +36,7 @@ const FollowingProfiles = ({ mobile, ownerId }) => {
     }
   }, [ownerId]);
 
-  {/* Fetch and display the following profiles */}
+  // Fetch and display the following profiles
   useEffect(() => {
     if (ownerId) {
       axios.get(`https://djangorestframework-api-38c4a098777a.herokuapp.com/followers/`)
@@ -58,7 +58,7 @@ const FollowingProfiles = ({ mobile, ownerId }) => {
     }
   }, [ownerId]);
 
-  {/* FollowingProfiles Structure */}
+  // FollowingProfiles Structure
   return (
     <Container
       className={`${appStyles.Content} ${

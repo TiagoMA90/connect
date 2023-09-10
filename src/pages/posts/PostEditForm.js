@@ -3,7 +3,6 @@ import { useRef } from "react";
 import { useState } from "react";
 import { useEffect } from 'react';
 
-import axios from "axios";
 import { axiosReq } from "../../api/axiosDefaults";
 
 import Form from "react-bootstrap/Form";
@@ -25,7 +24,7 @@ import btnStyles from "../../styles/Button.module.css";
 import { useHistory } from "react-router";
 import { useParams } from "react-router";
 
-{/* PostEditForm Component */}
+// PostEditForm Component
 function PostEditForm() {
   const [errors, setErrors] = useState({});
 
@@ -139,7 +138,7 @@ function PostEditForm() {
     </div>
   );
 
-  {/* PostEditForm Structure */}
+  // PostEditForm Structure
   return (
     <Form onSubmit={handleSubmit}>
       <Row>

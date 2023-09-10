@@ -4,13 +4,13 @@ import { Container } from 'react-bootstrap';
 import styles from '../styles/CommunityComments.module.css';
 import ChatComment from './SnipetComments';
 
-{/* Community Comments Component */}
+// Community Comments Component
 const CommunityComments = () => {
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  {/* Fetches all comments from endpoint /comments/ */}
+  // Fetches all comments from endpoint /comments/
   const fetchComments = async () => {
     try {
       const response = await axios.get('https://djangorestframework-api-38c4a098777a.herokuapp.com/comments/');
@@ -26,7 +26,7 @@ const CommunityComments = () => {
     fetchComments();
   }, []);
 
-  {/* Community Comments Strcuture */}
+  // Community Comments Strcuture
   return (
     <Container className={`${styles.container} ${styles.Content}`}>
       <div className="text-center">

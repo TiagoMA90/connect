@@ -22,7 +22,7 @@ import axios from "axios";
 
 import { useRedirect } from "../../hooks/useRedirect";
 
-{/* SignUpForm Component */}
+// SignUpForm Component
 const SignUpForm = () => {
   useRedirect('loggedIn')
   const [signUpData, setSignUpData] = useState({
@@ -54,7 +54,7 @@ const SignUpForm = () => {
     }
   };
 
-  {/* SignUpForm Structure */}
+  // SignUpForm Structure
   return (
     <Row className={styles.Row}>
       <Col

@@ -6,7 +6,7 @@ import { axiosRes } from "../../api/axiosDefaults";
 
 import styles from "../../styles/CommentCreateEditForm.module.css";
 
-{/* CommentEditForm Component */}
+// CommentEditForm Component
 function CommentEditForm(props) {
     const { id, content, setShowEditForm, setComments } = props;
   
@@ -40,7 +40,7 @@ function CommentEditForm(props) {
       }
     };
   
-    {/* CommentEditForm Structure */}
+    // CommentEditForm Structure
     return (
       <Form onSubmit={handleSubmit}>
         <Form.Group className="pr-1">

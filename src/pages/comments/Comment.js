@@ -11,7 +11,7 @@ import { MoreDropdown } from "../../components/MoreDropdown";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import CommentEditForm from "./CommentEditForm";
 
-{/* Comment Component */}
+// Comment Component
 const Comment = (props) => {
     const {
       profile_id,
@@ -47,7 +47,7 @@ const Comment = (props) => {
       } catch (err) {}
     };
     
-    {/* Comment Structure */}
+    // Comment Structure
     return (
       <>
         <hr />

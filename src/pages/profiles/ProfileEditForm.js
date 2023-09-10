@@ -18,7 +18,7 @@ import {
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
-{/* ProfileEditForm Component */}
+// ProfileEditForm Component
 const ProfileEditForm = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
@@ -114,7 +114,7 @@ const ProfileEditForm = () => {
     </>
   );
 
-  {/* ProfileEditForm Structure */}
+  // ProfileEditForm Structure
   return (
     <Form onSubmit={handleSubmit}>
       <Row>

@@ -2,7 +2,7 @@ import React from 'react';
 import NoResults from '../assets/no-results.png';
 import styles from '../styles/NotFound.module.css';
 
-{/* Not Fount Component */}
+// Not Fount Component
 const Asset = ({ src, message }) => {
   return (
     <div className={styles.assetContainer}>
@@ -12,7 +12,7 @@ const Asset = ({ src, message }) => {
   );
 };
 
-{/* NotFounf Structure */}
+// NotFounf Structure
 const NotFound = () => {
   return (
     <div className={styles.container}>

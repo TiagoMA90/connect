@@ -4,7 +4,7 @@ import Avatar from './Avatar';
 import { Media } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-{/* Properties to load from Users Comments */}
+// Properties to load from Users Comments
 const SnipetComments = (props) => {
   const {
     profile_id,
@@ -15,7 +15,7 @@ const SnipetComments = (props) => {
     post,
   } = props;
 
-  {/* Comments Structure - Snipet for Filtered & Community Comments */}
+  // Comments Structure - Snipet for Filtered & Community Comments
   return (
     <>
       <hr />

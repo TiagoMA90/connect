@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import styles from '../styles/TermsOfService.module.css';
 import btnStyles from "../styles/Button.module.css";
 
-{/* Terms Of Service Structure - Modal */}
+// Terms Of Service Structure - Modal
 const TermsOfService = ({ isOpen, onRequestClose }) => {
   return (
     <Modal
@@ -14,7 +14,7 @@ const TermsOfService = ({ isOpen, onRequestClose }) => {
       shouldCloseOnOverlayClick={false} // Prevents closing on overlay click
       shouldCloseOnEsc={false} // Prevents closing on escape key
     >
-      <h2><i class="fa-solid fa-scale-balanced"></i> Connect - Terms of Service</h2>
+      <h2><i className="fa-solid fa-scale-balanced"></i> Connect - Terms of Service</h2>
       <p>Welcome to Connect, a social media platform that connects people from all around the world. Please read these Terms of Service carefully before using the Connect app, as they govern your use of our services. By using the Connect app, you agree to these Terms.</p>
       <strong>1. Acceptance of Terms</strong>
       <p>By accessing or using the Connect app, you agree to be bound by these Terms and any additional terms that may apply to specific features, content, or offerings within the App. If you are using the App on behalf of an organization or entity, you represent and warrant that you have the authority to accept these Terms on their behalf.</p>
@@ -34,7 +34,7 @@ const TermsOfService = ({ isOpen, onRequestClose }) => {
       <strong>5. Intellectual Property</strong>
       <p>The Connect app, including its design, graphics, trademarks, and other content, are protected by intellectual property laws. You agree not to copy, modify, distribute, sell, or lease any part of the App or its content without prior written consent from Connect.</p>
       <strong>6. Termination</strong>
-      <p>Connect reserves the right to suspend, terminate, or restrict your accoount or access to the App at any time, with or without cause and without notice, if you violate these Terms or engage in activities that could harm the App or its users.</p>
+      <p>Connect reserves the right to suspend, terminate, or restrict your account or access to the App at any time, with or without cause and without notice, if you violate these Terms or engage in activities that could harm the App or its users.</p>
       <strong>7. Disclaimer of Warranties</strong>
       <p>The App is provided "as is" and "as available" without warranties of any kind, whether express or implied. Connect disclaims all warranties, including, but not limited to, the implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
       <strong>8. Limitation of Liability</strong>
@@ -46,7 +46,7 @@ const TermsOfService = ({ isOpen, onRequestClose }) => {
       <strong>11. Contact Information</strong>
       <p>If you have any questions or concerns about these Terms, please <a href="/contact">contact us</a>.</p>
       <p>Thank you for using Connect! We hope you enjoy connecting with others on our platform.</p>
-      <div className="button-container">
+      <div className={btnStyles['button-container']}>
         <div style={{ textAlign: 'center' }}>
           <button className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`} type="button" onClick={onRequestClose}>I didn't just scroll... I read & I agree</button>
         </div>

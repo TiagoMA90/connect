@@ -9,12 +9,12 @@ import { removeTokenTimestamp } from "../../utils/utils";
 
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
-{/* ProfileDeleteForm Component - BUGGED */}
+// ProfileDeleteForm Component - BUGGED
 const ProfileDeleteForm = ({ id }) => {
   const setCurrentUser = useSetCurrentUser();
   const history = useHistory();
 
-  {/* Handles the deletion for the User profile */}
+  // Handles the deletion for the User profile
   const handleDelete = async () => {
     try {
       await axios.delete(`/profiles/${id}/delete/`);
@@ -27,7 +27,7 @@ const ProfileDeleteForm = ({ id }) => {
     }
   };
 
-  {/* ProfileDeleteForm Structure */}
+  // ProfileDeleteForm Structure
   return (
     <Container className={`${appStyles.Content} p-4 mt-2`}>
       <Row className={buttonStyles.Row}>
