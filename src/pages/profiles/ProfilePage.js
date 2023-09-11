@@ -26,8 +26,8 @@ import Post from "../posts/Post";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
 
-// import FollowingProfiles from "../profiles/FollowingProfiles";
-// import FollowedProfiles from "../profiles/FollowedProfiles";
+import FollowingProfiles from "../profiles/FollowingProfiles";
+import FollowedProfiles from "../profiles/FollowedProfiles";
 // import PopularProfiles from "../profiles/PopularProfiles";
 import Footer from '../../components/Footer';
 import FilteredComments from '../../components/FilteredComments';
@@ -148,7 +148,7 @@ function ProfilePage() {
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         {/*<PopularProfiles mobile /> */}
-        {/*<FollowingProfiles ownerId={profile?.id} mobile /> UNCOMMENT !!! BUGGED*/}
+        {/*<FollowingProfiles ownerId={profile?.id} mobile />*/}
         {/*<FollowedProfiles followedId={profile?.owner} mobile /> UNCOMMENT !!! BUGGED*/}
         <Container className={appStyles.Content}>
           {hasLoaded ? (
@@ -163,8 +163,8 @@ function ProfilePage() {
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         {/*<PopularProfiles /> */}
-        {/*<FollowingProfiles ownerId={profile?.id} /> UNCOMMENT !!! BUGGED*/}
-        {/*<FollowedProfiles followedId={profile?.owner} /> UNCOMMENT !!! BUGGED*/}
+        <FollowingProfiles ownerId={profile?.id} />
+        <FollowedProfiles followedId={profile?.owner} />
         {profile?.id && (
           <FilteredComments profileId={profile.id} />
         )} {/* FilteredComments visible for desktop */} 

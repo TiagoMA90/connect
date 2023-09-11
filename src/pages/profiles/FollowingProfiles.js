@@ -4,17 +4,39 @@ import axios from "axios";
 import appStyles from "../../App.module.css";
 import Profile from "./Profile";
 
+// Fetch the results for all pages
+async function fetchAllPages(initialUrl) {
+  let results = [];
+  let url = initialUrl;
+
+  try {
+    while (url) {
+      const response = await axios.get(url);
+      results = results.concat(response.data.results);
+      url = response.data.next; // Get the data in the next page
+    }
+    return results;
+  } catch (error) {
+    console.error("Error fetching paginated data:", error);
+    return results; // Return whatever results were fetched before the error occurred
+  }
+}
+
 // FollowingProfiles Component
 const FollowingProfiles = ({ mobile, ownerId }) => {
   const [followingProfiles, setFollowingProfiles] = useState([]);
   const [ownerUsername, setOwnerUsername] = useState("");
-  // Fetches all profiles details from endpoint /prodiles/id
+  const [errorFetchingData, setErrorFetchingData] = useState(false);
+
+  // Fetches all profiles details from endpoint /profiles/id
   const fetchProfileDetails = async (profileId) => {
     try {
-      const response = await axios.get(`https://djangorestframework-api-38c4a098777a.herokuapp.com/profiles/${profileId}/`);
+      const response = await axios.get(
+        `https://djangorestframework-api-38c4a098777a.herokuapp.com/profiles/${profileId}/`
+      );
       return response.data;
     } catch (error) {
-      console.error('Error fetching profile details:', error);
+      console.error("Error fetching profile details:", error);
       return null;
     }
   };
@@ -23,37 +45,57 @@ const FollowingProfiles = ({ mobile, ownerId }) => {
   useEffect(() => {
     const fetchOwnerUsername = async () => {
       try {
-        const response = await axios.get(`https://djangorestframework-api-38c4a098777a.herokuapp.com/profiles/${ownerId}/`);
+        const response = await axios.get(
+          `https://djangorestframework-api-38c4a098777a.herokuapp.com/profiles/${ownerId}/`
+        );
         setOwnerUsername(response.data.owner);
       } catch (error) {
-        console.error('Error fetching owner username:', error);
+        console.error("Error fetching owner username:", error);
         setOwnerUsername("");
       }
     };
 
+    // Fetch and display the following profiles
     if (ownerId) {
       fetchOwnerUsername();
     }
   }, [ownerId]);
 
-  // Fetch and display the following profiles
   useEffect(() => {
     if (ownerId) {
-      axios.get(`https://djangorestframework-api-38c4a098777a.herokuapp.com/followers/`)
-        .then(async (response) => {
-          const filteredProfiles = response.data.results.filter(profile => profile.owner_id === ownerId);
+      fetchAllPages(
+        `https://djangorestframework-api-38c4a098777a.herokuapp.com/followers/`
+      )
+        .then(async (allProfiles) => {
+          const filteredProfiles = allProfiles.filter(
+            (profile) => profile.owner_id === ownerId
+          );
 
-          const profilesWithDetails = await Promise.all(filteredProfiles.map(async (profile) => {
-            const profileDetails = await fetchProfileDetails(profile.followed);
-            return {
-              ...profile,
-              profileDetails
-            };
-          }));
-          setFollowingProfiles(profilesWithDetails);
+          const profileDetailsPromises = filteredProfiles.map(async (profile) => {
+            try {
+              const profileDetails = await fetchProfileDetails(profile.followed);
+              return {
+                ...profile,
+                profileDetails,
+              };
+            } catch (error) {
+              console.error("Error fetching profile details for profile:", profile, error);
+              return null;
+            }
+          });
+
+          const profilesWithDetails = await Promise.all(profileDetailsPromises);
+          const validProfiles = profilesWithDetails.filter((profile) => profile !== null);
+          setFollowingProfiles(validProfiles);
+          setErrorFetchingData(false); // Reset error flag
+
+          // Console.log:
+          console.log("API - response:", allProfiles);
+          console.log("FE - response: Number of followings:", validProfiles.length);
         })
         .catch((error) => {
           console.error("Error fetching following profiles:", error);
+          setErrorFetchingData(true); // Set error flag
         });
     }
   }, [ownerId]);
@@ -68,15 +110,23 @@ const FollowingProfiles = ({ mobile, ownerId }) => {
       <div className="text-center">
         <p>{ownerUsername}'s Followings</p>
         <hr />
-        <div className={`text-center ${mobile ? "d-flex flex-wrap justify-content-center" : ""}`}>
-          {followingProfiles.length > 0 ? (
-            followingProfiles.map((profile) => (
-              <Profile key={profile.id} profile={profile.profileDetails} mobile={mobile} />
-            ))
-          ) : (
-            <p>This section is Empty</p>
-          )}
-        </div>
+        {errorFetchingData ? (
+          <p>Failed to fetch data. Please try again later.</p>
+        ) : (
+          <div
+            className={`text-center ${
+              mobile ? "d-flex flex-wrap justify-content-center" : ""
+            }`}
+          >
+            {followingProfiles.length > 0 ? (
+              followingProfiles.map((profile) => (
+                <Profile key={profile.id} profile={profile.profileDetails} mobile={mobile} />
+              ))
+            ) : (
+              <p>This section is Empty</p>
+            )}
+          </div>
+        )}
       </div>
     </Container>
   );
