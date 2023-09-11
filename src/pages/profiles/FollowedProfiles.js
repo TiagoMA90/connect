@@ -4,63 +4,114 @@ import axios from "axios";
 import appStyles from "../../App.module.css";
 import Profile from "./Profile";
 
+// Fetch the results for all pages
+async function fetchAllPages(initialUrl) {
+  let results = [];
+  let url = initialUrl;
+
+  try {
+    while (url) {
+      const response = await axios.get(url);
+      results = results.concat(response.data.results);
+      url = response.data.next; // Get the data in the next page
+    }
+    return results;
+  } catch (error) {
+    console.error("Error fetching paginated data:", error);
+    return results; // Return whatever results were fetched before the error occurred
+  }
+}
+
 // FollowedProfiles Component
 const FollowedProfiles = ({ mobile, followedId }) => {
   const [followedProfiles, setFollowedProfiles] = useState([]);
-  // Fetches all profiles id from endpoint /profiles/id
+  const [errorFetchingData, setErrorFetchingData] = useState(false);
+
+  // Fetches all profiles details from endpoint /profiles/id
   const fetchProfileDetails = async (profileId) => {
     try {
-      const response = await axios.get(`https://djangorestframework-api-38c4a098777a.herokuapp.com/profiles/${profileId}/`);
+      const response = await axios.get(
+        `https://djangorestframework-api-38c4a098777a.herokuapp.com/profiles/${profileId}/`
+      );
       return response.data;
     } catch (error) {
-      console.error('Error fetching profile details:', error);
+      console.error("Error fetching profile details:", error);
       return null;
     }
   };
-  
-  // From the endpoint /followers/ get the followedId
+
+  // Fetches usernames associated to a ownerId from the endpoint /followers/
   useEffect(() => {
-    if (followedId) {
-      axios.get(`https://djangorestframework-api-38c4a098777a.herokuapp.com/followers/`)
-        .then(async (response) => {
-          const filteredProfiles = response.data.results.filter(profile => profile.followed_name === followedId);
-          
-          // Fetch profile details for each followed profile
-          const profilesWithDetails = await Promise.all(filteredProfiles.map(async (profile) => {
+    const fetchData = async () => {
+      try {
+        const allProfiles = await fetchAllPages(
+          `https://djangorestframework-api-38c4a098777a.herokuapp.com/followers/`
+        );
+
+        const filteredProfiles = allProfiles.filter(
+          (profile) => profile.followed_name === followedId
+        );
+
+        const profileDetailsPromises = filteredProfiles.map(async (profile) => {
+          try {
             const profileDetails = await fetchProfileDetails(profile.owner_id);
             return {
               ...profile,
-              profileDetails
+              profileDetails,
             };
-          }));
-          setFollowedProfiles(profilesWithDetails);
-        })
-        .catch((error) => {
-          console.error("Error fetching followed profiles:", error);
+          } catch (error) {
+            console.error("Error fetching profile details for profile:", profile, error);
+            return null;
+          }
         });
+
+        const profilesWithDetails = await Promise.all(profileDetailsPromises);
+        const validProfiles = profilesWithDetails.filter((profile) => profile !== null);
+        setFollowedProfiles(validProfiles);
+        setErrorFetchingData(false); // Reset error flag
+
+        // Console.log:
+        console.log("API - response:", allProfiles);
+        console.log("FE - response: Number of followers:", validProfiles.length);
+      } catch (error) {
+        console.error("Error fetching followed profiles:", error);
+        setErrorFetchingData(true); // Set error flag
+      }
+    };
+
+    // Fetch and display the following profiles by followedId
+    if (followedId) {
+      fetchData();
     }
   }, [followedId]);
 
-  // FollowedProfiles Structure
   return (
     <Container
       className={`${appStyles.Content} ${
         mobile ? "d-lg-none text-center mb-3" : ""
       }`}
-      style={{ marginTop: "10px" }} // Note to self: applied CSS margin-top: 10px;
+      style={{ marginTop: "10px" }}
     >
       <div className="text-center">
         <p>{followedId}'s Followers</p>
         <hr />
-        <div className={`text-center ${mobile ? "d-flex flex-wrap justify-content-center" : ""}`}>
-          {followedProfiles.length > 0 ? (
-            followedProfiles.map((profile) => (
-              <Profile key={profile.id} profile={profile.profileDetails} mobile={mobile} />
-            ))
-          ) : (
-            <p>This section is Empty</p>
-          )}
-        </div>
+        {errorFetchingData ? (
+          <p>Failed to fetch data. Please try again later.</p>
+        ) : (
+          <div
+            className={`text-center ${
+              mobile ? "d-flex flex-wrap justify-content-center" : ""
+            }`}
+          >
+            {followedProfiles.length > 0 ? (
+              followedProfiles.map((profile) => (
+                <Profile key={profile.id} profile={profile.profileDetails} mobile={mobile} />
+              ))
+            ) : (
+              <p>This section is Empty</p>
+            )}
+          </div>
+        )}
       </div>
     </Container>
   );

@@ -55,7 +55,7 @@ const FollowingProfiles = ({ mobile, ownerId }) => {
       }
     };
 
-    // Fetch and display the following profiles
+    // Fetch and display the following profiles by ownerId
     if (ownerId) {
       fetchOwnerUsername();
     }
