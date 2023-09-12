@@ -1,3 +1,4 @@
+// Profile.js
 import React from 'react';
 import styles from '../../styles/Profile.module.css';
 import { Button } from 'react-bootstrap';
@@ -8,7 +9,7 @@ import { Link } from 'react-router-dom';
 import Avatar from '../../components/Avatar';
 
 const Profile = (props) => {
-  const { profile, mobile, imageSize = 55 } = props;
+  const { profile, mobile, imageSize = 55, showButtons = true } = props;
 
   const currentUser = useCurrentUser();
   const { handleFollow, handleUnfollow } = useSetProfileData();
@@ -32,7 +33,8 @@ const Profile = (props) => {
         <strong>{owner}</strong>
       </div>
       <div className={`text-right ${!mobile && 'ml-auto'}`}>
-        {!mobile &&
+        {showButtons && // Conditionally renders buttons based on the showButtons prop(hidden on Following/FollowedProfiles.js)
+          !mobile &&
           currentUser &&
           !is_owner &&
           (following_id ? (

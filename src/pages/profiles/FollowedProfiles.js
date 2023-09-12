@@ -1,6 +1,7 @@
+// FollowedProfiles.js
 import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
-import axios from "axios";
+import axios from "axios"; // Import axios
 import appStyles from "../../App.module.css";
 import Profile from "./Profile";
 
@@ -13,7 +14,7 @@ async function fetchAllPages(initialUrl) {
     while (url) {
       const response = await axios.get(url);
       results = results.concat(response.data.results);
-      url = response.data.next; // Get the data in the next page
+      url = response.data.next; // Get the data on the next page
     }
     return results;
   } catch (error) {
@@ -27,7 +28,7 @@ const FollowedProfiles = ({ mobile, followedId }) => {
   const [followedProfiles, setFollowedProfiles] = useState([]);
   const [errorFetchingData, setErrorFetchingData] = useState(false);
 
-  // Fetches all profiles details from endpoint /profiles/id
+  // Fetches all profiles' details from endpoint /profiles/id
   const fetchProfileDetails = async (profileId) => {
     try {
       const response = await axios.get(
@@ -40,7 +41,6 @@ const FollowedProfiles = ({ mobile, followedId }) => {
     }
   };
 
-  // Fetches usernames associated to a ownerId from the endpoint /followers/
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -104,9 +104,21 @@ const FollowedProfiles = ({ mobile, followedId }) => {
             }`}
           >
             {followedProfiles.length > 0 ? (
-              followedProfiles.map((profile) => (
-                <Profile key={profile.id} profile={profile.profileDetails} mobile={mobile} />
-              ))
+              <div
+                style={{
+                  overflowY: "auto", // Apply a scrollbar for vertical overflow
+                  maxHeight: "300px", // Adjust the max height as needed
+                }}
+              >
+                {followedProfiles.map((profile) => (
+                  <Profile
+                    key={profile.id}
+                    profile={profile.profileDetails}
+                    mobile={mobile}
+                    showButtons={false}
+                  />
+                ))}
+              </div>
             ) : (
               <p>This section is Empty</p>
             )}

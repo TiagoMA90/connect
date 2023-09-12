@@ -1,6 +1,7 @@
+// FollowingProfiles.js
 import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
-import axios from "axios";
+import axios from "axios"; // Import axios
 import appStyles from "../../App.module.css";
 import Profile from "./Profile";
 
@@ -13,7 +14,7 @@ async function fetchAllPages(initialUrl) {
     while (url) {
       const response = await axios.get(url);
       results = results.concat(response.data.results);
-      url = response.data.next; // Get the data in the next page
+      url = response.data.next; // Get the data on the next page
     }
     return results;
   } catch (error) {
@@ -28,7 +29,7 @@ const FollowingProfiles = ({ mobile, ownerId }) => {
   const [ownerUsername, setOwnerUsername] = useState("");
   const [errorFetchingData, setErrorFetchingData] = useState(false);
 
-  // Fetches all profiles details from endpoint /profiles/id
+  // Fetches all profiles' details from endpoint /profiles/id
   const fetchProfileDetails = async (profileId) => {
     try {
       const response = await axios.get(
@@ -41,7 +42,6 @@ const FollowingProfiles = ({ mobile, ownerId }) => {
     }
   };
 
-  // Fetches usernames associated to a ownerId from the endpoint /profiles/
   useEffect(() => {
     const fetchOwnerUsername = async () => {
       try {
@@ -86,6 +86,7 @@ const FollowingProfiles = ({ mobile, ownerId }) => {
 
           const profilesWithDetails = await Promise.all(profileDetailsPromises);
           const validProfiles = profilesWithDetails.filter((profile) => profile !== null);
+
           setFollowingProfiles(validProfiles);
           setErrorFetchingData(false); // Reset error flag
 
@@ -119,9 +120,21 @@ const FollowingProfiles = ({ mobile, ownerId }) => {
             }`}
           >
             {followingProfiles.length > 0 ? (
-              followingProfiles.map((profile) => (
-                <Profile key={profile.id} profile={profile.profileDetails} mobile={mobile} />
-              ))
+              <div
+                style={{ // Styling scrollbar (No .module.css)
+                  overflowY: "auto", // Apply a scrollbar for vertical overflow
+                  maxHeight: "300px", // Adjust the max height as needed
+                }}
+              >
+                {followingProfiles.map((profile) => (
+                  <Profile
+                    key={profile.id}
+                    profile={profile.profileDetails}
+                    mobile={mobile}
+                    showButtons={false}
+                  />
+                ))}
+              </div>
             ) : (
               <p>This section is Empty</p>
             )}
