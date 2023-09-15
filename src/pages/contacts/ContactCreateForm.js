@@ -9,6 +9,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import btnStyles from "../../styles/Button.module.css";
+import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 import Footer from '../../components/Footer';
@@ -65,7 +66,7 @@ const ContactCreateForm = () => {
                     rows={6}
                     cols={40}
                   />
-                  <button className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright} mt-2`} type="submit">Submit</button>
+                  <Button className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright} mt-2`} type="submit">Submit</Button>
                 </div>
               </Form>
             </div>

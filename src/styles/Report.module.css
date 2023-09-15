@@ -7,13 +7,21 @@
   border: 1px solid #dadadf;
   border-radius: 2px;
   background-color: white;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 2px;
   box-shadow: 0 2px 4px #0000001a;
+  z-index: 9999; /* Add a high z-index value to ensure it's on top of other content */
+
+  /* Media Query for Mobile Devices */
+  @media (max-width: 768px) {
+    width: 90%;
+    max-width: none;
+  }
 }
+
 
 .report-overlay {
   background-color: #00000080;
@@ -41,3 +49,4 @@
 i:hover {
   color: #ff641a;
 }
+

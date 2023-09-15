@@ -1,3 +1,4 @@
+//current
 import React from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
@@ -33,12 +34,13 @@ const ProfileDeleteForm = ({ id }) => {
       <Row className={buttonStyles.Row}>
         <Col className="my-auto p-0 p-md-2 d-flex align-items-center justify-content-center" md={12}>
           <div>
+            <h5 className="text-center"><i className="fa-solid fa-circle-exclamation"></i>Warning</h5>
             <p>You are about to delete your account. Are you sure?</p>
             <button
               className={`${buttonStyles.Button} ${buttonStyles.Wide} ${buttonStyles.Bright}`}
               onClick={handleDelete}
             >
-              Delete Profile {/* Tutor! - "Delete profile" does not delete the profile untill the user deletes the browser cookies and refreshed the pages manually // Err401??? */}
+              Delete Profile {/* Tutor! - "Delete profile" does not delete the profile until the user deletes the browser cookies and refreshes the pages manually // Err401??? */}
             </button>
           </div>
         </Col>
@@ -48,3 +50,4 @@ const ProfileDeleteForm = ({ id }) => {
 };
 
 export default ProfileDeleteForm;
+

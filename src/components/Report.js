@@ -3,6 +3,7 @@ import axios from 'axios';
 import Modal from 'react-modal';
 import styles from '../styles/Report.module.css';
 import btnStyles from "../styles/Button.module.css";
+import Button from "react-bootstrap/Button";
 
 // Set the App element for react-modal
 Modal.setAppElement('#root');
@@ -107,8 +108,8 @@ const ReportModal = ({ isOpen, onRequestClose, onSubmit, reason, handleReasonCha
         </div>
         <div className={styles['button-container']}>
           <div style={{ textAlign: 'center' }}>
-            <button className={`${btnStyles.Button} ${btnStyles.Bright}`} type="submit">Report</button> {/* Submits the Report */}
-            <button className={`${btnStyles.Button} ${btnStyles.Bright}`} type="button" onClick={onRequestClose}>Cancel</button> {/* Cancels the Report */}
+            <Button className={`${btnStyles.Button} ${btnStyles.Bright}`} type="submit">Report</Button> {/* Submits the Report */}
+            <Button className={`${btnStyles.Button} ${btnStyles.Bright}`} type="button" onClick={onRequestClose}>Cancel</Button> {/* Cancels the Report */}
           </div>
         </div>
       </form>

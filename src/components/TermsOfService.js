@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from 'react-modal';
 import styles from '../styles/TermsOfService.module.css';
 import btnStyles from "../styles/Button.module.css";
+import Button from "react-bootstrap/Button";
 
 // Terms Of Service Structure - Modal
 const TermsOfService = ({ isOpen, onRequestClose }) => {
@@ -48,7 +49,7 @@ const TermsOfService = ({ isOpen, onRequestClose }) => {
       <p>Thank you for using Connect! We hope you enjoy connecting with others on our platform.</p>
       <div className={btnStyles['button-container']}>
         <div style={{ textAlign: 'center' }}>
-          <button className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`} type="button" onClick={onRequestClose}>I didn't just scroll... I read & I agree</button>
+          <Button className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`} type="button" onClick={onRequestClose}>I didn't just scroll... I read & I agree</Button>
         </div>
       </div>
     </Modal>
