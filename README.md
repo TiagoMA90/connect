@@ -1,100 +1,118 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Connect
+Connect is a generic Social media platform that allows users to create Posts, write Comments, leave Likes & Follow other Users. The app was designed to allow Users to share photos with a little description and title, within the community.
+In sum, it is a website where Users can share their pictures & give feedback to others.
 
-Welcome,
+[Image for the screen sizes]
 
-This is the Code Institute student template for React apps on the Codeanywhere IDE. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## Live Project
+- The live website can be found [here](https://connect-network-ee92c70de293.herokuapp.com/)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **19th April, 2023**
+## Purpose of the website:
+- To provide a platform for users where one can share their pictures and comments.
+- To create a community of users and like minded individuals.
+- To connect with friends, aquiantances & strangers
 
-## Codeanywhere Reminders
+## Design:
+The website was designed with the intent to allow users to browse posts, read comments and navigate throughout the website at ease.
+It allows users to access all components, easily and allows users to perform all CRUD functionalities for their, Posts, Comments, Likes & Profiles. Furthermore, users can report Posts & Contact the moderation panel.
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+It relied heavily on colors that should be appealing to the user, especially for those who might visit the website on a daily basis.
 
-To log into the Heroku toolbelt CLI:
+For such, it makes use of a colour palette of a mere white & gray blend for the navigation bar and Orange for the Logo, buttons and active Links.
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+The background is best defined by a grayish white and the body of the post white, bordered by solid lines.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+The components such as NavBar, Posts, Comments, the Users list and Footer are stylized by a shadow-box to invoke the sense of Polaroid film/picture.
 
+[Image of the Color Palette]
+
+(FE)Components & Functionality:
+Navbar, Header & Favicon
+(Elaborate)
+Posts
+(Elaborate)
+Comments
+(Elaborate)
+Likes
+(Elaborate)
+Report
+(Elaborate)
+Footer
+(Elaborate)
+Signin
+(Elaborate)
+Signup
+(Elaborate)
+(FE)Frofile
+(Elaborate)
+Contact
+(Elaborate)
+---
+Features & Functionality
+(FE)Features and Functionality for Reg. Non-Registered Users:
+Visitors can read all posts from "/".
+Visitors can read all users' posts from /profiles/(id)/.
+Visitors can create a user account through /signup/.
+Visitors can navigate to the "/", "/signin", "/signup", "/profiles/(id)", "/contact" pages.
+Visitors can access external links on users posts/comments and in the Footer.
+
+(FE)Registered Users (CRUD) can do the above as a Visitor, moreover:
+Users can sign in/out through the "/signin" & "/signout" available on the NavBar.
+Users can create posts through the "posts/create" component available on the NavBar.
+Users can update their posts through the "/posts/(id)/edit" functionality available in the MoreDropdown menu, inside the Post.
+Users can delete their posts through the "Delete" functionality provided in the MoreDropdown menu, inside the Post.
+Users can Like/Dislike all posts through the "Like/Dislike" functionality under the Post. (Users cannot use this fuctionality for their own Posts)
+...
+Users can navigate to their own Profile.
+Users can update their own Profile Bio & Profile Picture in "Edit Profile" (/profiles/(id)/edit), from the Dropdown menu.
+Users can update their Username in "Change Username" (/profiles/(id)/edit/username), from the Dropdown menu.
+Users can update their Password in "Update Password" (/profiles/5/edit/password), from the Dropdown menu.
+Users can update delete their own Profile accounts by clicking "Delete Account", from the Dropdown menu.
+
+(BE)Superusers can manipulate information through the "/admin" panel:
+- CRUD posts.
+- Change Users passwords.
+- Create/update/delete Users/Profiles.
+- CRUD comments.
+- Promote Users to Staff/Superuser.
+- Read CRUD messages sent by users via Contact Us component.
+- Read Reports sent by Users via the Report component.
+
+[Image for the registered Models in ADMIN panel Site Administration]
+---
+(FE)Planning & Agile
+---
+(FE)Development & Deployment
+---
+## Languages & Frameworks (Front-end)
+- HTML (markup language)
+- CSS (style sheet language)
+- Bootsrap (CSS framework)
+- React (javaScript Library)
+
+## Languages & Frameworks (Back-end)
+- DjangoRESTFramework (python framework)
+
+## Other forms of development
+- Favicon.cc - Favicon generator
+- Convertio - Image converter
+- Google Fonts - Source of fonts
+- FontAwesome - Source of icons
+- Bytes.dev - Testing screen sizes
+- Chrome DevTools - Testing tool
+- WAVE Evaluation tool - Testing tool
+- W3validator HTML validation tool
+- W3jigsaw - CSS validation tool
+- JSHint - Javascript testing tool
+- CI Python Linter - CI Python testing tool
+- Diagrams - Diagram set up
+- Github - Host for the repository
+- Gitpod - Code editor
+- ElephantSQL - Database
+- Cloudinary - Static & Media host
+- Heroku - Cloud platform/Host the live project
 ---
 
-Happy coding!
 
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm install`
-
-Installs the required npm packages.
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open port 3000 to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Testing
+For Manual testing, please refer to [TESTING.md](LINK HERE)
