@@ -39,8 +39,8 @@
   
 .BlueOutline, .Blue:hover {
   /* border: 1px solid #2142b2; */
-  background-color: #ffffff;
-  color: #f03800;
+  background-color: #f03800;
+  color: #ffffff;
 }
   
 .Black, .BlackOutline:hover {

@@ -1,6 +1,6 @@
 # Connect
-Connect is a generic Social media platform that allows users to create Posts, write Comments, leave Likes & Follow other Users. The app was designed to allow Users to share photos with a little description and title, within the community.
-In sum, it is a website where Users can share their pictures & give feedback to others.
+Connect is a generic Social media platform that allows users to create Posts, write Comments, leave Likes & Follow other Users. Very much similar to Instagram and Twitter, the app was designed to allow Users to share photos with a little description and title, within the community.
+In short, it is a website where Users can share their pictures & give feedback to others.
 
 [Image for the screen sizes]
 
