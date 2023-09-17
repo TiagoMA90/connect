@@ -52,7 +52,7 @@ function CommentCreateForm(props) {
           </Link>
           <Form.Control
             className={styles.Form}
-            placeholder="my comment..."
+            placeholder="Write a comment..."
             as="textarea"
             value={content}
             onChange={handleChange}

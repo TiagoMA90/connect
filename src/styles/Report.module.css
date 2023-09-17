@@ -30,19 +30,20 @@
 .reason-input {
   width: 100%;
   border: 1px solid #dadadf;
-  color: #7177a1;
+  color: #555555;
 }
 
 .description-input {
   width: 100%;
   height: 150px;
   resize: vertical;
-  background: #ffffff;
+  background: #f8f8f8;
   border: 1px solid #dadadf;
+  color: #555555;
   box-sizing: border-box;
-  color: #7177a1;
   padding: 10px;
   border-radius: 2px;
+  box-shadow: inset 0 2px 4px 1px #0000001a;
 }
 
 /* Flag icon (not adopting from App.module?) */
