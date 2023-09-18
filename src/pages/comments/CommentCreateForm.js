@@ -8,6 +8,8 @@ import styles from "../../styles/CommentCreateEditForm.module.css";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 
+import appStyles from "../../App.module.css";
+
 // CommentCreateForm Component
 function CommentCreateForm(props) {
   const { post, setPost, setComments, profileImage, profile_id } = props;
@@ -50,14 +52,18 @@ function CommentCreateForm(props) {
           <Link to={`/profiles/${profile_id}`}>
             <Avatar src={profileImage} />
           </Link>
-          <Form.Control
-            className={styles.Form}
-            placeholder="Write a comment..."
-            as="textarea"
-            value={content}
-            onChange={handleChange}
-            rows={2}
-          />
+        <label htmlFor="commentTextarea" className={appStyles['visually-hidden']}>{/* CSS - Hides Label for Screen readers, to prevent Empty Label */}
+          Comment section
+        </label>
+        <Form.Control
+          id="commentTextarea"
+          className={styles.Form}
+          placeholder="Write a comment..."
+          as="textarea"
+          value={content}
+          onChange={handleChange}
+          rows={2}
+        />
         </InputGroup>
       </Form.Group>
       <button

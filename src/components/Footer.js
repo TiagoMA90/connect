@@ -28,6 +28,7 @@ const Footer = () => {
               className={styles.NavLink}
               activeClassName={styles.Active}
               to="/contact"
+              aria-label="Contact"
             >
               <i className="fas fa-envelope"></i> {/* redirects to the Contact component */}
             </NavLink>
@@ -36,6 +37,7 @@ const Footer = () => {
               href="https://github.com/TiagoMA90/connect"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Github"
             >
               <i className="fab fa-github"></i> {/* Opens a new tab for Github */}
             </a>
@@ -44,6 +46,7 @@ const Footer = () => {
               href="https://twitter.com/home"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="X"
             >
               <i className="fa-brands fa-x-twitter"></i> {/* Opens the a new tab fot X */}
             </a>

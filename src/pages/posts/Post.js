@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import Report from "../../components/Report";
+import appStyles from "../../App.module.css";
 
 // Post Component
 const Post = (props) => {
@@ -132,6 +133,9 @@ const Post = (props) => {
           {likes_count}
           <Link to={`/posts/${id}`}>
             <i className="fa-regular fa-comment"></i>
+            <span className={appStyles['visually-hidden']}> {/* CSS - Hides Text for Screen readers, to prevent Empty Link */}
+              Comment
+            </span>
           </Link>
           {comments_count}
           {currentUser && <Report postId={id} />}

@@ -57,7 +57,11 @@ function PostsPage({ message, filter = "" }) {
           className={styles.SearchBar}
           onSubmit={(event) => event.preventDefault()}
         >
+          <label htmlFor="searchInput" className={appStyles['visually-hidden']}> {/* CSS - Hides Label for Screen readers, to prevent Empty Label */}
+            Search
+          </label>
           <Form.Control
+            id="searchInput"
             type="text"
             className="mr-sm-2"
             placeholder="Search"

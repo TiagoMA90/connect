@@ -1,6 +1,7 @@
 # Connect
 Connect is a generic Social media platform that allows users to create Posts, write Comments, leave Likes & Follow other Users. Very much similar to Instagram and Twitter, the app was designed to allow Users to share photos with a little description and title, within the community.
-In short, it is a website where Users can share their pictures & give feedback to others.
+
+It is a website where Users can share their facation pictures, give feedback to others & connect.
 
 [Image for the screen sizes]
 
@@ -8,13 +9,13 @@ In short, it is a website where Users can share their pictures & give feedback t
 - The live website can be found [here](https://connect-network-ee92c70de293.herokuapp.com/)
 
 ## Purpose of the website:
-- To provide a platform for users where one can share their pictures and comments.
+- To provide a platform where users can share their pictures and comments.
 - To create a community of users and like minded individuals.
-- To connect with friends, aquiantances & strangers
+- To connect with people.
 
 ## Design:
 The website was designed with the intent to allow users to browse posts, read comments and navigate throughout the website at ease.
-It allows users to access all components, easily and allows users to perform all CRUD functionalities for their, Posts, Comments, Likes & Profiles. Furthermore, users can report Posts & Contact the moderation panel.
+It allows users to access all components, easily and allows users to perform all CRUD functionalities for their, Posts, Comments, Likes & Profiles. Furthermore, users can Report posts & Contact the moderation panel.
 
 It relied heavily on colors that should be appealing to the user, especially for those who might visit the website on a daily basis.
 

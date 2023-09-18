@@ -37,44 +37,92 @@ const ContactCreateForm = () => {
   // ContactCreateForm Structure
   return (
     <>
-    <Container className={`${appStyles.Content} p-4 mt-2`}>
-      <Row className="mb-3">
-        <Col>
-          <h1 className={styles.Header}>Contact Us</h1>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          {successMessage ? ( // Conditionally render based on successMessage
-            <ContactSuccessForm />
-          ) : (
-            <div>
-              {errorMessage && (
-                <div className="alert alert-danger" role="alert">
-                  {errorMessage}
-                </div>
-              )}
-              <Form onSubmit={handleSubmit(onSubmit)} className={styles.Form}>
-                <div className="d-flex flex-column">
-                  <input {...register('email', { required: true })} className={`${styles.Input} mb-3`} placeholder="Email" />
-                  <input {...register('name', { required: true })} className={`${styles.Input} mb-3`} placeholder="Name" />
-                  <input {...register('subject', { required: true })} className={`${styles.Input} mb-3`} placeholder="Subject" />
-                  <textarea
-                    {...register('message', { required: true })}
-                    className={`${styles.Input} mb-2`}
-                    placeholder="Message"
-                    rows={6}
-                    cols={40}
-                  />
-                  <Button className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright} mt-2`} type="submit">Submit</Button>
-                </div>
-              </Form>
-            </div>
-          )}
-        </Col>
-      </Row>
-    </Container>
-    <Footer />
+      <Container className={`${appStyles.Content} p-4 mt-2`}>
+        <Row className="mb-3">
+          <Col>
+            <h1 className={styles.Header}>Contact Us</h1>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            {successMessage ? (
+              <ContactSuccessForm />
+            ) : (
+              <div>
+                {errorMessage && (
+                  <div className="alert alert-danger" role="alert">
+                    {errorMessage}
+                  </div>
+                )}
+                <Form onSubmit={handleSubmit(onSubmit)} className={styles.Form}>
+                  <div className="d-flex flex-column">
+                    <label
+                      htmlFor="email"
+                      className={`${styles.Input} mb-3 ${appStyles['visually-hidden']}`}
+                    >
+                      Email
+                    </label>
+                    <input
+                      {...register('email', { required: true })}
+                      id="email"
+                      className={`${styles.Input} mb-3`}
+                      placeholder="Email"
+                    />
+  
+                    <label
+                      htmlFor="name"
+                      className={`${styles.Input} mb-3 ${appStyles['visually-hidden']}`}
+                    >
+                      Name
+                    </label>
+                    <input
+                      {...register('name', { required: true })}
+                      id="name"
+                      className={`${styles.Input} mb-3`}
+                      placeholder="Name"
+                    />
+  
+                    <label
+                      htmlFor="subject"
+                      className={`${styles.Input} mb-3 ${appStyles['visually-hidden']}`}
+                    >
+                      Subject
+                    </label>
+                    <input
+                      {...register('subject', { required: true })}
+                      id="subject"
+                      className={`${styles.Input} mb-3`}
+                      placeholder="Subject"
+                    />
+  
+                    <label
+                      htmlFor="message"
+                      className={`${styles.Input} mb-2 ${appStyles['visually-hidden']}`}
+                    >
+                      Message
+                    </label>
+                    <textarea
+                      {...register('message', { required: true })}
+                      id="message"
+                      className={`${styles.Input} mb-2`}
+                      placeholder="Message"
+                      rows={6}
+                      cols={40}
+                    />
+                    <Button
+                      className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright} mt-2`}
+                      type="submit"
+                    >
+                      Submit
+                    </Button>
+                  </div>
+                </Form>
+              </div>
+            )}
+          </Col>
+        </Row>
+      </Container>
+      <Footer />
     </>
   );
 };
