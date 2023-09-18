@@ -1,9 +1,11 @@
 # Connect
-Connect is a generic Social media platform that allows users to create Posts, write Comments, leave Likes & Follow other Users. Very much similar to Instagram and Twitter, the app was designed to allow Users to share photos with a little description and title, within the community.
+Connect is a generic Social media platform that allows users to create Posts, write Comments, leave Likes & Follow other Users. Very much similar to Instagram and Twitter, the app was designed to allow Users to share photos with a title & description, within the community.
 
-It is a website where Users can share their facation pictures, give feedback to others & connect.
+It is a website where Users can share their vacation pictures, give feedback to others & connect.
 
-[Image for the screen sizes]
+(The website does not have a theme per say, as the developer wanted to create a social media app exclusive for the people of Madeira, where one could create posts and share photos of the island itself in ways to promote the detsionation of Madeira, as a touristic hotspot for visitors.)
+
+<img src="readme/img/bytesdev.png" alt="screen sizes">
 
 ## Live Project
 - The live website can be found [here](https://connect-network-ee92c70de293.herokuapp.com/)
@@ -27,27 +29,57 @@ The components such as NavBar, Posts, Comments, the Users list and Footer are st
 
 [Image of the Color Palette]
 
-(FE)Components & Functionality:
-Navbar, Header & Favicon
-(Elaborate)
-Posts
-(Elaborate)
-Comments
-(Elaborate)
-Likes
-(Elaborate)
-Report
-(Elaborate)
-Footer
-(Elaborate)
-Signin
-(Elaborate)
-Signup
-(Elaborate)
-(FE)Frofile
-(Elaborate)
-Contact
-(Elaborate)
+Components & Functionality:
+## Navbar, Header & Favicon
+- The Navbar located at the upper end of the page, serves as the menu for the user to navigate between pages. From left to right is the "Logo", followed by "Add post" (if the user is authenticated), then "Home", "Feed", "Liked", "Sign In" (if not authenticated) "Sign Out" and "Profile".
+- The user can then access these components by clicking the desired icon. A hover effect is in place and the cursor turns into a pointer to advert users of its accessibility.
+
+
+## Posts
+- Users can then create Posts (if authenticated) by navigatng to "Add post" next to the logo. From there, users will be prompt to upload an image and write the title and a brief description of the post. Once users click the Create/Submit button, the post will be displayed at "/" or "Home", for the whole community to see. Posts can also be Edited or Deeleted by the author of the post, if desired, by navigating inside the Post and clicking the little dropdown menu defined by a Pencil or Bin icons, accordingly.
+- Posts may also be Liked/Disliked, Commented and Reported. This functionality allows the community active and the users engaged.
+
+## Comments
+- Users (if authenticated) can write Comments on Posts. This functionality encourages users to give feedback on posts. Comments, like Posts, can also be Edited or Deleted, by following the same pattern in Posts.
+- From the Post page, users ought to click on the Dialogue iconto access the list of Comment, from there write a comment in the form, from the Comment section and hit submit.
+
+## Likes
+- From a Post, Users (if authenticated) can also leave likes and consequently remove the like (dislike) to Posts. This show appreciation from the community.
+- The counter then rises per user, by +1 or -1, but never goes below 0.
+- Owners of a Post cannot like/dislike their own posts.
+
+## Report
+- Users (if authenticated) also have the ability to Report Posts. From a Post click on the Flag icon. From there a modal is displayed with a Reason of choice and an optional description field.
+- This supports the Administration panel to moderate and fight Spam &/or Innapropriate content.
+
+## Footer
+- Located on the right panel, just below the "Latest/Users Comments" component (Home/Profile), or SignIn/Up (Components), the footer contains access to the "Contact" component, the social media links & the modal to the "Terms of Service". It is best defined by icons easily recognizable and navigable by Users.
+
+## Contact
+- The "Contact" component grants users the possibility to contact the administration panel regarding any issues they are having with the platform. Users (authentication not necessary) need to input a valid e-mail*, a username, subject of concern and the nessage they wish to send to the Support team. Upon a successful submission, Users are notified a message has been sent.
+
+## Signin
+- After creating an account, Users may log in onto their users accounts, through the Sign In component. Users will then have the possibility perform CRUD functionalities in the platform and interact with the community. To sign in Users are requested to input their loog in credentials, such as Username and Password, previously created in the Sign Up page.
+
+## Signup
+- To be part of this community, Users must create an account. For such, users must input a Username, Password & Password confirmation and hit Sign Up. Upon a successful account creation, users can then log in via Sign In.
+
+## Profile
+- Once a User account is created and a user is authenticated, one can access a User "Profile".
+- The User Profile details all activity performed by a given user, such a latest Posts & Comments and the number & List of Followers and Followings. Owners of a profile and visitors can then easily track the latest motions and be on pair with their followings.
+
+## Edit Profile, Change Username, Update Password, Delete Profile
+- As the owner of a Profile (if authenticated), one may Edit the user handle, avatar, password or entirely delete the Profile. This allows the user to have total control of the User profile and CRUD at will.
+
+## Follow
+- As a User (if authenticated), one can follow/unfollow other users. This functionality allows users to stay updated with th eposts of their Followings. When following another user, the feed of all followings can be accessed via the "Feed" tab and will display the posts chronologically.
+
+PopularProfiles
+Followed Profiles
+Following Profiles
+FilteredComments
+CommunityComments
+[ELABORATE]
 ---
 Features & Functionality
 (FE)Features and Functionality for Reg. Non-Registered Users:
