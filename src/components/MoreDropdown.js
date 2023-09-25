@@ -72,6 +72,7 @@ export function ProfileEditDropdown({ id }) {
           Update Password
         </Dropdown.Item>
 
+        {/*NOTE TO SELF: Bugged Component to Delete a User Profile*/}
         <Dropdown.Item
           onClick={() => history.push(`/profiles/${id}/delete`)}
           aria-label="delete-profile"

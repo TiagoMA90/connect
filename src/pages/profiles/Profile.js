@@ -1,4 +1,3 @@
-// Profile.js
 import React from 'react';
 import styles from '../../styles/Profile.module.css';
 import { Button } from 'react-bootstrap';

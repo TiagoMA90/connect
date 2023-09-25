@@ -105,9 +105,9 @@ const FollowedProfiles = ({ mobile, followedId }) => {
           >
             {followedProfiles.length > 0 ? (
               <div
-                style={{
-                  overflowY: "auto", // Apply a scrollbar for vertical overflow
-                  maxHeight: "300px", // Adjust the max height as needed
+                style={{ // Styling scrollbar (No .module.css)
+                  overflowY: "auto", // Applies a scrollbar for vertical overflow
+                  maxHeight: "300px", // Adjusts the max height as needed
                 }}
               >
                 {followedProfiles.map((profile) => (
