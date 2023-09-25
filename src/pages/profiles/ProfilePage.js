@@ -28,7 +28,6 @@ import NoResults from "../../assets/no-results.png";
 
 import FollowingProfiles from "../profiles/FollowingProfiles";
 import FollowedProfiles from "../profiles/FollowedProfiles";
-// import PopularProfiles from "../profiles/PopularProfiles";
 import Footer from '../../components/Footer';
 import FilteredComments from '../../components/FilteredComments';
 
@@ -174,6 +173,7 @@ function ProfilePage() {
       {/* FilteredComments only visible for mobile devices */}
       <Col className="d-block d-md-none p-0 p-lg-2">
         <FilteredComments profileId={profile?.id}/>
+        <Footer />
       </Col>
     </Row>
   );

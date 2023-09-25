@@ -1,4 +1,3 @@
-// FollowingProfiles.js
 import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import axios from "axios"; // Import axios

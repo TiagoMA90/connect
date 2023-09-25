@@ -102,6 +102,7 @@ function PostsPage({ message, filter = "" }) {
       {/* Show CommunityComments only visible for mobile devices */}
       <Col className="d-block d-md-none p-0 p-lg-2">
         <CommunityComments />
+        <Footer />
       </Col>
     </Row>
   );

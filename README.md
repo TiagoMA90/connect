@@ -13,10 +13,14 @@ It is a website where Users can share their vacation pictures, give feedback to 
 - To create a community of users and like minded individuals.
 - To connect with people.
 
-## Design:
+# Design:
 The website was designed with the intent to allow users to browse posts, read comments and navigate throughout the website at ease.
 It allows users to access all components easily, and lets users perform all CRUD functionalities for their, Posts, Comments, Likes & Profiles. Furthermore, users can Report posts & Contact the moderation panel.
 
+## Wireframe
+(ELABORATE)
+
+## Colour palette
 It relied heavily on colors that should be appealing to the user, especially for those who might visit the website on a daily basis.
 For such, it makes use of a colour palette of a mere white & gray blend for the navigation bar and Orange, close to Vermillion, for the Logo, buttons and active Links. The background was best defined by a grayish white and the body of the post white, bordered by solid lines. Blue and Dark tinted blue was also used on a couple of occasions, such as usernames for comments and button for the follow/unfollow on PopularProfiles.
 
@@ -136,30 +140,26 @@ The fonts used for this website were "DM sans" and "sans serif" as default. A ch
 
 <img src="readme/img/CommunityComments.png" alt="Community Comments">
 
----
-(ELABORATE)
-Features & Functionality
-(FE)Features and Functionality for Reg. Non-Registered Users:
-Visitors can read all posts from "/".
-Visitors can read all users' posts from /profiles/(id)/.
-Visitors can create a user account through /signup/.
-Visitors can navigate to the "/", "/signin", "/signup", "/profiles/(id)", "/contact" pages.
-Visitors can access external links on users posts/comments and in the Footer.
+# Features & Functionality
+## Features and Functionality for Reg. Non-Registered Users:
+- Visitors can read all posts from "/".
+- Visitors can read all users' posts from /profiles/(id)/.
+- Visitors can create a user account through /signup/.
+- Visitors can navigate to the "/", "/signin", "/signup", "/profiles/(id)", "/contact" pages.
+- Visitors can access external links on users posts/comments and in the Footer.
 
-(FE)Registered Users (CRUD) can do the above as a Visitor, moreover:
-Users can sign in/out through the "/signin" & "/signout" available on the NavBar.
-Users can create posts through the "posts/create" component available on the NavBar.
-Users can update their posts through the "/posts/(id)/edit" functionality available in the MoreDropdown menu, inside the Post.
-Users can delete their posts through the "Delete" functionality provided in the MoreDropdown menu, inside the Post.
-Users can Like/Dislike all posts through the "Like/Dislike" functionality under the Post. (Users cannot use this fuctionality for their own Posts)
-...
-Users can navigate to their own Profile.
-Users can update their own Profile Bio & Profile Picture in "Edit Profile" (/profiles/(id)/edit), from the Dropdown menu.
-Users can update their Username in "Change Username" (/profiles/(id)/edit/username), from the Dropdown menu.
-Users can update their Password in "Update Password" (/profiles/5/edit/password), from the Dropdown menu.
-Users can update delete their own Profile accounts by clicking "Delete Account", from the Dropdown menu.
+## Registered Users (CRUD) can do the above as a Visitor, moreover:
+- Users can sign in/out through the "/signin" & "/signout" available on the NavBar.
+- Users can create posts through the "posts/create" component available on the NavBar.
+- Users can update their posts through the "/posts/(id)/edit" functionality available in the MoreDropdown menu, inside the Post.
+- Users can delete their posts through the "Delete" functionality provided in the MoreDropdown menu, inside the Post.
+- Users can Like/Dislike all posts through the "Like/Dislike" functionality under the Post. (Users cannot use this fuctionality for their own Posts)
+- Users can navigate to their own Profile.
+- Users can update their own Profile Bio & Profile Picture in "Edit Profile" (/profiles/(id)/edit), from the Dropdown menu.
+- Users can update their Username in "Change Username" (/profiles/(id)/edit/username), from the Dropdown menu.
+- Users can update their Password in "Update Password" (/profiles/5/edit/password), from the Dropdown menu.
+- Users can update delete their own Profile accounts by clicking "Delete Account", from the Dropdown menu. (Bugged)
 
-------------------------
 ## Planning & Agile (REVIEW BEFORE SUBMISSION)
 
 This [project](https://github.com/users/TiagoMA90/projects/9) was planned using Agile methodology and MoSCoW prioritization.
