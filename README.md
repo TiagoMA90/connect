@@ -1,5 +1,5 @@
 # Connect
-Connect is a generic Social media platform that allows users to create Posts, write Comments, leave Likes & Follow other Users. Very much similar to Instagram and Twitter, the app was designed to allow Users to share photos with a title & description, within the community.
+Connect is a generic Social media platform that allows users to create Posts, write Comments, leave Likes & Follow other Users. Very much similar to Instagram and X, the app was designed to allow Users to share photos with a title & description, within the community.
 
 It is a website where Users can share their vacation pictures, give feedback to others & connect.
 
@@ -22,10 +22,10 @@ For such, it makes use of a colour palette of a mere white & gray blend for the 
 
 <img src="readme/img/ColorPalette.png" alt="Colour palette">
 
-The components such as NavBar, Posts, Comments, the Users list and Footer are stylized by a shadow-box to invoke the sense of Polaroid film/picture.
+The components such as NavBar, Posts, Comments, the Users list and Footer are stylized by a shadow-box to invoke the sense of a Polaroid film/picture.
 
 ## Fonts
-The fonts used for this website were "DM sans" and "sans serif" as default. A choice that should be plain and easy to read. The fonts for the navigation links and logo on the navigation bar are dyed in orange, while the body for the posts present themselves with dark grayish/black tone that doesn't stand too much from the body. Links in the navigation bar are gray, but when highlighted or hovered turn orange. If a tab is active, a darker orange highlights the icons of the tab. Links change color upon hover, particularly the username/owner of a post, the icons on a post, such as heart (likes)/dialogue (comments)/flag (reports), the social media links. The links that redirect users to other pages in the Footer also enjoy the same orderliness.
+The fonts used for this website were "DM sans" and "sans serif" as default. A choice that should be plain and easy to read. The fonts for the navigation links and logo on the navigation bar are dyed in orange, while the body for the posts present themselves with dark grayish/black tone that doesn't stand too much from the body. Links in the navigation bar are gray, but when highlighted or hovered turn orange. If a tab is active, a darker orange highlights the icons of the tab. Links change color upon hover, particularly the username/owner of a post, the icons on a post, such as heart(likes), dialogue(comments), flag(reports), the social media links. The links that redirect users to other pages in the Footer also enjoy the same orderliness.
 
 <img src="readme/img/GoogleFont.png" alt="Font">
 
@@ -38,13 +38,13 @@ The fonts used for this website were "DM sans" and "sans serif" as default. A ch
 
 ## Posts
 - Users can then create Posts (if authenticated) by navigating to "Add post" next to the logo. From there, users will be prompt to upload an image and write the title and a brief description of the post. Once users click the Create/Submit button, the post will be displayed at "/" or "Home", for the whole community to see. Posts can also be Edited or Deleted by the author of the post, if desired, by navigating inside the Post and clicking the little dropdown menu defined by a Pencil or Bin icons, accordingly.
-- Posts may also be Liked/Disliked, Commented and Reported. This functionality allows the community active and the users engaged.
+- Posts may also be Liked/Disliked, Commented and Reported. This functionality allows the community to stay active and the users engaged.
 
 <img src="readme/img/PostPage.png" alt="Post page">
 
 ## Likes
 - From a Post, Users (if authenticated) can also leave likes and consequently remove the like (dislike) to Posts. This show appreciation from the community.
-- The counter then rises per user, by +1 or -1, but never goes below 0.
+- The counter then rises per user, by +1 or -1, but never below 0.
 - Owners of a Post cannot like/dislike their own posts.
 
 <img src="readme/img/Likes.png" alt="Likes">
@@ -57,7 +57,7 @@ The fonts used for this website were "DM sans" and "sans serif" as default. A ch
 
 ## Comments
 - Users (if authenticated) can write Comments on Posts. This functionality encourages users to give feedback on posts. Comments, like Posts, can also be Edited or Deleted, by following the same pattern in Posts.
-- From the Post page, users ought to click on the Dialogue iconto access the list of Comment, from there write a comment in the form, from the Comment section and hit submit.
+- From the Post page, users ought to click on the Dialogue icon to access the list of Comment, from there write a comment in the form, from the Comment section and hit submit.
 
 <img src="readme/img/Comments.png" alt="Comments">
 
@@ -67,17 +67,17 @@ The fonts used for this website were "DM sans" and "sans serif" as default. A ch
 <img src="readme/img/Footer.png" alt="Footer">
 
 ## Contact
-- The "Contact" component grants users the possibility to contact the administration panel regarding any issues they are having with the platform. Users (authentication not necessary) need to input a valid e-mail*, a username, subject of concern and the nessage they wish to send to the Support team. Upon a successful submission, Users are notified a message has been sent.
+- The "Contact" component grants users the possibility to contact the administration panel regarding any issues they are having with the platform. Users (authentication not necessary) need to input a valid e-mail*, a username, subject of concern and the message they wish to send to the Support team. Upon a successful submission, Users are notified a message has been sent.
 
 <img src="readme/img/Contacts.png" alt="Contacts">
 
 ## Terms of Service
-- When clicking the Terms Of Service link, located at the Footer, Users should be able to read the the "~~legal agreements~~" between a service provider and a person who wants to use that service. This defined by a modal thta pops up and only goes away when the terms are met.
+- When clicking the Terms Of Service link, located at the Footer, Users should be able to read the the "~~legal agreements~~" between Connect and a person who wants to use that service. This is defined by a modal that pops up and only goes away when the terms are met by clicking the button at the end.
 
 <img src="readme/img/TermsOfService.png" alt="Terms of Service">
 
 ## Signin
-- After creating an account, Users may log in onto their users accounts, through the Sign In component. Users will then have the possibility perform CRUD functionalities in the platform and interact with the community. To sign in Users are requested to input their loog in credentials, such as Username and Password, previously created in the Sign Up page.
+- After creating an account, Users may log in onto their users accounts, through the Sign In component. Users will then have the possibility perform CRUD functionalities in the platform and interact with the community. To sign in Users are requested to input their log in credentials, such as Username and Password, previously created in the Sign Up page.
 - The Sign in page is best defined by a a Sign in form and an image. (Ideally the image should be dynamic and change its theme according to the season (unapplied), for the time being summer)
 
 <img src="readme/img/SignIn.png" alt="SignIn">
@@ -122,22 +122,22 @@ The fonts used for this website were "DM sans" and "sans serif" as default. A ch
 <img src="readme/img/PopularProfiles.png" alt="Popular Profiles">
 
 ## Followers & Following
-- The Followers and Followings component located only on the users Profile page displays a list, truncated by 5 users, of all the users that a user is either following or being followed by. This only list the users, but allows visitors to also access their profiles.
+- The Followers and Followings component located only on the users Profile page displays a list, truncated by 5 users, of all the users that a user is either following or being followed by.
 
 <img src="readme/img/FollowersFollowings.png" alt="Followers & Following">
 
 ## Filtered Comments by User & Community Comments
 - Respectively, the Filtered Comments & Community Comments components render in the Profile page and "/" accordingly.
+- Filtered Comments lists all comments & details submited by a user to a list of posts from latest to oldest. Ergo, for each comment a link is attributted to the post of a comment, if a user wishes to read the parent Post.
 
 <img src="readme/img/FilteredComments.png" alt="Filtered Comments">
 
-- Filtered Comments lists all comments & details submited by a user to a list of posts from latest to oldest. Ergo, for each comment a link is attributted to the post of a comment, if a user wishes to read the parent Post.
+- Community Comments lists all comments & details submited by all users to a list of all posts from latest to oldest. Ergo, for each comment a link is also attributted to the post of a comment, if a user also wishes to read the parent Post.
 
 <img src="readme/img/CommunityComments.png" alt="Community Comments">
 
-- Community Comments lists all comments & details submited by all users to a list of all posts from latest to oldest. Ergo, for each comment a link is also attributted to the post of a comment, if a user also wishes to read the parent Post.
-
 ---
+(ELABORATE)
 Features & Functionality
 (FE)Features and Functionality for Reg. Non-Registered Users:
 Visitors can read all posts from "/".
@@ -160,13 +160,71 @@ Users can update their Password in "Update Password" (/profiles/5/edit/password)
 Users can update delete their own Profile accounts by clicking "Delete Account", from the Dropdown menu.
 
 ------------------------
-## Planning & Agile
----
-## Development Process
-- From the begining of development, the project started out and continued from the tutorial provided by Code Institute "Moments" on the "Advanced Front-end specialization"
-- It makes good use of familiar concepts such as Function Components, Props and State Hooks. Upon creating this project, the developer touched the idea of a "social media"
+## Planning & Agile (REVIEW BEFORE SUBMISSION)
 
-(The website does not have a theme per say, as the developer wanted to create a social media app exclusive for the people of Madeira, where one could create posts and share photos of the island itself in ways to promote the detsionation of the island, as a touristic hotspot for visitors.) Alternative logos for that theme, can be found in src/assets/...
+This [project](https://github.com/users/TiagoMA90/projects/9) was planned using Agile methodology and MoSCoW prioritization.
+
+For this purpose, the project was illustrated by [7 initial Milestone](https://github.com/TiagoMA90/connect/milestones?state=closed) entitled "Navigation & Authentication", "Profiles", "Posts", "Likes", "Comments", "Contacts" and "Reports" providing the developer with the freedom to accomplish all issues/tasks flexibly before dates deadline set to November. The Milestones were broken according to their components name.
+
+Throughout the development process, tasks started from "Todo," progressing to "In Progress," and finally "Done". The issues were assigned to the sole developer and labeled as "could-have," "should-have,", "must-have", "wont-have" and "bugged".
+
+<img src="readme/img/Labels.png" alt="Labels">
+
+In order of priority, with 25 User Stories, the Project has:
+
+## must-have
+- Edit profile must-have
+- Profile page must-have
+- Create a comment must-have
+- Post page must-have
+- View a post must-have
+- Create posts must-have
+- Conditional rendering must-have
+- Refreshing access tokens must-have
+- Logged Status must-have
+- Sign in must-have
+- Authentication - Sign up must-have
+- Routing must-have
+- Navigation must-have
+
+
+## should-have
+- Footer
+- Report a post 
+- Feedback via Contact
+- Navigate to Contact us
+- Update user credentials
+- View all posts by a specific user
+- View comments 
+- Edit post 
+- Search for posts
+- View latest posts
+- Like a post
+- Avatar
+
+## could-have
+- Pop the modal for the Terms of Service 
+- Render followings profiles to a profile
+- Render followed profiles to a profile
+- Read filtered comments by user
+- Read community comments could-have
+- Follow/Unfollow a user profile 
+- User profile - user stats could-have
+- Most followed profiles could-have
+- Edit a comment could-have
+- Delete comments could-have
+- Comment date could-have
+- Infinite scroll could-have
+- View posts of followed users could-have
+- View liked posts could-have
+- Delete Profile*(bugged)
+
+## wont-have
+- Delete Profile bugged*(bugged)
+
+## Development Process
+- From the begining of development, the project started out and continued from the tutorial provided by Code Institute "Moments" unit on the "Advanced Front-end specialization" module.
+- It makes good use of familiar concepts such as Function Components, Props and State Hooks.
 
 ## Development & Deployment
 The project was developed using GitHub and GitPod platforms...
@@ -185,7 +243,7 @@ For Commits on this project, the following commands ran:
 
 Through developmen the following commands ran:
 - ```npm install``` <- Installs Reacts dependencies
-- ```npm start``` <- Runs the app in local environment
+- ```npm run start``` <- Runs the app in local environment
 
 The database is being hosted on ElephantSQL:
 - Create an account(with GitHub) and select TinyTurtle plan.
@@ -217,23 +275,21 @@ The static files are being hosted on Cloudinary:
 - DjangoRESTFramework (python framework)
 
 ## Other forms of development
-- Favicon.cc - Favicon generator
-- Convertio - Image converter
-- Google Fonts - Source of fonts
-- FontAwesome - Source of icons
-- Bytes.dev - Testing screen sizes
+- [Google Fonts](https://fonts.google.com/) - Source of fonts
+- [FontAwesome](https://fontawesome.com/) - Source of icons
+- [Bytes.dev](https://bytes.dev/) - Testing screen sizes
 - Chrome DevTools - Testing tool
-- WAVE Evaluation tool - Testing tool
-- W3validator HTML validation tool
-- W3jigsaw - CSS validation tool
-- JSHint - Javascript testing tool
-- CI Python Linter - CI Python testing tool
-- Diagrams - Diagram set up
-- Github - Host for the repository
-- Gitpod - Code editor
-- ElephantSQL - Database
-- Cloudinary - Static & Media host
-- Heroku - Cloud platform/Host the live project
+- [WAVE Evaluation tool](https://wave.webaim.org/) - Testing tool
+- [W3validator](https://validator.w3.org/) - HTML validation tool
+- [W3jigsaw](https://jigsaw.w3.org/css-validator/) - CSS validation tool
+- [JSHint](https://jshint.com/) - Javascript testing tool
+- [CI Python Linter](https://pep8ci.herokuapp.com/) - CI Python testing tool
+- [Diagrams](https://app.diagrams.net/) - Diagram set up
+- [Github](https://github.com/) - Host for the repository
+- [Gitpod](https://gitpod.io/workspaces) - Code editor
+- [ElephantSQL](https://www.elephantsql.com/) - Database
+- [Cloudinary](https://cloudinary.com/) - Static & Media host
+- [Heroku](https://id.heroku.com/login) - Cloud platform/Host the live project
 
 ## Credits
 The following sources and references were resorted for the creation of this website:
