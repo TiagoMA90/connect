@@ -48,7 +48,7 @@ It allows users to access all components easily, and lets users perform all CRUD
 
 - Update the Profile
 
-<img src="readme/img/Update Profile.png" alt="Update Profile">
+<img src="readme/img/UpdateProfile.png" alt="Update Profile">
 
 - Update the Username
 
