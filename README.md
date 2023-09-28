@@ -13,12 +13,54 @@ It is a website where Users can share their vacation pictures, give feedback to 
 - To create a community of users and like minded individuals.
 - To connect with people.
 
-# Design:
+## Design:
 The website was designed with the intent to allow users to browse posts, read comments and navigate throughout the website at ease.
 It allows users to access all components easily, and lets users perform all CRUD functionalities for their, Posts, Comments, Likes & Profiles. Furthermore, users can Report posts & Contact the moderation panel.
 
-## Wireframe
-(ELABORATE)
+## Wireframes 
+- Read a Post on /home /feed /liked
+
+<img src="readme/img/ReadPost.png" alt="Read a Post">
+
+- Create & Update a Post
+
+<img src="readme/img/CreateUpdatePost.png" alt="Read a Post">
+
+- Create a Report
+
+<img src="readme/img/CreateReport.png" alt="Create Report">
+
+- Creat a Contact
+
+<img src="readme/img/CreateContact.png" alt="Create Contact">
+
+- Read a Profile
+
+<img src="readme/img/ReadProfile.png" alt="Read a Profile">
+
+- Sign Up
+
+<img src="readme/img/PostSignUp.png" alt="Sign Up">
+
+- Sign In
+
+<img src="readme/img/GetSignIn.png" alt="Sign In">
+
+- Update the Profile
+
+<img src="readme/img/Update Profile.png" alt="Update Profile">
+
+- Update the Username
+
+<img src="readme/img/UpdateUsername.png" alt="Update Username">
+
+- Update the Password
+
+<img src="readme/img/UpdatePassword.png" alt="Update Password">
+
+- Delete the Profile
+
+<img src="readme/img/DeleteProfile.png" alt="Delete Profile">
 
 ## Colour palette
 It relied heavily on colors that should be appealing to the user, especially for those who might visit the website on a daily basis.

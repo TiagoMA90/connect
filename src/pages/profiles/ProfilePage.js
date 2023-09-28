@@ -148,8 +148,8 @@ function ProfilePage() {
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         {/*<PopularProfiles mobile /> */}
-        <FollowingProfiles ownerId={profile?.id} mobile />
-        <FollowedProfiles followedId={profile?.owner} mobile/>
+        {/*<FollowingProfiles ownerId={profile?.id} mobile />*/}
+        {/*<FollowedProfiles followedId={profile?.owner} mobile/>*/}
         <Container className={appStyles.Content}>
           {hasLoaded ? (
             <>
