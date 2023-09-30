@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { axiosReq } from '../api/axiosDefaults';
 import Modal from 'react-modal';
 import styles from '../styles/Report.module.css';
 import btnStyles from "../styles/Button.module.css";
@@ -39,7 +39,7 @@ const Report = ({ postId }) => {
     event.preventDefault();
 
     try {
-      await axios.post('https://djangorestframework-api-38c4a098777a.herokuapp.com/reports/', {
+      await axiosReq.post('/reports/', {
         post: postId,
         reason,
         description,
