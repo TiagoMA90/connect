@@ -1,23 +1,16 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-
+import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-
 import Asset from "../../components/Asset";
-
 import styles from "../../styles/ProfilePage.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useProfileData } from "../../contexts/ProfileDataContext";
 import { useSetProfileData } from "../../contexts/ProfileDataContext";
-
 import { Button } from "react-bootstrap";
 import { Image } from "react-bootstrap";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
@@ -25,11 +18,12 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Post from "../posts/Post";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
-
 import FollowingProfiles from "../profiles/FollowingProfiles";
 import FollowedProfiles from "../profiles/FollowedProfiles";
 import Footer from '../../components/Footer';
 import FilteredComments from '../../components/FilteredComments';
+import ReviewCreateForm from '../../pages/reviews/ReviewCreateForm';
+import ProfileReviews from '../../pages/reviews/ProfileReviews';
 
 // ProfilePage Component
 function ProfilePage() {
@@ -68,7 +62,9 @@ function ProfilePage() {
 
   const mainProfile = (
     <>
-      {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
+      {currentUser && currentUser.username === profile?.owner && (
+        <ProfileEditDropdown id={profile?.id} />
+      )}
       <Row noGutters className="px-3 text-center">
         <Col lg={3} className="text-lg-left">
           <Image
@@ -143,13 +139,22 @@ function ProfilePage() {
     </>
   );
 
+  const createReview = async (reviewData) => {
+    console.log({reviewData})
+    try {
+      await axiosReq.post("https://djangorestframework-api-38c4a098777a.herokuapp.com/reviews/", reviewData);
+    } catch (error) {
+      console.error("Error creating review:", error);
+    }
+  };
+
   // ProfilePage Structure
   return (
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        {/*<PopularProfiles mobile /> */}
-        {/*<FollowingProfiles ownerId={profile?.id} mobile />*/}
-        {/*<FollowedProfiles followedId={profile?.owner} mobile/>*/}
+        {/* Render the ReviewCreateForm component */}
+        <ReviewCreateForm profile_id={id} currentUser={currentUser} createReview={createReview} />
+        <ProfileReviews profileId={id} currentUser={currentUser} />
         <Container className={appStyles.Content}>
           {hasLoaded ? (
             <>
@@ -162,15 +167,13 @@ function ProfilePage() {
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        {/*<PopularProfiles /> */}
         <FollowingProfiles ownerId={profile?.id} />
         <FollowedProfiles followedId={profile?.owner} />
         {profile?.id && (
           <FilteredComments profileId={profile.id} />
-        )} {/* FilteredComments visible for desktop */} 
-        <Footer /> {/* Footer visible for desktop */}
+        )}
+        <Footer />
       </Col>
-      {/* FilteredComments only visible for mobile devices */}
       <Col className="d-block d-md-none p-0 p-lg-2">
         <FilteredComments profileId={profile?.id}/>
         <Footer />
