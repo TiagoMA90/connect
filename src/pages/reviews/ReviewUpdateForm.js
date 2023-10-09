@@ -54,7 +54,7 @@ const ReviewUpdateForm = ({
           <Rating
             onClick={handleRating}
             initialValue={rating}
-            size={24} // Adjust the size of the stars (optional temporary)
+            size={25} // Adjust the size of the stars (optional temporary)
             fillColor="#f0d66b" // Change the fill color of the stars (optional)
             emptyColor="#ccc" // Change the empty color of the stars (optional)
           />

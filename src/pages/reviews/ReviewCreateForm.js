@@ -49,9 +49,6 @@ const ReviewCreateForm = ({ profile_id, createReview, currentUser }) => {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group>
-        <Rating onClick={handleRating} />
-      </Form.Group>
-      <Form.Group>
         <Form.Label>Review - style later</Form.Label>
         <Form.Control
           as="textarea"
@@ -65,7 +62,10 @@ const ReviewCreateForm = ({ profile_id, createReview, currentUser }) => {
           {error}
         </Alert>
       ))}
-      <Button type="submit">Submit Review</Button>
+      <div className="d-flex justify-content-between align-items-center">
+        <Rating onClick={handleRating} />
+        <Button type="submit" className="ml-auto">Submit Review</Button>
+      </div>
     </Form>
   );
 };

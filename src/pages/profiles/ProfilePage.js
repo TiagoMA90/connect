@@ -152,9 +152,6 @@ function ProfilePage() {
   return (
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        {/* Render the ReviewCreateForm component */}
-        <ReviewCreateForm profile_id={id} currentUser={currentUser} createReview={createReview} />
-        <ProfileReviews profileId={id} currentUser={currentUser} />
         <Container className={appStyles.Content}>
           {hasLoaded ? (
             <>
@@ -165,6 +162,9 @@ function ProfilePage() {
             <Asset spinner />
           )}
         </Container>
+        <ProfileReviews profileId={id} currentUser={currentUser} />
+        {/* Render the ReviewCreateForm component */}
+        <ReviewCreateForm profile_id={id} currentUser={currentUser} createReview={createReview} />
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         <FollowingProfiles ownerId={profile?.id} />
