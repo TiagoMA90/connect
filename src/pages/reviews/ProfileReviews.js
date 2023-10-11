@@ -23,19 +23,28 @@ const ProfileReviews = ({ profileId, currentUser }) => {
     }
   }, [profileId]);
 
+  // Inline styling - Scroll Bar (no module.css)
+  const scrollableReviewsStyle = {
+    maxHeight: "300px",
+    overflowY: "auto",
+  };
+
+  // ProfileReviews Structure
   return (
     <div className={styles.reviewContainer}>
       <p className={styles.centerText}>Reviews wall</p>
       <hr className={styles.hr} />
-      {reviews.length === 0 ? (
-        <p className={styles.centerText}>No one has reviewed this user so far</p>
-      ) : (
-        reviews.map((review) => (
-          <div className={styles.review} key={review.id}>
-            <Review {...review} currentUser={currentUser} />
-          </div>
-        ))
-      )}
+      <div style={scrollableReviewsStyle}>
+        {reviews.length === 0 ? (
+          <p className={styles.centerText}>No one has reviewed this user so far</p>
+        ) : (
+          reviews.map((review) => (
+            <div className={styles.review} key={review.id}>
+              <Review {...review} currentUser={currentUser} />
+            </div>
+          ))
+        )}
+      </div>
     </div>
   );
 };

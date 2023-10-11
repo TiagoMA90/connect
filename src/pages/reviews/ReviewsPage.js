@@ -22,6 +22,7 @@ const ReviewsPage = ({ profileId, currentUser }) => {
     fetchReviews();
   }, [profileId]);
 
+  // ReviewsPage Structure
   return (
     <div>
       <h2>User Reviews</h2>

@@ -19,6 +19,7 @@ const Review = (props) => {
     setIsReviewVisible(true);
   };
 
+  // Review Structure
   return (
     <Media>
       <Media.Body className={`align-self-center ml-2 ${styles.reviewContainer}`}>
@@ -27,7 +28,7 @@ const Review = (props) => {
             <span className={styles.owner}>{owner}'s Review</span>
             <span className={`${styles.date} ${styles.editDate}`}> • {updated_at}</span>
             <div className="d-flex align-items-center">
-              <span>Rating:</span>
+              <span>Rating: </span>
               <Rating readonly initialValue={rating} size={15} /> {/* Star rating */}
               {currentUser && currentUser.username === owner && (
                 <button className={`${styles.editButton} ${styles.editButtonDate}`} onClick={handleEditClick}>

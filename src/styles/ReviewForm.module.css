@@ -1,0 +1,32 @@
+.review-create-form {
+  background: #ffffff;
+  border: 1px solid #dadadf;
+  box-sizing: border-box;
+  color: #555555;
+  text-align: center;
+  padding: 10px;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px 1px #0000001a;
+}
+
+.review-form-label {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #555555;
+}
+
+.review-form-button {
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  margin: auto;
+}
+
+.review-form-button span {
+  color: #ff9254;
+}

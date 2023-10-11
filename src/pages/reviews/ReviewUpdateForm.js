@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Rating } from "react-simple-star-rating";
 import axios from "axios";
+import btnStyles from "../../styles/Button.module.css";
+import Button from "react-bootstrap/Button";
 
 const ReviewUpdateForm = ({
   reviewId,
@@ -45,34 +47,53 @@ const ReviewUpdateForm = ({
     }
   }, [isSaved, content, rating]);
 
+  // ReviewUpdateForm Structure
   return (
-    <div className="review-update-form" style={{ padding: "20px", border: "1px solid #ccc", backgroundColor: "#f7f7f7", borderRadius: "5px" }}>
+    <div
+      className="review-update-form"
+      style={{
+        padding: "20px",
+        border: "1px solid #ccc",
+        backgroundColor: "#f7f7f7",
+        borderRadius: "2px",
+      }}
+    >
       {!isSaved ? (
-        // remove this inline styling and create a ?.module.css!!!!!!!!!!!!!!!!
         <>
-          <h3 style={{ fontSize: "1.2rem", marginBottom: "10px" }}>Edit Review</h3>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <i className="fa-solid fa-circle-info"></i> 
+            <p>You are about to update your Review!</p>
+          </div>
+          <span>Rating:</span>
           <Rating
             onClick={handleRating}
             initialValue={rating}
-            size={25} // Adjust the size of the stars (optional temporary)
+            size={15} // Adjust the size of the stars (optional temporary)
             fillColor="#f0d66b" // Change the fill color of the stars (optional)
             emptyColor="#ccc" // Change the empty color of the stars (optional)
           />
           <textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            style={{ width: "100%", minHeight: "100px", padding: "10px", border: "1px solid #ccc", borderRadius: "5px" }}
+            style={{
+              width: "100%",
+              minHeight: "100px",
+              padding: "10px",
+              border: "1px solid #ccc",
+              borderRadius: "2px",
+              boxShadow: "inset 0 2px 4px 1px #0000001a",
+            }}
           />
-          <button
+          <Button
             onClick={handleSubmit}
-            style={{ backgroundColor: "#007bff", color: "#fff", border: "none", padding: "10px 20px", cursor: "pointer", borderRadius: "5px" }}
+            className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
           >
-            Save Changes
-          </button>
+            Update
+          </Button>
         </>
       ) : (
         <>
-          <h3 style={{ fontSize: "1.2rem", marginBottom: "10px" }}>Review Updated</h3>
+          <h3>Review Updated</h3>
           <p>Content: {content}</p>
           <p>Rating: {rating}</p>
         </>

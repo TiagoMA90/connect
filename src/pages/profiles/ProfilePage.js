@@ -162,9 +162,6 @@ function ProfilePage() {
             <Asset spinner />
           )}
         </Container>
-        <ProfileReviews profileId={id} currentUser={currentUser} />
-        {/* Render the ReviewCreateForm component */}
-        <ReviewCreateForm profile_id={id} currentUser={currentUser} createReview={createReview} />
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         <FollowingProfiles ownerId={profile?.id} />
@@ -172,6 +169,8 @@ function ProfilePage() {
         {profile?.id && (
           <FilteredComments profileId={profile.id} />
         )}
+        <ProfileReviews profileId={id} currentUser={currentUser} />
+        <ReviewCreateForm profile_id={id} currentUser={currentUser} createReview={createReview} />
         <Footer />
       </Col>
       <Col className="d-block d-md-none p-0 p-lg-2">
