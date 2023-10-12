@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
-import btnStyles from "../../styles/Button.module.css";
 import Button from "react-bootstrap/Button";
+import Collapse from "react-bootstrap/Collapse";
 import Alert from "react-bootstrap/Alert";
 import { Rating } from "react-simple-star-rating";
 import styles from '../../styles/ReviewForm.module.css';
@@ -11,6 +11,7 @@ const ReviewCreateForm = ({ profile_id, createReview, currentUser }) => {
   const [content, setContent] = useState("");
   const [errors, setErrors] = useState([]);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   const handleRating = (rate) => {
     setRating(rate);
@@ -46,6 +47,10 @@ const ReviewCreateForm = ({ profile_id, createReview, currentUser }) => {
     setContent("");
   };
 
+  const toggleForm = () => {
+    setIsFormOpen(!isFormOpen);
+  };
+
   if (formSubmitted) {
     return (
       <Alert variant="secondary">
@@ -54,32 +59,46 @@ const ReviewCreateForm = ({ profile_id, createReview, currentUser }) => {
     );
   }
 
-  if (!currentUser) {
-    return null;
-  }
-
-  // ReviewCreateForm Structure
   return (
-    <Form onSubmit={handleSubmit} className={styles['review-create-form']}>
-      <Form.Group>
-        <Form.Label className={styles['review-form-label']}>Review</Form.Label>
-        <Form.Control
-          as="textarea"
-          rows={6}
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        />
-      </Form.Group>
-      {errors.map((error, index) => (
-        <Alert variant="warning" key={index}>
-          {error}
-        </Alert>
-      ))}
-      <div className="d-flex justify-content-between align-items-center">
-        <Rating onClick={handleRating} />
-        <Button type="submit" className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}>Submit</Button>
-      </div>
-    </Form>
+    <div>
+      <Button // Inline styling - Collapse Button open/close the Review Form (no module.css)
+        variant="secondary"
+        onClick={toggleForm}
+        aria-controls="review-form-collapse"
+        aria-expanded={isFormOpen}
+        style={{ width: "100%" }}
+      >
+        {isFormOpen ? "Close Review Form" : "Write a Review"}
+      </Button>
+      <Collapse in={isFormOpen}>
+        <Form
+          onSubmit={handleSubmit}
+          className={styles['review-create-form']}
+          id="review-form-collapse"
+        >
+          <Form.Group>
+            <Form.Label className={styles['review-form-label']}>Review</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows={6}
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+            />
+          </Form.Group>
+          {errors.map((error, index) => (
+            <Alert variant="warning" key={index}>
+              {error}
+            </Alert>
+          ))}
+          <div className="d-flex justify-content-between align-items-center">
+            <Rating onClick={handleRating} />
+            <Button type="submit" variant="primary">
+              Submit
+            </Button>
+          </div>
+        </Form>
+      </Collapse>
+    </div>
   );
 };
 
