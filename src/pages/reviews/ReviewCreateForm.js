@@ -62,15 +62,18 @@ const ReviewCreateForm = ({ profile_id, createReview, currentUser }) => {
 
   return (
     <div>
-      <Button
-        variant="secondary"
-        onClick={toggleForm}
-        aria-controls="review-form-collapse"
-        aria-expanded={isFormOpen}
-        style={{ width: "100%" }}
-      >
-        {isFormOpen ? "Close Review Form" : "Write a Review"}
-      </Button>
+      {currentUser && ( // Only renders the button if user is Auth.
+        <Button
+          variant="secondary"
+          onClick={toggleForm}
+          aria-controls="review-form-collapse"
+          aria-expanded={isFormOpen}
+          style={{ width: "100%" }}
+        >
+          {isFormOpen ? "Close Review Form" : "Write a Review"}
+        </Button>
+      )}
+
       <Collapse in={isFormOpen}>
         <Form
           onSubmit={handleSubmit}
