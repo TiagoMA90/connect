@@ -25,8 +25,8 @@ const Review = (props) => {
       <Media.Body className={`align-self-center ml-2 ${styles.reviewContainer}`}>
         {isReviewVisible && (
           <>
-            <span className={styles.owner}>{owner}'s Review</span>
-            <span className={`${styles.date} ${styles.editDate}`}> • {updated_at}</span>
+            <div className={styles.owner}>{owner}</div>
+            <div className={styles.date}>{updated_at}</div>
             <div className="d-flex align-items-center">
               <span>Rating: </span>
               <Rating readonly initialValue={rating} size={15} /> {/* Star rating */}
@@ -51,6 +51,7 @@ const Review = (props) => {
       </Media.Body>
     </Media>
   );
+  
 };
 
 export default Review;
