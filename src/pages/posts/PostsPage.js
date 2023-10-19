@@ -16,14 +16,26 @@ import PopularProfiles from "../profiles/PopularProfiles";
 import CommunityComments from "../../components/CommunityComments";
 import Footer from "../../components/Footer";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import WallPostsList from "../../pages/walls/WallPostsList";
+import WallPostCreateForm from "../../pages/walls/WallPostCreateForm";
 
-// PostsPage Component
 function PostsPage({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
   const [query, setQuery] = useState("");
   const currentUser = useCurrentUser();
+
+  // Function to create a wall pos on the Posts Page
+  const id = "id";
+  const createWallPost = async (wallPostData) => {
+    console.log({ wallPostData });
+    try {
+      await axiosReq.post("https://djangorestframework-api-38c4a098777a.herokuapp.com/walls/", wallPostData);
+    } catch (error) {
+      console.error("Error creating wall post:", error);
+    }
+  };
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -46,18 +58,16 @@ function PostsPage({ message, filter = "" }) {
     };
   }, [filter, query, pathname, currentUser]);
 
-  // PostsPage Structure
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
-
         <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form
           className={styles.SearchBar}
           onSubmit={(event) => event.preventDefault()}
         >
-          <label htmlFor="searchInput" className={appStyles['visually-hidden']}> {/* CSS - Hides Label for Screen readers, to prevent Empty Label */}
+          <label htmlFor="searchInput" className={appStyles['visually-hidden']}>
             Search
           </label>
           <Form.Control
@@ -95,11 +105,12 @@ function PostsPage({ message, filter = "" }) {
         )}
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
+        <WallPostsList profileId={id} currentUser={currentUser} />
+        <WallPostCreateForm profileId={id} createWallPost={createWallPost} currentUser={currentUser} />
         <PopularProfiles />
-        <CommunityComments /> {/* CommunityComments visible for desktop */}
-        <Footer /> {/* Footer visible for desktop */}
+        <CommunityComments />
+        <Footer />
       </Col>
-      {/* Show CommunityComments only visible for mobile devices */}
       <Col className="d-block d-md-none p-0 p-lg-2">
         <CommunityComments />
         <Footer />

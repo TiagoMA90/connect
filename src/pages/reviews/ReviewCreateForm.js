@@ -98,7 +98,7 @@ const ReviewCreateForm = ({ profile_id, createReview, currentUser }) => {
             <Rating onClick={handleRating} />
             <Button
               type="submit"
-              className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
+              className={`${btnStyles.Button} ${btnStyles.Bright}`}
             >
               Submit
             </Button>
