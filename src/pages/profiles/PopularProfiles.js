@@ -8,12 +8,18 @@ import { useProfileData } from "../../contexts/ProfileDataContext";
 const PopularProfiles = ({ mobile }) => {
   const { popularProfiles } = useProfileData();
 
+  // Inline styling - Margin-Top for this component (no module.css)
+  const marginTopStyle = {
+    marginTop: "10px",
+  };
+
   // PopularProfiles Structure
   return (
     <Container
       className={`${appStyles.Content} ${
         mobile ? "d-lg-none text-center mb-3" : ""
       }`}
+      style={marginTopStyle}
     >
       <div className="text-center">
         <p>Popular Profiles</p>
