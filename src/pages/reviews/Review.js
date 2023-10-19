@@ -3,42 +3,54 @@ import Media from "react-bootstrap/Media";
 import { Rating } from "react-simple-star-rating";
 import ReviewUpdateForm from "../../pages/reviews/ReviewUpdateForm";
 import styles from "../../styles/Review.module.css";
+import Avatar from "../../components/Avatar";
 
 const Review = (props) => {
-  const { id, owner, updated_at, content, rating, currentUser } = props;
+  const { id, owner, updated_at, content, rating, currentUser, profile_image } = props;
   const [isEditing, setIsEditing] = useState(false);
   const [isReviewVisible, setIsReviewVisible] = useState(true);
+  const [originalContent, setOriginalContent] = useState(content);
+  const [updateMessage, setUpdateMessage] = useState("");
 
   const handleEditClick = () => {
     setIsEditing(true);
     setIsReviewVisible(false);
   };
 
-  const handleSaveReview = () => {
+  const handleSaveReview = (updatedContent) => {
     setIsEditing(false);
     setIsReviewVisible(true);
+    setOriginalContent(updatedContent);
+
+    // Set the update message when the Review is updated
+    setUpdateMessage("Your review has been updated!");
   };
 
   // Review Structure
   return (
     <Media>
-      <Media.Body className={`align-self-center ml-2 ${styles.reviewContainer}`}>
+      <Media.Body className={`align-self-center ${styles.reviewContainer}`}>
         {isReviewVisible && (
-          <>
-            <div className={styles.owner}>{owner}</div>
-            <div className={styles.date}>{updated_at}</div>
-            <div className="d-flex align-items-center">
-              <span>Rating: </span>
-              <Rating readonly initialValue={rating} size={15} /> {/* Star rating */}
-              {currentUser && currentUser.username === owner && (
-                <button className={`${styles.editButton} ${styles.editButtonDate}`} onClick={handleEditClick}>
-                  <i className="fa-solid fa-pen-to-square fa-sm"></i>
-                </button>
-              )}
+          <Media>
+            <div className={`align-self-start mr-2 ${styles.profileImageContainer}`}>
+              <div className={styles.centeredAvatar}>
+                <Avatar src={profile_image} />
+              </div>
             </div>
-            <hr />
-            <p>{content}</p>
-          </>
+            <div className={`align-self-center ${styles.reviewContent}`}>
+              <div className={styles.owner}>{owner}</div>
+              <div className={styles.date}>{updated_at}</div>
+              <div className="d-flex align-items-center">
+                <span>Rating: </span>
+                <Rating readonly initialValue={rating} size={15} />
+                {currentUser && currentUser.username === owner && (
+                  <button className={`${styles.editButton} ${styles.editButtonDate}`} onClick={handleEditClick}>
+                    <i className="fa-solid fa-pen-to-square fa-sm"></i>
+                  </button>
+                )}
+              </div>
+            </div>
+          </Media>
         )}
         {isEditing ? (
           <ReviewUpdateForm
@@ -47,11 +59,16 @@ const Review = (props) => {
             rating={rating}
             onSave={handleSaveReview}
           />
-        ) : null}
+        ) : (
+          <>
+            <hr />
+            <p>{originalContent}</p>
+            {updateMessage && <p>{updateMessage}</p>} {/* Displays an update message when the review has been updated */}
+          </>
+        )}
       </Media.Body>
     </Media>
   );
-  
 };
 
 export default Review;

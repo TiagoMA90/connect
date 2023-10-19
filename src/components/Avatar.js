@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../styles/Avatar.module.css";
 
 // Avatar Component
-const Avatar = ({ src, height = 45, text }) => {
+const Avatar = ({ src, height = 55, text }) => {
   return (
     <span>
       <img
