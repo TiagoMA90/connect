@@ -22,7 +22,7 @@ const PopularProfiles = ({ mobile }) => {
       style={marginTopStyle}
     >
       <div className="text-center">
-        <p>Popular Profiles</p>
+        <p><i class="fa-solid fa-users-viewfinder fa-lg"></i>Popular Profiles</p>
         <hr />
         {popularProfiles.results.length ? (
           mobile ? (

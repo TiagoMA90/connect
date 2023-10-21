@@ -3,7 +3,7 @@ import Media from "react-bootstrap/Media";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
 import btnStyles from "../../styles/Button.module.css";
-import styles from "../../styles/Review.module.css"; // NOte to self: adopts the styling for the button from review (create an individual .css?)
+import styles from "../../styles/Review.module.css";
 
 const WallPost = (props) => {
   const { id, owner, updated_at, content, currentUser, isOwner } = props;
@@ -38,8 +38,7 @@ const WallPost = (props) => {
   };
 
   return (
-    <>
-      <hr />
+    <div style={{ border: "1px solid #ccc", borderRadius: "5px", padding: "10px" }}>
       <Media>
         <Media.Body className="align-self-center ml-2">
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
@@ -88,7 +87,7 @@ const WallPost = (props) => {
           )}
         </Media.Body>
       </Media>
-    </>
+    </div>
   );
 };
 

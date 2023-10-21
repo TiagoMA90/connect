@@ -92,7 +92,7 @@ const FollowedProfiles = ({ mobile, followedId }) => {
       style={{ marginTop: "10px" }}
     >
       <div className="text-center">
-        <p>{followedId}'s Followers</p>
+        <p><i class="fa-solid fa-users fa-lg"></i>{followedId}'s Followers</p>
         <hr />
         {errorFetchingData ? (
           <p>Failed to fetch data. Please try again later.</p>

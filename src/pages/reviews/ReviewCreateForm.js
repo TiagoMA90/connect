@@ -81,12 +81,13 @@ const ReviewCreateForm = ({ profile_id, createReview, currentUser }) => {
           id="review-form-collapse"
         >
           <Form.Group>
-            <Form.Label className={styles['review-form-label']}>Review</Form.Label>
+            {/*<Form.Label className={styles['review-form-label']}>Review</Form.Label>*/}
             <Form.Control
               as="textarea"
               rows={6}
               value={content}
               onChange={(e) => setContent(e.target.value)}
+              placeholder="Write a review for this user profile..."
             />
           </Form.Group>
           {errors.map((error, index) => (

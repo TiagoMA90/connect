@@ -36,7 +36,7 @@ const WallPostsList = ({ profileId, currentUser, mobile }) => {
 
   return (
     <Container className={`${appStyles.Content} ${mobile ? "d-lg-none text-center mb-3" : ""}`}>
-      <p className="text-center">Community Wall</p>
+      <p className="text-center"><i class="fa-regular fa-comment-dots fa-lg"></i>Community Wall</p>
       <hr />
       <div style={scrollableContainerStyle}>
         {wallPosts.length > 0 ? (

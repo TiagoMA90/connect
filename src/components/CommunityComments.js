@@ -30,7 +30,7 @@ const CommunityComments = () => {
   return (
     <Container className={`${styles.container} ${styles.Content}`}>
       <div className="text-center">
-        <p>Latest Comments</p>
+        <p><i class="fa-regular fa-comments fa-lg"></i> Latest Comments</p>
         <hr />
       </div>
       <div className={styles.chatBox}>

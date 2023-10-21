@@ -108,7 +108,7 @@ const FollowingProfiles = ({ mobile, ownerId }) => {
       }`}
     >
       <div className="text-center">
-        <p>{ownerUsername}'s Followings</p>
+        <p><i class="fa-solid fa-user-group fa-sm"></i>{ownerUsername}'s Followings</p>
         <hr />
         {errorFetchingData ? (
           <p>Failed to fetch data. Please try again later.</p>

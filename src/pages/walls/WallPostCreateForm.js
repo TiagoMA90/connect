@@ -57,6 +57,7 @@ const WallPostCreateForm = ({ profileId, createWallPost, currentUser }) => {
       <Collapse in={isFormOpen}>
         <Form onSubmit={handleSubmit} id="wall-post-form-collapse" className={styles['review-create-form']}>
           <Form.Group>
+            {/*<Form.Label className={styles['review-form-label']}>Wall post</Form.Label>*/}
             <Form.Control
               as="textarea"
               rows={6}

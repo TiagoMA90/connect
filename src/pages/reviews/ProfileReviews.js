@@ -32,7 +32,7 @@ const ProfileReviews = ({ profileId, currentUser }) => {
   // ProfileReviews Structure
   return (
     <div className={styles.reviewContainer}>
-      <p className={styles.centerText}>Reviews wall</p>
+      <p className={styles.centerText}><i class="fa-solid fa-star-half-stroke fa-lg"></i> Reviews wall</p>
       <hr className={styles.hr} />
       <div style={scrollableReviewsStyle}>
         {reviews.length === 0 ? (

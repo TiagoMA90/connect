@@ -47,7 +47,7 @@ const FilteredComments = ({ profileId }) => {
     <Container className={`${styles.container} ${styles.Content}`}>
       {profile ? (
         <div className="text-center">
-          <p>{profile.owner}'s Comments</p>
+          <p><i class="fa-regular fa-comment fa-lg"></i>{profile.owner}'s Comments</p>
           <hr />
         </div>
       ) : (
