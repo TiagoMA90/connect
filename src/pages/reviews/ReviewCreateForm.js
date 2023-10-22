@@ -5,7 +5,7 @@ import Collapse from "react-bootstrap/Collapse";
 import Alert from "react-bootstrap/Alert";
 import { Rating } from "react-simple-star-rating";
 import styles from '../../styles/ReviewForm.module.css';
-import btnStyles from "../../styles/Button.module.css"; // Import your button styles
+import btnStyles from "../../styles/Button.module.css";
 
 const ReviewCreateForm = ({ profile_id, createReview, currentUser }) => {
   const [rating, setRating] = useState(0);
@@ -21,13 +21,13 @@ const ReviewCreateForm = ({ profile_id, createReview, currentUser }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // Check if the user is authenticated
+    // Authentication
     if (!currentUser) {
       setErrors(["You must be logged in to write a review."]);
       return;
     }
 
-    // Validate
+    // Validation
     if (rating === 0 || content.trim() === "") {
       setErrors(["Please provide a rating and review content."]);
       return;
@@ -52,7 +52,7 @@ const ReviewCreateForm = ({ profile_id, createReview, currentUser }) => {
     setIsFormOpen(!isFormOpen);
   };
 
-  if (formSubmitted) {
+  if (formSubmitted) { // Success message for Wall submission
     return (
       <Alert variant="secondary">
         You have successfully reviewed this profile.

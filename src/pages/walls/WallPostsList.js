@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 import axios from "axios";
 import WallPost from "../../pages/walls/WallPost";
 import appStyles from "../../App.module.css";
+import styles from "../../styles//WallPostsList.module.css";
 
 const WallPostsList = ({ profileId, currentUser, mobile }) => {
   const [wallPosts, setWallPosts] = useState([]);
@@ -28,17 +29,13 @@ const WallPostsList = ({ profileId, currentUser, mobile }) => {
     }
   }, [profileId]);
 
-  // Inline styling - Scroll Bar (no module.css)
-  const scrollableContainerStyle = {
-    maxHeight: "300px",
-    overflowY: "auto",
-  };
-
   return (
     <Container className={`${appStyles.Content} ${mobile ? "d-lg-none text-center mb-3" : ""}`}>
-      <p className="text-center"><i class="fa-regular fa-comment-dots fa-lg"></i>Community Wall</p>
+      <p className="text-center">
+        <i className="fa-regular fa-comment-dots fa-lg"></i>Community Wall
+      </p>
       <hr />
-      <div style={scrollableContainerStyle}>
+      <div className={styles.scrollableContainer}>
         {wallPosts.length > 0 ? (
           <div className={mobile ? "d-flex justify-content-around" : ""}>
             {wallPosts.map((wallPost) => (
