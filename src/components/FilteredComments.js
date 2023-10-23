@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
-import { Container } from 'react-bootstrap';
+import { Container, Collapse } from 'react-bootstrap'; // Import Collapse
 import styles from '../styles/CommunityComments.module.css';
 import SnipetComments from './SnipetComments';
 
@@ -8,8 +8,8 @@ import SnipetComments from './SnipetComments';
 const FilteredComments = ({ profileId }) => {
   const [comments, setComments] = useState([]);
   const [profile, setProfile] = useState(null);
+  const [isCollapsed, setIsCollapsed] = useState(false); // State for collapse
 
-  // Fetches Profiles & Comments by Profile respectively, by each endpoint
   const fetchProfileDetails = useCallback(async () => {
     try {
       if (!profileId) {
@@ -42,34 +42,40 @@ const FilteredComments = ({ profileId }) => {
     fetchComments();
   }, [fetchProfileDetails, fetchComments]);
 
+  const toggleCollapse = () => {
+    setIsCollapsed(!isCollapsed);
+  };
+
   // Filtered(User) Comments Structure
   return (
     <Container className={`${styles.container} ${styles.Content}`}>
-      {profile ? (
-        <div className="text-center">
-          <p><i class="fa-regular fa-comment fa-lg"></i>{profile.owner}'s Comments</p>
-          <hr />
-        </div>
-      ) : (
-        <p className="text-center">Loading...</p>
-      )}
-      <div className={styles.chatBox}>
-        {comments.length > 0 ? (
-          comments.map((comment) => (
-            <SnipetComments
-              key={comment.id}
-              profile_id={comment.profile_id}
-              profile_image={comment.profile_image}
-              owner={comment.owner}
-              updated_at={comment.updated_at}
-              content={comment.content}
-              post={comment.post}
-            />
-          ))
+      <div className="text-center" onClick={toggleCollapse} style={{ cursor: 'pointer' }}>
+        {profile ? (
+          <p><i className="fa-regular fa-comment fa-lg"></i>{profile.owner}'s Comments</p>
         ) : (
-          <p className="text-center">No comments available.</p>
+          <p className="text-center">Loading...</p>
         )}
+        <hr />
       </div>
+      <Collapse in={!isCollapsed}>
+        <div className={styles.chatBox}>
+          {comments.length > 0 ? (
+            comments.map((comment) => (
+              <SnipetComments
+                key={comment.id}
+                profile_id={comment.profile_id}
+                profile_image={comment.profile_image}
+                owner={comment.owner}
+                updated_at={comment.updated_at}
+                content={comment.content}
+                post={comment.post}
+              />
+            ))
+          ) : (
+            <p className="text-center">No comments available.</p>
+          )}
+        </div>
+      </Collapse>
     </Container>
   );
 };

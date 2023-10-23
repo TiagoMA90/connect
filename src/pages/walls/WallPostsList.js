@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Collapse } from "react-bootstrap";
 import axios from "axios";
 import WallPost from "../../pages/walls/WallPost";
 import appStyles from "../../App.module.css";
-import styles from "../../styles//WallPostsList.module.css";
+import styles from "../../styles/WallPostsList.module.css";
 
 const WallPostsList = ({ profileId, currentUser, mobile }) => {
   const [wallPosts, setWallPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [isCollapsed, setIsCollapsed] = useState(false); // State for collapse
 
   useEffect(() => {
     const fetchWallPosts = async () => {
@@ -29,29 +30,38 @@ const WallPostsList = ({ profileId, currentUser, mobile }) => {
     }
   }, [profileId]);
 
+  // Toggle Collapse
+  const toggleCollapse = () => {
+    setIsCollapsed(!isCollapsed);
+  };
+
   return (
     <Container className={`${appStyles.Content} ${mobile ? "d-lg-none text-center mb-3" : ""}`}>
-      <p className="text-center">
-        <i className="fa-regular fa-comment-dots fa-lg"></i>Community Wall
-      </p>
-      <hr />
-      <div className={styles.scrollableContainer}>
-        {wallPosts.length > 0 ? (
-          <div className={mobile ? "d-flex justify-content-around" : ""}>
-            {wallPosts.map((wallPost) => (
-              <WallPost
-                key={wallPost.id}
-                {...wallPost}
-                currentUser={currentUser}
-                isOwner={wallPost.is_owner}
-                mobile={mobile}
-              />
-            ))}
-          </div>
-        ) : (
-          <p className="text-center">No wall posts available.</p>
-        )}
+      <div className="text-center" onClick={toggleCollapse} style={{ cursor: "pointer" }}>
+        <p>
+          <i className="fa-regular fa-comment-dots fa-lg"></i>Community Wall
+        </p>
       </div>
+      <hr />
+      <Collapse in={!isCollapsed}>
+        <div className={styles.scrollableContainer}>
+          {wallPosts.length > 0 ? (
+            <div className={mobile ? "d-flex justify-content-around" : ""}>
+              {wallPosts.map((wallPost) => (
+                <WallPost
+                  key={wallPost.id}
+                  {...wallPost}
+                  currentUser={currentUser}
+                  isOwner={wallPost.is_owner}
+                  mobile={mobile}
+                />
+              ))}
+            </div>
+          ) : (
+            <p className="text-center">No wall posts available.</p>
+          )}
+        </div>
+      </Collapse>
     </Container>
   );
 };

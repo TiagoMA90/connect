@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Collapse } from "react-bootstrap";
 import axios from "axios";
 import appStyles from "../../App.module.css";
 import Profile from "./Profile";
@@ -27,6 +27,7 @@ const FollowingProfiles = ({ mobile, ownerId }) => {
   const [followingProfiles, setFollowingProfiles] = useState([]);
   const [ownerUsername, setOwnerUsername] = useState("");
   const [errorFetchingData, setErrorFetchingData] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false); // State for collapse
 
   // Fetches all profiles' details from endpoint /profiles/id
   const fetchProfileDetails = async (profileId) => {
@@ -88,10 +89,6 @@ const FollowingProfiles = ({ mobile, ownerId }) => {
 
           setFollowingProfiles(validProfiles);
           setErrorFetchingData(false); // Reset error flag
-
-          // Console.log:
-          console.log("API - response:", allProfiles);
-          console.log("FE - response: Number of followings:", validProfiles.length);
         })
         .catch((error) => {
           console.error("Error fetching following profiles:", error);
@@ -100,46 +97,48 @@ const FollowingProfiles = ({ mobile, ownerId }) => {
     }
   }, [ownerId]);
 
+  // Toggle Collapse
+  const toggleCollapse = () => {
+    setIsCollapsed(!isCollapsed);
+  };
+
   // FollowingProfiles Structure
   return (
     <Container
-      className={`${appStyles.Content} ${
-        mobile ? "d-lg-none text-center mb-3" : ""
-      }`}
+      className={`${appStyles.Content} ${mobile ? "d-lg-none text-center mb-3" : ""}`}
     >
-      <div className="text-center">
-        <p><i class="fa-solid fa-user-group fa-sm"></i>{ownerUsername}'s Followings</p>
-        <hr />
-        {errorFetchingData ? (
-          <p>Failed to fetch data. Please try again later.</p>
-        ) : (
-          <div
-            className={`text-center ${
-              mobile ? "d-flex flex-wrap justify-content-center" : ""
-            }`}
-          >
-            {followingProfiles.length > 0 ? (
-              <div
-                style={{ // Styling scrollbar (No .module.css)
-                  overflowY: "auto", // Applies a scrollbar for vertical overflow
-                  maxHeight: "300px", // Adjusts the max height as needed
-                }}
-              >
-                {followingProfiles.map((profile) => (
-                  <Profile
-                    key={profile.id}
-                    profile={profile.profileDetails}
-                    mobile={mobile}
-                    showButtons={false}
-                  />
-                ))}
-              </div>
-            ) : (
-              <p>This section is Empty</p>
-            )}
-          </div>
-        )}
+      <div className="text-center" onClick={toggleCollapse} style={{ cursor: "pointer" }}>
+        <p>
+          <i className="fa-solid fa-user-group fa-sm"></i>
+          {ownerUsername}'s Followings
+        </p>
       </div>
+      <hr />
+      <Collapse in={!isCollapsed}>
+        <div
+          className={`text-center ${mobile ? "d-flex flex-wrap justify-content-center" : ""}`}
+        >
+          {followingProfiles.length > 0 ? (
+            <div
+              style={{
+                overflowY: "auto",
+                maxHeight: "300px",
+              }}
+            >
+              {followingProfiles.map((profile) => (
+                <Profile
+                  key={profile.id}
+                  profile={profile.profileDetails}
+                  mobile={mobile}
+                  showButtons={false}
+                />
+              ))}
+            </div>
+          ) : (
+            <p>This section is Empty</p>
+          )}
+        </div>
+      </Collapse>
     </Container>
   );
 };
