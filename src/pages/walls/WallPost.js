@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import axios from "axios";
 import btnStyles from "../../styles/Button.module.css";
 import styles from "../../styles/Review.module.css";
+import wallPostStyles from "../../styles/WallPost.module.css";
 
 const WallPost = (props) => {
   const { id, owner, updated_at, content, currentUser, isOwner } = props;
@@ -38,15 +39,13 @@ const WallPost = (props) => {
   };
 
   return (
-    <div style={{ border: "1px solid #ccc", borderRadius: "5px", padding: "10px" }}>
+    <div className={wallPostStyles.wallPostContainer}>
       <Media>
         <Media.Body className="align-self-center ml-2">
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <div className={wallPostStyles.wallPostHeader}>
             <div>
-              <span style={{ fontWeight: "bold" }}>{owner}</span>
-              <span style={{ color: "gray", fontSize: "12px", marginLeft: "10px" }}>
-                • {updated_at}
-              </span>
+              <span className={wallPostStyles.wallPostOwner}>{owner}</span>
+              <span className={wallPostStyles.wallPostDate}>• {updated_at}</span>
             </div>
             {currentUser && isOwner && (
               <button
@@ -65,7 +64,7 @@ const WallPost = (props) => {
                 onChange={(e) => setEditedContent(e.target.value)}
                 style={{ width: "100%" }}
               />
-              <div className="button-container">
+              <div className={wallPostStyles.editButtonContainer}>
                 <Button
                   type="submit"
                   className={`${btnStyles.Button} ${btnStyles.Bright}`}

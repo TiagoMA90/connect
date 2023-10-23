@@ -37,14 +37,9 @@ const WallPostCreateForm = ({ profileId, createWallPost, currentUser }) => {
       content: content,
     };
 
-    // Call the createWallPost function (passed from the parent component)
     createWallPost(wallPostData);
-
-    // Reset the form and clears errors
     setContent("");
     setErrors([]);
-
-    // Set the formSubmitted state to true
     setFormSubmitted(true);
   };
 
@@ -61,7 +56,7 @@ const WallPostCreateForm = ({ profileId, createWallPost, currentUser }) => {
     <div>
       {formSubmitted ? ( // Success message for Wall submission
         <Alert variant="secondary">
-          You have successfully posted on th Community Wall.
+          You have successfully posted on the Community Wall.
         </Alert>
       ) : (
         <>

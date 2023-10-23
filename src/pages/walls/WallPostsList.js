@@ -49,7 +49,7 @@ const WallPostsList = ({ profileId, currentUser, mobile }) => {
             ))}
           </div>
         ) : (
-          <p>No wall posts available.</p>
+          <p className="text-center">No wall posts available.</p>
         )}
       </div>
     </Container>
