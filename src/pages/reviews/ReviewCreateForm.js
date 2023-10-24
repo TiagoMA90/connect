@@ -81,12 +81,15 @@ const ReviewCreateForm = ({ profile_id, createReview, currentUser }) => {
           id="review-form-collapse"
         >
           <Form.Group>
-            {/*<Form.Label className={styles['reviewFormLabel']}>Review</Form.Label>*/}
+            <Form.Label htmlFor="reviewContent" srOnly>
+              Review
+            </Form.Label>
             <Form.Control
               as="textarea"
               rows={6}
               value={content}
               onChange={(e) => setContent(e.target.value)}
+              id="reviewContent"
               placeholder="Write a review for this user profile..."
             />
           </Form.Group>
@@ -100,6 +103,7 @@ const ReviewCreateForm = ({ profile_id, createReview, currentUser }) => {
             <Button
               type="submit"
               className={`${btnStyles.Button} ${btnStyles.Bright}`}
+              aria-label="Submit to Review"
             >
               Submit
             </Button>

@@ -84,11 +84,13 @@ const WallPostCreateForm = ({ profileId, createWallPost, currentUser }) => {
               className={wallPostStyles["wallPostForm"]}
             >
               <Form.Group>
+                <Form.Label htmlFor="wallPostContent" srOnly>Write a message on the wall:</Form.Label>
                 <Form.Control
                   as="textarea"
                   rows={6}
                   value={content}
                   onChange={(e) => setContent(e.target.value)}
+                  id="wallPostContent"
                   placeholder="Write a message on the wall..."
                 />
               </Form.Group>
@@ -104,6 +106,7 @@ const WallPostCreateForm = ({ profileId, createWallPost, currentUser }) => {
               <Button
                 type="submit"
                 className={`${btnStyles.Button} ${btnStyles.Bright}`}
+                aria-label="Submit to the Wall"
               >
                 Submit
               </Button>

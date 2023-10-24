@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { axiosReq } from '../api/axiosDefaults';
 import Modal from 'react-modal';
 import styles from '../styles/Report.module.css';
-import btnStyles from "../styles/Button.module.css";
-import Button from "react-bootstrap/Button";
+import btnStyles from '../styles/Button.module.css';
+import Button from 'react-bootstrap/Button';
+import Form from "react-bootstrap/Form";
 
 // Set the App element for react-modal
 Modal.setAppElement('#root');
@@ -56,7 +57,7 @@ const Report = ({ postId }) => {
         <i className="fa-regular fa-flag"></i>
       </span>
       {success ? (
-        <p>This Post has been successfully reported!</p>
+        <p className="alert alert-secondary alert-secondary">This Post has been successfully reported!</p>
       ) : (
         <ReportModal
           isOpen={isOpen}
@@ -70,6 +71,7 @@ const Report = ({ postId }) => {
       )}
     </span>
   );
+  
 };
 
 // Report Structure - Modal
@@ -82,12 +84,18 @@ const ReportModal = ({ isOpen, onRequestClose, onSubmit, reason, handleReasonCha
       className={styles['reportModal']}
       overlayClassName={styles['reportOverlay']}
     >
-      <h5><i className="fa-solid fa-triangle-exclamation"></i> You are about to make a report!</h5>
-      <p>We highly encourage our community to participate and share posts. However, if the post falls under Spam, Innapropriate content or any other sort of inadequate submition, we will take action.</p>
-      <p>Before you file a report against a fellow community user, make sure this Post goes against the Rules & Community guidelines of the "Code of Conduct" in the Terms of Service.</p>
-      <form onSubmit={onSubmit}>
+      <h5>
+        <i className="fa-solid fa-triangle-exclamation"></i> You are about to make a report!
+      </h5>
+      <p>
+        We highly encourage our community to participate and share posts. However, if the post falls under Spam, Inappropriate content or any other sort of inadequate submission, we will take action.
+      </p>
+      <p>
+        Before you file a report against a fellow community user, make sure this Post goes against the Rules & Community guidelines of the "Code of Conduct" in the Terms of Service.
+      </p>
+      <Form onSubmit={onSubmit}>
         <div>
-          <label htmlFor="reason">Reason:</label>
+          <Form.Label htmlFor="reason">Reason:</Form.Label>
           <br/>
           <select id="reason" className={styles['reasonInput']} value={reason} onChange={handleReasonChange}>
             <option value="spam">Spam</option>
@@ -96,9 +104,9 @@ const ReportModal = ({ isOpen, onRequestClose, onSubmit, reason, handleReasonCha
           </select>
         </div>
         <div>
-        <br/>
-        <p>Please, give in a brief descrition as to why you are reporting this post.</p>
-          <label htmlFor="description">Description (optional):</label>
+          <br/>
+          <p>Please, give in a brief description as to why you are reporting this post.</p>
+          <Form.Label htmlFor="description">Description (optional):</Form.Label>
           <textarea
             id="description"
             value={description}
@@ -108,11 +116,15 @@ const ReportModal = ({ isOpen, onRequestClose, onSubmit, reason, handleReasonCha
         </div>
         <div className={styles['buttonContainer']}>
           <div style={{ textAlign: 'center' }}>
-            <Button className={`${btnStyles.Button} ${btnStyles.Bright}`} type="submit">Report</Button> {/* Submits the Report */}
-            <Button className={`${btnStyles.Button} ${btnStyles.Bright}`} type="button" onClick={onRequestClose}>Cancel</Button> {/* Cancels the Report */}
+            <Button className={`${btnStyles.Button} ${btnStyles.Bright}`} type="submit">
+              Report
+            </Button> {/* Submits the Report */}
+            <Button className={`${btnStyles.Button} ${btnStyles.Bright}`} type="button" onClick={onRequestClose}>
+              Cancel
+            </Button> {/* Cancels the Report */}
           </div>
         </div>
-      </form>
+      </Form>
     </Modal>
   );
 };
