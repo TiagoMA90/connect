@@ -1,18 +1,20 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 
 import styles from "../../styles/CommentCreateEditForm.module.css";
-import Avatar from "../../components/Avatar";
+// import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
+import btnStyles from "../../styles/Button.module.css";
+
 
 import appStyles from "../../App.module.css";
 
 // CommentCreateForm Component
 function CommentCreateForm(props) {
-  const { post, setPost, setComments, profileImage, profile_id } = props;
+  const { post, setPost, setComments, profileImage, profile_id } = props; //Ignore the profileImage & profile_id, (commented)
   const [content, setContent] = useState("");
 
   const handleChange = (event) => {
@@ -49,16 +51,19 @@ function CommentCreateForm(props) {
     <Form className="mt-2" onSubmit={handleSubmit}>
       <Form.Group>
         <InputGroup>
+        
+          {/*Commented (ignore this, left here for my own documentation):
           <Link to={`/profiles/${profile_id}`}>
             <Avatar src={profileImage} />
-          </Link>
+          </Link>*/}
+
         <label htmlFor="commentTextarea" className={appStyles['visually-hidden']}>{/* CSS - Hides Label for Screen readers, to prevent Empty Label */}
           Comment section
         </label>
         <Form.Control
           id="commentTextarea"
           className={styles.Form}
-          placeholder="Write a comment..."
+          placeholder="Write a comment to this post..."
           as="textarea"
           value={content}
           onChange={handleChange}
@@ -66,13 +71,15 @@ function CommentCreateForm(props) {
         />
         </InputGroup>
       </Form.Group>
-      <button
-        className={`${styles.Button} btn d-block ml-auto`}
-        disabled={!content.trim()}
-        type="submit"
-      >
-        Submit
-      </button>
+      <div className="d-flex justify-content-center">
+        <button
+          className={`${btnStyles.Button} ${btnStyles.Bright}`}
+          disabled={!content.trim()}
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
     </Form>
   );
 }

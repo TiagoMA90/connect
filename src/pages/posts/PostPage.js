@@ -19,8 +19,6 @@ import CommentCreateForm from "../comments/CommentCreateForm";
 
 import Asset from "../../components/Asset";
 
-import PopularProfiles from "../profiles/PopularProfiles";
-import CommunityComments from '../../components/CommunityComments';
 import Footer from "../../components/Footer";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
@@ -49,12 +47,13 @@ function PostPage() {
     handleMount();
   }, [id]);
 
- // PostPage Structure
+  // PostPage Structure
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-      <PopularProfiles mobile />
         <Post {...post.results[0]} setPosts={setPost} postPage />
+      </Col>
+      <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         <Container className={appStyles.Content}>
           {currentUser ? (
             <CommentCreateForm
@@ -65,7 +64,7 @@ function PostPage() {
               setComments={setComments}
             />
           ) : comments.results.length ? (
-            "Comments"
+            <div style={{ textAlign: 'center' }}><i class="fa-regular fa-comment fa-lg"></i>Comments</div>
           ) : null}
           {comments.results.length ? (
             <InfiniteScroll
@@ -85,13 +84,9 @@ function PostPage() {
           ) : currentUser ? (
             null //Commented: <span>No comments, be the first one to submit!</span>
           ) : (
-            <span >No comments... This section is empty.</span>
+            <div style={{ textAlign: 'center' }}>No comments... This section is empty.</div>
           )}
         </Container>
-      </Col>
-      <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        <PopularProfiles />
-        <CommunityComments />
         <Footer />
       </Col>
     </Row>

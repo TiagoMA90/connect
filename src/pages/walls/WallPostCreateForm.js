@@ -24,6 +24,14 @@ const WallPostCreateForm = ({ profileId, createWallPost, currentUser }) => {
       return;
     }
 
+    // Character limit check set to >200 (change DRF-api model if I want set higher or lower count)
+    if (content.length > 200) {
+      setErrors([
+        <div className={styles.errorMessage}>Your message is too long.</div>
+      ]);
+      return;
+    }
+
     // Validation
     if (content.trim() === "") {
       setErrors([
@@ -54,7 +62,7 @@ const WallPostCreateForm = ({ profileId, createWallPost, currentUser }) => {
 
   return (
     <div>
-      {formSubmitted ? ( // Success message for Wall submission
+      {formSubmitted ? (
         <Alert variant="secondary">
           You have successfully posted on the Community Wall.
         </Alert>
@@ -97,7 +105,7 @@ const WallPostCreateForm = ({ profileId, createWallPost, currentUser }) => {
                 type="submit"
                 className={`${btnStyles.Button} ${btnStyles.Bright}`}
               >
-                Post Message
+                Submit
               </Button>
             </Form>
           </Collapse>
