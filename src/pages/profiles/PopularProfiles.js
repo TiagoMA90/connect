@@ -9,7 +9,7 @@ const PopularProfiles = ({ mobile }) => {
   const { popularProfiles } = useProfileData();
   const [isCollapsed, setIsCollapsed] = useState(false); // State for collapse
 
-  // Toggle Collapse
+  // Toggle Collapse for the Component
   const toggleCollapse = () => {
     setIsCollapsed(!isCollapsed);
   };

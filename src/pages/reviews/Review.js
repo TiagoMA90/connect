@@ -45,7 +45,7 @@ const Review = (props) => {
                 <Rating readonly initialValue={rating} size={15} />
                 {currentUser && currentUser.username === owner && (
                   <button className={`${styles.editButton} ${styles.editButtonDate}`} onClick={handleEditClick}>
-                    <i className="fa-solid fa-pen-to-square fa-sm"></i>
+                    <i className="fa-solid fa-pen-to-square fa-sm"></i><span className="sr-only">Edit</span>
                   </button>
                 )}
               </div>

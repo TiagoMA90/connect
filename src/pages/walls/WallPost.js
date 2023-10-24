@@ -27,10 +27,10 @@ const WallPost = (props) => {
       if (response.status === 200) {
         setIsEditing(false);
       } else {
-        console.error("Error updating wall post:", response.statusText);
+        // console.error("Error updating wall post:", response.statusText);
       }
     } catch (error) {
-      console.error("Error updating wall post:", error);
+      // console.error("Error updating wall post:", error);
     }
   };
 
@@ -38,6 +38,7 @@ const WallPost = (props) => {
     setIsEditing(false);
   };
 
+  // WallPost Structure
   return (
     <div className={wallPostStyles.wallPostContainer}>
       <Media>
@@ -52,7 +53,7 @@ const WallPost = (props) => {
                 className={`${styles.editButton} ${styles.editButtonDate}`}
                 onClick={handleEditClick}
               >
-                <i className="fa-solid fa-pen-to-square fa-sm"></i>
+                <i className="fa-solid fa-pen-to-square fa-sm"></i><span className="sr-only">Edit</span>
               </button>
             )}
           </div>
@@ -64,7 +65,7 @@ const WallPost = (props) => {
                 onChange={(e) => setEditedContent(e.target.value)}
                 style={{ width: "100%" }}
               />
-              <div className={wallPostStyles.editButtonContainer}>
+              <div className={`d-flex justify-content-center align-items-center ${wallPostStyles.editButtonContainer}`}>
                 <Button
                   type="submit"
                   className={`${btnStyles.Button} ${btnStyles.Bright}`}

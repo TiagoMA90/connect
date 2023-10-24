@@ -11,6 +11,7 @@ const WallPostsList = ({ profileId, currentUser, mobile }) => {
   const [error, setError] = useState(null);
   const [isCollapsed, setIsCollapsed] = useState(false); // State for collapse
 
+  // Fetches all wall endpoint /walls/profile id
   useEffect(() => {
     const fetchWallPosts = async () => {
       try {
@@ -35,6 +36,7 @@ const WallPostsList = ({ profileId, currentUser, mobile }) => {
     setIsCollapsed(!isCollapsed);
   };
 
+  // WallPostsList Structure
   return (
     <Container className={`${appStyles.Content} ${mobile ? "d-lg-none text-center mb-3" : ""}`}>
       <div className="text-center" onClick={toggleCollapse} style={{ cursor: "pointer" }}>

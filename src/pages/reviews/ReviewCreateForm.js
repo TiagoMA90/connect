@@ -60,6 +60,7 @@ const ReviewCreateForm = ({ profile_id, createReview, currentUser }) => {
     );
   }
 
+  // ReviewCreateForm Structure
   return (
     <div>
       {currentUser && ( // Only renders the button if user is Auth.

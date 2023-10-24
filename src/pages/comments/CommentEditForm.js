@@ -3,7 +3,8 @@ import { useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import { axiosRes } from "../../api/axiosDefaults";
-
+import Button from "react-bootstrap/Button";
+import btnStyles from "../../styles/Button.module.css";
 import styles from "../../styles/CommentCreateEditForm.module.css";
 
 // CommentEditForm Component
@@ -52,21 +53,21 @@ function CommentEditForm(props) {
             rows={2}
           />
         </Form.Group>
-        <div className="text-right">
-          <button
-            className={styles.Button}
+        <div className="d-flex justify-content-center align-items-center">
+          <Button
+            className={`${btnStyles.Button} ${btnStyles.Bright}`}
             onClick={() => setShowEditForm(false)}
             type="button"
           >
             Cancel
-          </button>
-          <button
-            className={styles.Button}
+          </Button>
+          <Button
+            className={`${btnStyles.Button} ${btnStyles.Bright}`}
             disabled={!content.trim()}
             type="submit"
           >
             Update
-          </button>
+          </Button>
         </div>
       </Form>
     );

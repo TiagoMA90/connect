@@ -10,6 +10,7 @@ const CommunityComments = () => {
   const [error, setError] = useState(null);
   const [isCollapsed, setIsCollapsed] = useState(false);
 
+  // Fetches all Comments from the endpoint 
   const fetchComments = async () => {
     try {
       const response = await axios.get('https://djangorestframework-api-38c4a098777a.herokuapp.com/comments');
@@ -25,6 +26,7 @@ const CommunityComments = () => {
     fetchComments();
   }, []);
 
+  // Toggle Collapse for the Component
   const toggleCollapse = () => {
     setIsCollapsed(!isCollapsed);
   };

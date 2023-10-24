@@ -23,6 +23,7 @@ const FilteredComments = ({ profileId }) => {
     }
   }, [profileId]);
 
+  // Fetches all Comments from the endpoint  and filters under the profile id
   const fetchComments = useCallback(async () => {
     try {
       if (!profileId) {
@@ -33,7 +34,7 @@ const FilteredComments = ({ profileId }) => {
       const filteredComments = response.data.results.filter(comment => comment.profile_id === profileId);
       setComments(filteredComments);
     } catch (error) {
-      console.error('Error fetching comments:', error);
+      // console.error('Error fetching comments:', error);
     }
   }, [profileId]);
 
@@ -42,6 +43,7 @@ const FilteredComments = ({ profileId }) => {
     fetchComments();
   }, [fetchProfileDetails, fetchComments]);
 
+  // Toggle Collapse for the Component
   const toggleCollapse = () => {
     setIsCollapsed(!isCollapsed);
   };

@@ -60,6 +60,7 @@ const WallPostCreateForm = ({ profileId, createWallPost, currentUser }) => {
     return null;
   }
 
+  // WallPostForm Structure
   return (
     <div>
       {formSubmitted ? (

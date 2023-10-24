@@ -8,6 +8,7 @@ const ProfileReviews = ({ profileId, currentUser }) => {
   const [reviews, setReviews] = useState([]);
   const [isCollapsed, setIsCollapsed] = useState(false);
 
+  // Fetches all reviews details for the endpoint /reviews/profile id
   useEffect(() => {
     const fetchReviews = async () => {
       try {
@@ -16,7 +17,7 @@ const ProfileReviews = ({ profileId, currentUser }) => {
         );
         setReviews(response.data.results);
       } catch (error) {
-        console.error("Error fetching reviews:", error);
+        // console.error("Error fetching reviews:", error);
       }
     };
 

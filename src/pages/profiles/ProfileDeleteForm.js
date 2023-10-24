@@ -9,7 +9,7 @@ import { removeTokenTimestamp } from "../../utils/utils";
 
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
-// ProfileDeleteForm Component - BUGGED
+// ProfileDeleteForm Component - (Note to self: BUGGED)
 const ProfileDeleteForm = ({ id }) => {
   const setCurrentUser = useSetCurrentUser();
   const history = useHistory();
@@ -39,7 +39,7 @@ const ProfileDeleteForm = ({ id }) => {
               className={`${buttonStyles.Button} ${buttonStyles.Wide} ${buttonStyles.Bright}`}
               onClick={handleDelete}
             >
-              Delete Profile {/* Tutor! - "Delete profile" does not delete the profile until the user deletes the browser cookies and refreshes the pages manually // Err401??? */}
+              Delete Profile {/* "Delete profile" does not delete the profile until the user deletes the browser cookies and refreshes the pages manually // Err401??? */}
             </button>
           </div>
         </Col>
