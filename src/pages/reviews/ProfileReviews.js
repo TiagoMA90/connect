@@ -46,7 +46,7 @@ const ProfileReviews = ({ profileId, currentUser }) => {
       <Collapse in={!isCollapsed}>
         <div style={scrollableReviewsStyle}>
           {reviews.length === 0 ? (
-            <p className={styles.centerText}>No one has reviewed this user so far</p>
+            <p className={styles.centerText}>No one has reviewed this user so far...</p>
           ) : (
             reviews.map((review) => (
               <div className={styles.review} key={review.id}>

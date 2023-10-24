@@ -40,7 +40,7 @@ const CommunityComments = () => {
           {loading ? (
             <p className="text-center">Loading comments...</p>
           ) : error ? (
-            <p className="text-center">Error fetching comments.</p>
+            <p className="text-center">Error fetching comments...</p>
           ) : comments.length > 0 ? (
             comments.map((comment) => (
               <ChatComment

@@ -81,7 +81,7 @@ const WallPostCreateForm = ({ profileId, createWallPost, currentUser }) => {
             <Form
               onSubmit={handleSubmit}
               id="wall-post-form-collapse"
-              className={wallPostStyles["wall-post-form"]}
+              className={wallPostStyles["wallPostForm"]}
             >
               <Form.Group>
                 <Form.Control

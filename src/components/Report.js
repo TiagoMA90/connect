@@ -79,8 +79,8 @@ const ReportModal = ({ isOpen, onRequestClose, onSubmit, reason, handleReasonCha
       isOpen={isOpen}
       onRequestClose={onRequestClose}
       contentLabel="Report Post"
-      className={styles['report-modal']}
-      overlayClassName={styles['report-overlay']}
+      className={styles['reportModal']}
+      overlayClassName={styles['reportOverlay']}
     >
       <h5><i className="fa-solid fa-triangle-exclamation"></i> You are about to make a report!</h5>
       <p>We highly encourage our community to participate and share posts. However, if the post falls under Spam, Innapropriate content or any other sort of inadequate submition, we will take action.</p>
@@ -89,7 +89,7 @@ const ReportModal = ({ isOpen, onRequestClose, onSubmit, reason, handleReasonCha
         <div>
           <label htmlFor="reason">Reason:</label>
           <br/>
-          <select id="reason" className={styles['reason-input']} value={reason} onChange={handleReasonChange}>
+          <select id="reason" className={styles['reasonInput']} value={reason} onChange={handleReasonChange}>
             <option value="spam">Spam</option>
             <option value="inappropriate">Inappropriate Content</option>
             <option value="other">Other...</option>
@@ -103,10 +103,10 @@ const ReportModal = ({ isOpen, onRequestClose, onSubmit, reason, handleReasonCha
             id="description"
             value={description}
             onChange={handleDescriptionChange}
-            className={styles['description-input']}
+            className={styles['descriptionInput']}
           />
         </div>
-        <div className={styles['button-container']}>
+        <div className={styles['buttonContainer']}>
           <div style={{ textAlign: 'center' }}>
             <Button className={`${btnStyles.Button} ${btnStyles.Bright}`} type="submit">Report</Button> {/* Submits the Report */}
             <Button className={`${btnStyles.Button} ${btnStyles.Bright}`} type="button" onClick={onRequestClose}>Cancel</Button> {/* Cancels the Report */}

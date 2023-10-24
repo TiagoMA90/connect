@@ -1,18 +1,17 @@
-.review-create-form {
+.reviewCreateForm {
   background: #ffffff;
   border: 1px solid #dadadf;
   box-sizing: border-box;
   color: #555555;
   text-align: center;
-  padding: 10px;
+  padding: 15px;
   border-radius: 2px;
   box-shadow: 0 2px 4px 1px #0000001a;
 }
 
-.review-form-label {
+.reviewFormLabel {
   font-style: normal;
   font-weight: bold;
-  font-size: 16px;
   line-height: 19px;
   text-align: center;
   letter-spacing: 0.2em;
@@ -20,13 +19,45 @@
   color: #555555;
 }
 
-.review-form-button {
+.reviewFormButton {
   text-decoration: none;
   text-align: center;
   display: block;
   margin: auto;
 }
 
-.review-form-button span {
+.reviewFormButton span {
   color: #ff9254;
+}
+
+.reviewUpdateForm {
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f7f7f7;
+  border-radius: 2px;
+}
+
+.reviewUpdateFormInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reviewUpdateFormRatingLabel {
+  font-weight: bold;
+}
+
+.reviewUpdateFormTextarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  box-shadow: inset 0 2px 4px 1px #0000001a;
+}
+
+.reviewUpdated {
+  text-align: center;
+  color: #555555;
+  font-weight: bold;
 }

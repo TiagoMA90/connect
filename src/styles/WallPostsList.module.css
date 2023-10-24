@@ -1,8 +1,7 @@
 .scrollableContainer {
-    max-height: 300px;
-    border-bottom: 1px solid #dadadf;
-    border-top: 1px solid #dadadf;
-    overflow-y: auto;
-    box-shadow: inset 0px -5px 5px -5px rgba(0, 0, 0, 0.3);
-  }
+  max-height: 300px;
+  border-bottom: 1px solid #dadadf;
+  border-top: 1px solid #dadadf;
+  overflow-y: auto;
+}
   

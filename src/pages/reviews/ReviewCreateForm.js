@@ -77,11 +77,11 @@ const ReviewCreateForm = ({ profile_id, createReview, currentUser }) => {
       <Collapse in={isFormOpen}>
         <Form
           onSubmit={handleSubmit}
-          className={styles['review-create-form']}
+          className={styles['reviewCreateForm']}
           id="review-form-collapse"
         >
           <Form.Group>
-            {/*<Form.Label className={styles['review-form-label']}>Review</Form.Label>*/}
+            {/*<Form.Label className={styles['reviewFormLabel']}>Review</Form.Label>*/}
             <Form.Control
               as="textarea"
               rows={6}

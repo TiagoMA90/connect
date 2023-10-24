@@ -1,5 +1,5 @@
 /* Report Modal Styles */
-.report-modal {
+.reportModal {
   width: 60%;
   max-width: 400px;
   margin: 0 auto;
@@ -23,17 +23,17 @@
 }
 
 
-.report-overlay {
+.reportOverlay {
   background-color: #00000080;
 }
 
-.reason-input {
+.reasonInput {
   width: 100%;
   border: 1px solid #dadadf;
   color: #555555;
 }
 
-.description-input {
+.descriptionInput {
   width: 100%;
   height: 150px;
   resize: vertical;

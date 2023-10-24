@@ -1,11 +1,11 @@
-.wall-post-form {
-    background: #ffffff;
-    border: 1px solid #dadadf;
-    box-sizing: border-box;
-    color: #555555;
-    text-align: center;
-    padding: 10px;
-    border-radius: 2px;
-    box-shadow: 0 2px 4px 1px #0000001a;
-  }
+.wallPostForm {
+  background: #ffffff;
+  border: 1px solid #dadadf;
+  box-sizing: border-box;
+  color: #555555;
+  text-align: center;
+  padding: 10px;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px 1px #0000001a;
+}
   

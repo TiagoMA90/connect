@@ -54,7 +54,7 @@ function ProfilePage() {
         setProfilePosts(profilePosts);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
     fetchData();
@@ -141,11 +141,11 @@ function ProfilePage() {
 
   // Function to create a review on the Profile Page
   const createReview = async (reviewData) => {
-    console.log({reviewData})
+    // console.log({reviewData})
     try {
       await axiosReq.post("https://djangorestframework-api-38c4a098777a.herokuapp.com/reviews/", reviewData);
     } catch (error) {
-      console.error("Error creating review:", error);
+      // console.error("Error creating review:", error);
     }
   };
 
