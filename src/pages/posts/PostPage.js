@@ -64,7 +64,7 @@ function PostPage() {
               setComments={setComments}
             />
           ) : comments.results.length ? (
-            <div style={{ textAlign: 'center' }}><i class="fa-regular fa-comment fa-lg"></i>Comments</div>
+            <div style={{ textAlign: 'center' }}><i className="fa-regular fa-comment fa-lg"></i>Comments</div>
           ) : null}
           {comments.results.length ? (
             <InfiniteScroll

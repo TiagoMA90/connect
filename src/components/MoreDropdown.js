@@ -6,7 +6,7 @@ import { useHistory } from "react-router";
 // Dropdown menu for Posts & Comments
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
     <i
-    className ="fa-solid fa-caret-down"
+    className ="fa-solid fa-ellipsis-vertical fa-lg"
       ref={ref}
       onClick={(e) => {
         e.preventDefault();

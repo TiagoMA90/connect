@@ -29,7 +29,6 @@ function PostsPage({ message, filter = "" }) {
   // Function to create a wall pos on the Posts Page
   const id = "id";
   const createWallPost = async (wallPostData) => {
-    console.log({ wallPostData });
     try {
       await axiosReq.post("https://djangorestframework-api-38c4a098777a.herokuapp.com/walls/", wallPostData);
     } catch (error) {

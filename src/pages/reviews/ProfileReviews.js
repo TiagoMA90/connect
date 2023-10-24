@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Review from "../../pages/reviews/Review";
 import styles from "../../styles/ProfileReviews.module.css";
-import { Collapse } from 'react-bootstrap'; // Import Collapse
+import { Collapse } from 'react-bootstrap';
 
 const ProfileReviews = ({ profileId, currentUser }) => {
   const [reviews, setReviews] = useState([]);
-  const [isCollapsed, setIsCollapsed] = useState(false); // State for collapse
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   useEffect(() => {
     const fetchReviews = async () => {
@@ -40,7 +40,7 @@ const ProfileReviews = ({ profileId, currentUser }) => {
   return (
     <div className={styles.reviewContainer}>
       <div className="text-center" onClick={toggleCollapse} style={{ cursor: 'pointer' }}>
-        <p><i className="fa-solid fa-star-half-stroke fa-lg"></i> Reviews wall</p>
+        <p><i className="fa-solid fa-star-half-stroke fa-lg"></i> Reviews Wall</p>
       </div>
       <hr className={styles.hr} />
       <Collapse in={!isCollapsed}>
