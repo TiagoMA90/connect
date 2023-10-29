@@ -32,10 +32,12 @@ const WallPostCreateForm = ({ profileId, createWallPost, currentUser }) => {
       return;
     }
 
-    // Validation
+    // Validation -  If the form is empty display the error
     if (content.trim() === "") {
       setErrors([
-        <div className={styles.errorMessage}>Please write a message if you wish to submit.</div>
+        <div className={styles.errorMessage}>
+          Please write a message if you wish to submit.
+        </div>
       ]);
       return;
     }

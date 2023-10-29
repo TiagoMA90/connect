@@ -27,9 +27,13 @@ const ReviewCreateForm = ({ profile_id, createReview, currentUser }) => {
       return;
     }
 
-    // Validation
-    if (rating === 0 || content.trim() === "") {
-      setErrors(["Please provide a rating and review content."]);
+    // Validation - If the rating is 0 or the content is empty
+    if (content.trim() === "") {
+      setErrors([
+        <div className={styles.errorMessage}>
+          Please provide a rating and review content.
+        </div>
+      ]);
       return;
     }
 

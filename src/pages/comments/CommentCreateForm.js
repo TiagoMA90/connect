@@ -1,28 +1,30 @@
 import React, { useState } from "react";
-// import { Link } from "react-router-dom";
-
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-
 import styles from "../../styles/CommentCreateEditForm.module.css";
-// import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import btnStyles from "../../styles/Button.module.css";
-
-
 import appStyles from "../../App.module.css";
+import Alert from "react-bootstrap/Alert";
 
-// CommentCreateForm Component
 function CommentCreateForm(props) {
-  const { post, setPost, setComments, profileImage, profile_id } = props; //Ignore the profileImage & profile_id, (commented)
+  const { post, setPost, setComments, profileImage, profile_id } = props;
   const [content, setContent] = useState("");
+  const [showWarning, setShowWarning] = useState(false);
 
   const handleChange = (event) => {
     setContent(event.target.value);
+    setShowWarning(false); // Reset the warning when the user types
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    
+    if (content.trim() === "") {
+      setShowWarning(true); // Display the warning if the form is empty
+      return;
+    }
+
     try {
       const { data } = await axiosRes.post("/comments/", {
         content,
@@ -44,37 +46,35 @@ function CommentCreateForm(props) {
     } catch (err) {
       console.log(err);
     }
-  };
+  }
 
   // CommentCreateForm Structure
   return (
     <Form className="mt-2" onSubmit={handleSubmit}>
       <Form.Group>
         <InputGroup>
-        
-          {/*Commented (ignore this, left here for my own documentation):
-          <Link to={`/profiles/${profile_id}`}>
-            <Avatar src={profileImage} />
-          </Link>*/}
-
-        <label htmlFor="commentTextarea" className={appStyles['visually-hidden']}>{/* CSS - Hides Label for Screen readers, to prevent Empty Label */}
-          Comment section
-        </label>
-        <Form.Control
-          id="commentTextarea"
-          className={styles.Form}
-          placeholder="Write a comment to this post..."
-          as="textarea"
-          value={content}
-          onChange={handleChange}
-          rows={2}
-        />
+          <label htmlFor="commentTextarea" className={appStyles['visually-hidden']}>
+            Comment section
+          </label>
+          <Form.Control
+            id="commentTextarea"
+            className={styles.Form}
+            placeholder="Write a comment to this post..."
+            as="textarea"
+            value={content}
+            onChange={handleChange}
+            rows={2}
+          />
         </InputGroup>
       </Form.Group>
+      {showWarning && (
+        <Alert variant="warning" className="text-center">
+          Please write a comment before submitting.
+        </Alert>
+      )}
       <div className="d-flex justify-content-center">
         <button
           className={`${btnStyles.Button} ${btnStyles.Bright}`}
-          disabled={!content.trim()}
           type="submit"
         >
           Submit
