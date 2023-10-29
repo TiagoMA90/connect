@@ -1,7 +1,7 @@
 # Connect
-Connect is a generic Social media platform that allows users to create Posts, write Comments, leave Likes & Follow other Users. Very much similar to Instagram and X, the app was designed to allow Users to share photos with a title & description, within the community.
+Connect is a generic Social media platform that allows users to create Posts, write Comments, Un/Like Posts, Un/Follow Users, write Wall messages and leave Reviews on a user Profile. Very much similar to Instagram and X, the app was designed to allow Users to share photos with a title & description, within the community.
 
-It is a website where Users can share their vacation pictures, give feedback to others & connect.
+It is a website where Users can share their pictures, give feedback to others & connect.
 
 <img src="readme/img/BytesDev.png" alt="screen sizes">
 
@@ -15,7 +15,7 @@ It is a website where Users can share their vacation pictures, give feedback to 
 
 ## Design:
 The website was designed with the intent to allow users to browse posts, read comments and navigate throughout the website at ease.
-It allows users to access all components easily, and lets users perform all CRUD functionalities for their, Posts, Comments, Likes & Profiles. Furthermore, users can Report posts & Contact the moderation panel.
+It allows users to access all components easily, and lets users perform all CRUD functionalities for their, Posts, Comments, Likes & Profiles, to CRU Reviews and Wall messages. Furthermore, users can C Reports for posts & C messages using the Contact for the moderation panel.
 
 ## Wireframes 
 - Read a Post on /home /feed /liked
@@ -64,14 +64,14 @@ It allows users to access all components easily, and lets users perform all CRUD
 
 ## Colour palette
 It relied heavily on colors that should be appealing to the user, especially for those who might visit the website on a daily basis.
-For such, it makes use of a colour palette of a mere white & gray blend for the navigation bar and Orange, close to Vermillion, for the Logo, buttons and active Links. The background was best defined by a grayish white and the body of the post white, bordered by solid lines. Blue and Dark tinted blue was also used on a couple of occasions, such as usernames for comments and button for the follow/unfollow on PopularProfiles.
+For such, it makes use of a colour palette of a mere white & gray blend for the navigation bar and Orange, close to Vermillion, for the Logo, buttons and active Links. The background is best defined by a grayish white and the body of the post white, bordered by solid lines. Blue and Dark tinted blue was also used on a couple of occasions, such as usernames for comments and button for the follow/unfollow on PopularProfiles.
 
 <img src="readme/img/ColorPalette.png" alt="Colour palette">
 
-The components such as NavBar, Posts, Comments, the Users list and Footer are stylized by a shadow-box to invoke the sense of a Polaroid film/picture.
+The components such as NavBar, Posts, Comments, Walls, Reviews, the Users list and Footer are stylized by a shadow-box to invoke the sense of a Polaroid film/picture.
 
 ## Fonts
-The fonts used for this website were "DM sans" and "sans serif" as default. A choice that should be plain and easy to read. The fonts for the navigation links and logo on the navigation bar are dyed in orange, while the body for the posts present themselves with dark grayish/black tone that doesn't stand too much from the body. Links in the navigation bar are gray, but when highlighted or hovered turn orange. If a tab is active, a darker orange highlights the icons of the tab. Links change color upon hover, particularly the username/owner of a post, the icons on a post, such as heart(likes), dialogue(comments), flag(reports), the social media links. The links that redirect users to other pages in the Footer also enjoy the same orderliness.
+The fonts used for this website were "DM sans" and "sans serif" by default. A choice that should be plain and easy to read. The fonts for the navigation links and logo on the navigation bar are dyed in orange, while the body for the posts present themselves with dark grayish/black tone that doesn't stand too much from the body. Links in the navigation bar are gray, but when highlighted or hovered turn orange. If a tab is active, a darker orange highlights the icons of the tab a use is on. Links change color upon hover, particularly the username/owner of a post, the icons on a post, such as heart(likes), dialogue(comments), flag(reports), the social media links. The links that redirect users to other pages in the Footer also enjoy the same orderliness.
 
 <img src="readme/img/GoogleFont.png" alt="Font">
 
@@ -103,7 +103,7 @@ The fonts used for this website were "DM sans" and "sans serif" as default. A ch
 
 ## Comments
 - Users (if authenticated) can write Comments on Posts. This functionality encourages users to give feedback on posts. Comments, like Posts, can also be Edited or Deleted, by following the same pattern in Posts.
-- From the Post page, users ought to click on the Dialogue icon to access the list of Comment, from there write a comment in the form, from the Comment section and hit submit.
+- From the Post page, users ought to click on the Dialogue icon to access the list of Comment, from there write a comment in the form, from the Comment section and hit submit. If no characters have been written and the submit button pushed, a warning message will be displayed
 
 <img src="readme/img/Comments.png" alt="Comments">
 
@@ -111,6 +111,12 @@ The fonts used for this website were "DM sans" and "sans serif" as default. A ch
 - Located on the right panel, just below the "Latest/Users Comments" component (Home/Profile), or SignIn/Up (Components), the footer contains access to the "Contact" component, the social media links & the modal to the "Terms of Service". It is best defined by icons easily recognizable and navigable by Users.
 
 <img src="readme/img/Footer.png" alt="Footer">
+
+## Wall
+- Presented at "/" or "Home", the Wall component is the first component rendered on the right side of the page. It allows users to create/update messages accordingly, so the community can voice their iput or simply introduce themselves. Similar to a chat room, Users are encouraged to use that component as chitchat.
+- From the Home page, users ought to open the Wall form and write a message in the form and then click the submit button. Else a warning message is displayed informing users to try again.
+
+<img src="readme/img/Walls.png" alt="Wall">
 
 ## Contact
 - The "Contact" component grants users the possibility to contact the administration panel regarding any issues they are having with the platform. Users (authentication not necessary) need to input a valid e-mail*, a username, subject of concern and the message they wish to send to the Support team. Upon a successful submission, Users are notified a message has been sent.
@@ -139,6 +145,12 @@ The fonts used for this website were "DM sans" and "sans serif" as default. A ch
 - The User Profile details all activity performed by a given user, such a latest Posts & Comments and the number & List of Followers and Followings. Owners of a profile and visitors can then easily track the latest motions and be on pair with their followings.
 
 <img src="readme/img/Profile.png" alt="Profile">
+
+## Reviews
+- Displayed in a user Profile, the Review component can be found at the lower right side of the profile page of a user. It allows users to create/update reviews accordingly, so the community can rate themselves and their content. It makes use of the react-simple-star-rating when classifying a user.
+- From a user Profile page, users ought to write a review and select the number of stars in the form. If the form is not populated a warning message is displayed informing users on how to proceed.
+
+<img src="readme/img/Reviews.png" alt="Reviews">
 
 ## Edit Profile, Change Username, Update Password, Delete Profile
 - As the owner of a Profile (if authenticated), one may Edit the user handle, avatar, password or entirely delete the Profile. This allows the user to have total control of the User profile and CRUD at will. For such, each functionality is accessed from the dropdown menu, from within a profile owned by a user.
@@ -182,6 +194,12 @@ The fonts used for this website were "DM sans" and "sans serif" as default. A ch
 
 <img src="readme/img/CommunityComments.png" alt="Community Comments">
 
+- Due to the vast volume of components and possible distractions that may cause a user to be confused... to keep the space organized and clean, users can toggle on and off the content for its components visibility, when clicking its respective icon/title.
+
+<img src="readme/img/ProfileToggleOff.png" alt="Profile Toggle">
+<img src="readme/img/HomeToggleOff.png" alt="Home Toggle">
+
+
 # Features & Functionality
 ## Features and Functionality for Reg. Non-Registered Users:
 - Visitors can read all posts from "/".
@@ -206,29 +224,32 @@ The fonts used for this website were "DM sans" and "sans serif" as default. A ch
 
 This [project](https://github.com/users/TiagoMA90/projects/9) was planned using Agile methodology and MoSCoW prioritization.
 
-For this purpose, the project was illustrated by [7 initial Milestone](https://github.com/TiagoMA90/connect/milestones?state=closed) entitled "Navigation & Authentication", "Profiles", "Posts", "Likes", "Comments", "Contacts" and "Reports" providing the developer with the freedom to accomplish all issues/tasks flexibly before dates deadline set to November. The Milestones were broken according to their components name.
+For this purpose, the project was illustrated by [9 initial Milestone](https://github.com/TiagoMA90/connect/milestones?state=closed) entitled "Navigation & Authentication", "Profiles", "Posts", "Likes", "Comments", "Walls", "Reviews", "Contacts" and "Reports" providing the developer with the freedom to accomplish all issues/tasks flexibly before dates deadline set to November. The Milestones were broken according to their components name.
 
 Throughout the development process, tasks started from "Todo," progressing to "In Progress," and finally "Done". The issues were assigned to the sole developer and labeled as "could-have," "should-have,", "must-have", "wont-have" and "bugged".
 
 <img src="readme/img/Labels.png" alt="Labels">
 
-In order of priority, with 25 User Stories, the Project has:
+In order of priority, with 47 User Stories, the Project has:
 
 ## must-have
-- Edit profile must-have
-- Profile page must-have
-- Create a comment must-have
-- Post page must-have
-- View a post must-have
-- Create posts must-have
-- Conditional rendering must-have
-- Refreshing access tokens must-have
-- Logged Status must-have
-- Sign in must-have
-- Authentication - Sign up must-have
-- Routing must-have
-- Navigation must-have
-
+- Edit profile
+- Profile page
+- Create a comment
+- Post page
+- View a post
+- Create posts
+- Conditional rendering
+- Refreshing access tokens
+- Logged Status
+- Sign in
+- Authentication - Sign up
+- Routing
+- Navigation
+- Create a Wall post
+- View community Wall
+- View profile Reviews
+- Create profile Review
 
 ## should-have
 - Footer
@@ -243,6 +264,8 @@ In order of priority, with 25 User Stories, the Project has:
 - View latest posts
 - Like a post
 - Avatar
+- Update a Wall post
+- Update a profile Review
 
 ## could-have
 - Pop the modal for the Terms of Service 
@@ -261,7 +284,7 @@ In order of priority, with 25 User Stories, the Project has:
 - View liked posts could-have
 - Delete Profile*(bugged)
 
-## wont-have
+## wont-have // bugged
 - Delete Profile bugged*(bugged)
 
 ## Development Process
@@ -283,9 +306,17 @@ For Commits on this project, the following commands ran:
 - ```git commit -m "written imperative declaration"``` <- Declares changes and updates.
 - ```git push``` <- Push all updates to the GitHub Repository.
 
-Through developmen the following commands ran:
+Through development the following commands ran:
 - ```npm install``` <- Installs Reacts dependencies
 - ```npm run start``` <- Runs the app in local environment
+
+Additionally, the following:
+- ```npm install react```
+- ```npm install axios```
+- ```npm install react-bootstrap```
+- ```npm install react-router-dom```
+- ```npm install react-modal```
+- ```npm install react-simple-star-rating```
 
 The database is being hosted on ElephantSQL:
 - Create an account(with GitHub) and select TinyTurtle plan.
@@ -338,6 +369,7 @@ The following sources and references were resorted for the creation of this webs
 
 - The lessons and tutorials provided by Code Institute, on the final module entitled "Moments" for the 'Advanced Front-End' specialization
 - The Tutor team provided by Code Institutes Student Support
+- The mentor Gareth McGirr for (react-simple-star-rating)[https://react-simple-star-rating.vercel.app/?path=/story/introduction--page] and his examplar repo body-doodles.
 - Slack(#project-portfolio-5-advanced-frontend) as a solution platform for broken code and guidance on how to procceed to blockades
 - [React](https://legacy.reactjs.org/docs/getting-started.html) documentation
 - [React Bootstrap](https://react-bootstrap.netlify.app/) documetation
