@@ -20,26 +20,22 @@
   text-transform: uppercase;
   color: #555555;
 }
-  
+
 .Link {
   text-decoration: none;
   text-align: center;
   display: block;
   margin: auto;
 }
-  
-.Link span {
-  color: #ff9254;
-}
-  
+
 .Container {
   padding: 30px 10px;
 }
-  
+
 .SignInCol {
   height: 420px;
 }
-  
+
 .SignUpCol {
   height: 470px;
 }

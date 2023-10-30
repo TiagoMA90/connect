@@ -111,19 +111,26 @@ LIST OF LINKS TO VALIDATION
 -
 
 
-- The .html template structure for the component and format passed through the official [W3validator](https://validator.w3.org/) with no issues whatsoever.
+- The .html template structure for the component and format passed through the official [W3validator](https://validator.w3.org/) with no issues whatsoever. [See the Report]()
 LINK
 IMG
 
-- The .css styling file was tested and validated through [W3jigsaw](https://jigsaw.w3.org/css-validator/) with no issues.
-LINK
-IMG
+- The .css styling file was tested and validated through [W3jigsaw](https://jigsaw.w3.org/css-validator/) with no issues. [See the Report](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fconnect-network-ee92c70de293.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+<img src="readme/img/W3Jigsaw.png" alt="W3 Jigsaw">
 
 - The React components were tested and validated through [JSHint](https://jshint.com/) with no issues whatsoever.
 IMG
 
 # Errors & Bugs
 ## Bug while Spamming
+
+Through out development errors were found, confronted and solved.
+Console Errors were caught on try blocks commented out and dealt accordingly.
+Currently, the only errors still being logged are 401 (Unauthorized) when accessing the [Sign Up](https://connect-network-ee92c70de293.herokuapp.com/signup) and [Sign In](https://connect-network-ee92c70de293.herokuapp.com/signin) pages.
+
+<img src="readme/img/ConsoleError.png" alt="401">
+
+
 Upon manual testing, if an authenticated User tries to delete a profile, it fails to properly eliinate the user profile.
 After various attempts on how to correct this bug, the developer sought to delete this functionality altogether, but decided to keep it instead is and work on it when time allows.
 
