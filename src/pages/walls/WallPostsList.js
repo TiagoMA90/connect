@@ -9,34 +9,35 @@ const WallPostsList = ({ profileId, currentUser, mobile }) => {
   const [wallPosts, setWallPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [isCollapsed, setIsCollapsed] = useState(false); // State for collapse
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
-  // Fetches all wall endpoint /walls/profile id
-  useEffect(() => {
-    const fetchWallPosts = async () => {
-      try {
-        const response = await axios.get(
-          `https://djangorestframework-api-38c4a098777a.herokuapp.com/walls/?profile_id=${profileId}`
-        );
-        setWallPosts(response.data.results);
-        setLoading(false);
-      } catch (error) {
-        setError(error);
-        setLoading(false);
-      }
-    };
-
-    if (profileId) {
-      fetchWallPosts();
+  const fetchWallPosts = async () => {
+    try {
+      const response = await axios.get(
+        `https://djangorestframework-api-38c4a098777a.herokuapp.com/walls/?profile_id=${profileId}`
+      );
+      setWallPosts(response.data.results);
+      setLoading(false);
+    } catch (error) {
+      setError(error);
+      setLoading(false);
     }
+  };
+
+  // Fetch new wall posts every 1 second
+  useEffect(() => {
+    const intervalId = setInterval(fetchWallPosts, 1000); // set the millisecods = 1 seconds
+
+    return () => {
+      clearInterval(intervalId);
+    };
   }, [profileId]);
 
-  // Toggle Collapse
   const toggleCollapse = () => {
     setIsCollapsed(!isCollapsed);
   };
 
-  // WallPostsList Structure
+  // WallPostList Structure
   return (
     <Container className={`${appStyles.Content} ${mobile ? "d-lg-none text-center mb-3" : ""}`}>
       <div className="text-center" onClick={toggleCollapse} style={{ cursor: "pointer" }}>

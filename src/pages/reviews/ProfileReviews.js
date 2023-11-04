@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import Review from "../../pages/reviews/Review";
 import styles from "../../styles/ProfileReviews.module.css";
@@ -8,23 +8,28 @@ const ProfileReviews = ({ profileId, currentUser }) => {
   const [reviews, setReviews] = useState([]);
   const [isCollapsed, setIsCollapsed] = useState(false);
 
-  // Fetches all reviews details for the endpoint /reviews/profile id
-  useEffect(() => {
-    const fetchReviews = async () => {
-      try {
-        const response = await axios.get(
-          `https://djangorestframework-api-38c4a098777a.herokuapp.com/reviews/?profile=${profileId}`
-        );
-        setReviews(response.data.results);
-      } catch (error) {
-        // console.error("Error fetching reviews:", error);
-      }
-    };
-
-    if (profileId) {
-      fetchReviews();
+  const fetchReviews = useCallback(async () => {
+    try {
+      const response = await axios.get(
+        `https://djangorestframework-api-38c4a098777a.herokuapp.com/reviews/?profile=${profileId}`
+      );
+      setReviews(response.data.results);
+    } catch (error) {
+      // Handle the error here
     }
   }, [profileId]);
+
+  useEffect(() => {
+    // Fetch reviews initially
+    fetchReviews();
+
+    // Fetch new reviews every 1 second
+    const intervalId = setInterval(fetchReviews, 1000); // set the millisecods = 1 seconds
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [fetchReviews]);
 
   // Inline styling - Scroll Bar (no module.css)
   const scrollableReviewsStyle = {
