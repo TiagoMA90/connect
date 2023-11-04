@@ -10,6 +10,7 @@ const Review = (props) => {
   const [isEditing, setIsEditing] = useState(false);
   const [isReviewVisible, setIsReviewVisible] = useState(true);
   const [originalContent, setOriginalContent] = useState(content);
+  const [updatedContent, setUpdatedContent] = useState("");
   const [updateMessage, setUpdateMessage] = useState("");
 
   const handleEditClick = () => {
@@ -20,9 +21,7 @@ const Review = (props) => {
   const handleSaveReview = (updatedContent) => {
     setIsEditing(false);
     setIsReviewVisible(true);
-    setOriginalContent(updatedContent);
-
-    // Set the update message when the Review is updated
+    setUpdatedContent(updatedContent);
     setUpdateMessage("Your review has been updated!");
   };
 
@@ -63,7 +62,12 @@ const Review = (props) => {
           <>
             <hr />
             <p>{originalContent}</p>
-            {updateMessage && <p>{updateMessage}</p>} {/* Displays an update message when the review has been updated */}
+            {updateMessage && (
+              <div className="alert alert-warning" role="alert">
+                {updateMessage}
+              </div>
+            )}
+            {updatedContent && <p>Updated Review: {updatedContent}</p>}
           </>
         )}
       </Media.Body>
