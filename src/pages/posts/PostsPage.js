@@ -26,16 +26,15 @@ function PostsPage({ message, filter = "" }) {
   const [query, setQuery] = useState("");
   const currentUser = useCurrentUser();
 
-  // Function to create a wall pos on the Posts Page
+  // Function to create a wall post on the Posts Page
   const id = "id";
   const createWallPost = async (wallPostData) => {
-    // console.log({ wallPostData });
     try {
       await axiosReq.post("https://djangorestframework-api-38c4a098777a.herokuapp.com/walls/", wallPostData);
     } catch (error) {
-      // console.error("Error creating wall post:", error);
+      // Handle the error
     }
-  };
+  }
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -44,7 +43,7 @@ function PostsPage({ message, filter = "" }) {
         setPosts(data);
         setHasLoaded(true);
       } catch (err) {
-        // console.log(err);
+        // Handle the error
       }
     };
 
@@ -58,6 +57,7 @@ function PostsPage({ message, filter = "" }) {
     };
   }, [filter, query, pathname, currentUser]);
 
+  // PostsPage Structure
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
@@ -104,14 +104,11 @@ function PostsPage({ message, filter = "" }) {
           </Container>
         )}
       </Col>
-      <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-        <WallPostsList profileId={id} currentUser={currentUser} />
-        <WallPostCreateForm profileId={id} createWallPost={createWallPost} currentUser={currentUser} />
-        <PopularProfiles />
-        <CommunityComments />
-        <Footer />
-      </Col>
-      <Col className="d-block d-md-none p-0 p-lg-2">
+      <Col className="d-block p-0 p-lg-2">
+        <div className="tablet-and-mobile-only">
+          <WallPostsList profileId={id} currentUser={currentUser} />
+          <WallPostCreateForm profileId={id} createWallPost={createWallPost} currentUser={currentUser} />
+        </div>
         <CommunityComments />
         <Footer />
       </Col>
