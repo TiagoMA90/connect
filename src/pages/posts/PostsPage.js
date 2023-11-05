@@ -109,6 +109,9 @@ function PostsPage({ message, filter = "" }) {
           <WallPostsList profileId={id} currentUser={currentUser} />
           <WallPostCreateForm profileId={id} createWallPost={createWallPost} currentUser={currentUser} />
         </div>
+        <div className="d-none d-lg-block">
+          <PopularProfiles />
+        </div>
         <CommunityComments />
         <Footer />
       </Col>
