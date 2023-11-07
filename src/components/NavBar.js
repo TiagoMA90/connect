@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Navbar } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { Nav } from "react-bootstrap";
-import logo from "../assets/logo.png";
+import logo from "../assets/connectlogo.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
 import { useCurrentUser } from "../contexts/CurrentUserContext";

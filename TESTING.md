@@ -93,8 +93,6 @@ After various examinations, tests and corrections for all its pages the website 
 
 The website is responsive and displays a pleasing style to the viewers, with colors contrasting each other. Aria labels have been applied together with Structural Elements and Features.
 
-
-
 UPDATE:
 ## Validation 
 Via URL of the deployed website on Heroku, all pages were validated through validator.w3.org & jigsaw.w3.org.
@@ -115,7 +113,7 @@ LIST OF LINKS TO VALIDATION
 LINK
 IMG
 
-- The .css styling file was tested and validated through [W3jigsaw](https://jigsaw.w3.org/css-validator/) with no issues. [See the Report](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fconnect-network-ee92c70de293.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+- The .css styling file was tested and validated through [W3jigsaw](https://jigsaw.w3.org/css-validator/) with no issues, via direct input. [See the Report](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fconnect-network-ee92c70de293.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 <img src="readme/img/W3Jigsaw.png" alt="W3 Jigsaw">
 
 - The React components were tested and validated through [JSHint](https://jshint.com/) with no issues whatsoever.
