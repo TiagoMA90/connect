@@ -110,7 +110,11 @@ function ProfilePage() {
               </Button>
             ))}
         </Col>
-        {profile?.content && <Col className="p-3">{profile.content}</Col>}
+        {profile?.content && (
+          <Col className="p-3" style={{ border: '0.5px dashed #dadadf', marginTop: '20px' }}>
+            {profile.content}
+          </Col>
+        )}
       </Row>
     </>
   );
