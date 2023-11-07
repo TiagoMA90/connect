@@ -11,6 +11,7 @@ function CommentCreateForm(props) {
   const { post, setPost, setComments, profileImage, profile_id } = props;
   const [content, setContent] = useState("");
   const [showWarning, setShowWarning] = useState(false);
+  const [commentCreated, setCommentCreated] = useState(false);
 
   const handleChange = (event) => {
     setContent(event.target.value);
@@ -19,9 +20,9 @@ function CommentCreateForm(props) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    
+
     if (content.trim() === "") {
-      setShowWarning(true); // Display the warning if the form is empty
+      setShowWarning(true); // If the form is empty and submit display warning
       return;
     }
 
@@ -43,6 +44,7 @@ function CommentCreateForm(props) {
         ],
       }));
       setContent("");
+      setCommentCreated(true); // Indicates a comment has been created
     } catch (err) {
       console.log(err);
     }
@@ -50,37 +52,49 @@ function CommentCreateForm(props) {
 
   // CommentCreateForm Structure
   return (
-    <Form className="mt-2" onSubmit={handleSubmit}>
-      <Form.Group>
-        <InputGroup>
-          <label htmlFor="commentTextarea" className={appStyles['visually-hidden']}>
-            Comment section
-          </label>
-          <Form.Control
-            id="commentTextarea"
-            className={styles.Form}
-            placeholder="Write a comment to this post..."
-            as="textarea"
-            value={content}
-            onChange={handleChange}
-            rows={2}
-          />
-        </InputGroup>
-      </Form.Group>
-      {showWarning && (
-        <Alert variant="warning" className="text-center">
-          Please write a comment before submitting.
-        </Alert>
-      )}
-      <div className="d-flex justify-content-center">
-        <button
-          className={`${btnStyles.Button} ${btnStyles.Bright}`}
-          type="submit"
-        >
-          Submit
-        </button>
+    <div>
+      <div style={{ textAlign: 'center' }}>
+        <i className="fa-regular fa-comment fa-lg"></i>Comments
+        <hr />
       </div>
-    </Form>
+      {commentCreated ? (
+        <Alert variant="secondary" className="text-center">
+          You wrote a comment to this post.
+        </Alert>
+      ) : (
+        <Form className="mt-2" onSubmit={handleSubmit}>
+          <Form.Group>
+            <InputGroup>
+              <label htmlFor="commentTextarea" className={appStyles['visually-hidden']}>
+                Comment section
+              </label>
+              <Form.Control
+                id="commentTextarea"
+                className={styles.Form}
+                placeholder="Write a comment to this post..."
+                as="textarea"
+                value={content}
+                onChange={handleChange}
+                rows={2}
+              />
+            </InputGroup>
+          </Form.Group>
+          {showWarning && (
+            <Alert variant="warning" className="text-center">
+              Please write a comment before submitting.
+            </Alert>
+          )}
+          <div className="d-flex justify-content-center">
+            <button
+              className={`${btnStyles.Button} ${btnStyles.Bright}`}
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>
+        </Form>
+      )}
+    </div>
   );
 }
 

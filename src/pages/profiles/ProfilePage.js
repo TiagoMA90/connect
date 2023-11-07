@@ -170,6 +170,8 @@ function ProfilePage() {
         {profile?.id && (
           <FilteredComments profileId={profile.id} />
         )}
+        <ProfileReviews profileId={id} currentUser={currentUser} />
+        <ReviewCreateForm profile_id={id} currentUser={currentUser} createReview={createReview} />
         <Footer />
       </Col>
       <Col className="d-block d-md-block d-lg-none p-0 p-md-2">
