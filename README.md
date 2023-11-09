@@ -9,7 +9,7 @@ It is a website where Users can share their pictures, give feedback to others & 
 - The live website can be found [here](https://connect-network-ee92c70de293.herokuapp.com/)
 
 ## Purpose of the website:
-- To provide a platform where users can share their pictures and comments.
+- To provide a platform where users can share their posts/pictures and comments.
 - To create a community of users and like minded individuals.
 - To connect with people.
 
@@ -19,6 +19,7 @@ It allows users to access all components easily, and lets users perform all CRUD
 
 # Wireframes
 ## Desktop
+
 - Read a Post on /home /feed /liked
 
 <img src="readme/img/ReadPost.png" alt="Read a Post">
@@ -64,8 +65,8 @@ It allows users to access all components easily, and lets users perform all CRUD
 <img src="readme/img/DeleteProfile.png" alt="Delete Profile">
 
 # Mobile
+For mobiles, the structure of the website remained the same with the exception of the Posts and Profile pages, where the horizontal components adopted a vertical fashion.
 
-For mobiles, the structure of the website remained the same with the exception of the Posts and Profile pages, where the horizontal components adopted a more vertical fashion.
 - Read a Post on /home /feed /liked
 
 <img src="readme/img/ReadPostMobile.png" alt="Read a Post">
@@ -80,10 +81,10 @@ For such, it makes use of a colour palette of a mere white & gray blend for the 
 
 <img src="readme/img/ColorPalette.png" alt="Colour palette">
 
-The components such as NavBar, Posts, Comments, Walls, Reviews, the Users list and Footer are stylized by a shadow-box to invoke the sense of a Polaroid film/picture.
+The components such as NavBar, Posts, Comments, Walls, Reviews, Users list and Footer are stylized by a shadow-box to invoke the sense of a Polaroid film/picture.
 
 ## Fonts
-The fonts used for this website were "DM sans" and "sans serif" by default. A choice that should be plain and easy to read. The fonts for the navigation links and logo on the navigation bar are dyed in orange, while the body for the posts present themselves with dark grayish/black tone that doesn't stand too much from the body. Links in the navigation bar are gray, but when highlighted or hovered turn orange. If a tab is active, a darker orange highlights the icons of the tab a use is on. Links change color upon hover, particularly the username/owner of a post, the icons on a post, such as heart(likes), dialogue(comments), flag(reports), the social media links. The links that redirect users to other pages in the Footer also enjoy the same orderliness.
+The fonts used for this website were "DM sans" and "sans serif" by default. A choice that should be plain and easy to read. The fonts for the navigation links and logo on the navigation bar are dyed in orange, while the body for the posts present themselves with dark grayish/black tone that doesn't stand too much from the body. Links in the navigation bar are gray, but when highlighted or hovered turn orange. If a tab is active, a darker orange highlights the icons of the tab a user is on. Links change color upon hover, particularly the username/owner of a post, the icons on a post, such as heart(likes), dialogue(comments), flag(reports), the social media links. The links that redirect users to other pages in the Footer and icons on each conponent enjoy the same orderliness.
 
 <img src="readme/img/GoogleFont.png" alt="Font">
 
@@ -101,8 +102,8 @@ The fonts used for this website were "DM sans" and "sans serif" by default. A ch
 <img src="readme/img/PostPage.png" alt="Post page">
 
 ## Likes
-- From a Post, Users (if authenticated) can also leave likes and consequently remove the like (dislike) to Posts. This show appreciation from the community.
-- The counter then rises per user, by +1 or -1, but never below 0.
+- From a Post, Users (if authenticated) can also leave likes and consequently remove the like (dislike) to Posts. This shows appreciation from users to the community.
+- The counter for Likes then rises per user, by +1 or -1, but never below 0.
 - Owners of a Post cannot like/dislike their own posts.
 
 <img src="readme/img/Likes.png" alt="Likes">
@@ -115,7 +116,8 @@ The fonts used for this website were "DM sans" and "sans serif" by default. A ch
 
 ## Comments
 - Users (if authenticated) can write Comments on Posts. This functionality encourages users to give feedback on posts. Comments, like Posts, can also be Edited or Deleted, by following the same pattern in Posts.
-- From the Post page, users ought to click on the Dialogue icon to access the list of Comment, from there write a comment in the form, from the Comment section and hit submit. If no characters have been written and the submit button pushed, a warning message will be displayed
+- From the Post page, users ought to click on the Dialogue icon to access the list of Comments. From there a comment can be written via the input form, from the Comment section and hit submit. If no characters have been written and the submit button pushed, a warning message will be displayed.
+- If successfully submitted, a confirmation message is shown, while the form goes hidden, preventing users from spamming.
 
 <img src="readme/img/Comments.png" alt="Comments">
 
@@ -125,8 +127,9 @@ The fonts used for this website were "DM sans" and "sans serif" by default. A ch
 <img src="readme/img/Footer.png" alt="Footer">
 
 ## Wall
-- Presented at "/" or "Home", the Wall component is the first component rendered on the right side of the page. It allows users to create/update messages accordingly, so the community can voice their iput or simply introduce themselves. Similar to a chat room, Users are encouraged to use that component as chitchat.
+- Presented at "/" or "Home", the Wall component is the first component rendered on the right side of the page. It allows users to create/update messages accordingly, so the community can voice their input or simply introduce themselves. Similar to a chat room, Users are encouraged to use that component as chitchat.
 - From the Home page, users ought to open the Wall form and write a message in the form and then click the submit button. Else a warning message is displayed informing users to try again.
+- If successfully submitted, a confirmation message is shown, while the form and submit buttons go hidden, preventing users from spamming.
 
 <img src="readme/img/Walls.png" alt="Wall">
 
@@ -161,6 +164,7 @@ The fonts used for this website were "DM sans" and "sans serif" by default. A ch
 ## Reviews
 - Displayed in a user Profile, the Review component can be found at the lower right side of the profile page of a user. It allows users to create/update reviews accordingly, so the community can rate themselves and their content. It makes use of the react-simple-star-rating when classifying a user.
 - From a user Profile page, users ought to write a review and select the number of stars in the form. If the form is not populated a warning message is displayed informing users on how to proceed.
+- If successfully submitted, a confirmation message is shown, while the form and submit buttons go hidden, preventing users from spamming.
 
 <img src="readme/img/Reviews.png" alt="Reviews">
 
@@ -219,6 +223,7 @@ The fonts used for this website were "DM sans" and "sans serif" by default. A ch
 - Visitors can create a user account through /signup/.
 - Visitors can navigate to the "/", "/signin", "/signup", "/profiles/(id)", "/contact" pages.
 - Visitors can access external links on users posts/comments and in the Footer.
+- Visitors can send messages to the admin panel via the contact form, from /contact/
 
 ## Registered Users (CRUD) can do the above as a Visitor, moreover:
 - Users can sign in/out through the "/signin" & "/signout" available on the NavBar.
@@ -230,9 +235,14 @@ The fonts used for this website were "DM sans" and "sans serif" by default. A ch
 - Users can update their own Profile Bio & Profile Picture in "Edit Profile" (/profiles/(id)/edit), from the Dropdown menu.
 - Users can update their Username in "Change Username" (/profiles/(id)/edit/username), from the Dropdown menu.
 - Users can update their Password in "Update Password" (/profiles/5/edit/password), from the Dropdown menu.
-- Users can update delete their own Profile accounts by clicking "Delete Account", from the Dropdown menu. (Bugged)
+- Users can update delete their own Profile accounts by clicking "Delete Account", from the Dropdown menu. (Bugged).
+- Users can create Reports via a modal associated to a post.
+- Users can create Wall posts via the Wall component at "/".
+- Users can update their Wall posts via their posts on the Wall.
+- Users can create Reviews on each other profiles, (/profiles/(id)/).
+- Users can update their Reviews from their reviews associated to a profile, via a profile page.
 
-## Planning & Agile (REVIEW BEFORE SUBMISSION)
+## Planning & Agile
 
 This [project](https://github.com/users/TiagoMA90/projects/9) was planned using Agile methodology and MoSCoW prioritization.
 
@@ -297,13 +307,11 @@ In order of priority, with 47 User Stories, the Project has:
 - Delete Profile*(bugged)
 
 ## wont-have // bugged
-- Delete Profile bugged*(bugged)
-
-## Development Process
-- From the begining of development, the project started out and continued from the tutorial provided by Code Institute "Moments" unit on the "Advanced Front-end specialization" module.
-- It makes good use of familiar concepts such as Function Components, Props and State Hooks.
+- Delete Profile bugged*(bugged) * Read TESTING.md at the end of this REASME.md *
 
 ## Development & Deployment
+- From the begining of development, the project started out and continued from the tutorial provided by Code Institute "Moments" unit on the "Advanced Front-end specialization" module.
+
 The project was developed using GitHub and GitPod platforms...
 - Navigate to: "Repositories" and create "New".
 - Mark the following fields: ✓ Public ✓ Add a README file.
@@ -365,10 +373,8 @@ The static files are being hosted on Cloudinary:
 - [Bytes.dev](https://bytes.dev/) - Testing screen sizes
 - Chrome DevTools - Testing tool
 - [WAVE Evaluation tool](https://wave.webaim.org/) - Testing tool
-- [W3validator](https://validator.w3.org/) - HTML validation tool
 - [W3jigsaw](https://jigsaw.w3.org/css-validator/) - CSS validation tool
 - [JSHint](https://jshint.com/) - Javascript testing tool
-- [CI Python Linter](https://pep8ci.herokuapp.com/) - CI Python testing tool
 - [Diagrams](https://app.diagrams.net/) - Diagram set up
 - [Github](https://github.com/) - Host for the repository
 - [Gitpod](https://gitpod.io/workspaces) - Code editor
@@ -381,11 +387,11 @@ The following sources and references were resorted for the creation of this webs
 
 - The lessons and tutorials provided by Code Institute, on the final module entitled "Moments" for the 'Advanced Front-End' specialization
 - The Tutor team provided by Code Institutes Student Support
-- The mentor Gareth McGirr for (react-simple-star-rating)[https://react-simple-star-rating.vercel.app/?path=/story/introduction--page] and his examplar repo body-doodles.
+- The mentor Gareth McGirr for (react-simple-star-rating)[https://react-simple-star-rating.vercel.app/?path=/story/introduction--page] and his examplar repo [body-doodles](https://github.com/Gareth-McGirr/body-doodles/tree/main).
 - Slack(#project-portfolio-5-advanced-frontend) as a solution platform for broken code and guidance on how to procceed to blockades
 - [React](https://legacy.reactjs.org/docs/getting-started.html) documentation
 - [React Bootstrap](https://react-bootstrap.netlify.app/) documetation
 - Freepiks artwork on [Flaticon](https://www.flaticon.com/authors/freepik) for the logo and additional images
 
 ## Testing
-- For Manual testing, please refer to [TESTING.md](LINK HERE)
+- For Manual testing, please refer to [TESTING.md](https://github.com/TiagoMA90/connect/blob/main/TESTING.md)
