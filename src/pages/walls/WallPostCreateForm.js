@@ -19,7 +19,9 @@ const WallPostCreateForm = ({ profileId, createWallPost, currentUser }) => {
     // Authentication
     if (!currentUser) {
       setErrors([
-        <div className={styles.errorMessage}>You must be logged in to post on the wall.</div>
+        <div className={styles.errorMessage}>
+          You must be logged in to post on the wall.
+        </div>,
       ]);
       return;
     }
@@ -27,7 +29,7 @@ const WallPostCreateForm = ({ profileId, createWallPost, currentUser }) => {
     // Character limit check set to >200 (change DRF-api model if I want set higher or lower count)
     if (content.length > 200) {
       setErrors([
-        <div className={styles.errorMessage}>Your message is too long.</div>
+        <div className={styles.errorMessage}>Your message is too long.</div>,
       ]);
       return;
     }
@@ -37,7 +39,7 @@ const WallPostCreateForm = ({ profileId, createWallPost, currentUser }) => {
       setErrors([
         <div className={styles.errorMessage}>
           Please write a message if you wish to submit.
-        </div>
+        </div>,
       ]);
       return;
     }
@@ -87,7 +89,9 @@ const WallPostCreateForm = ({ profileId, createWallPost, currentUser }) => {
               className={wallPostStyles["wallPostForm"]}
             >
               <Form.Group>
-                <Form.Label htmlFor="wallPostContent" srOnly>Write a message on the wall:</Form.Label>
+                <Form.Label htmlFor="wallPostContent" srOnly>
+                  Write a message on the wall:
+                </Form.Label>
                 <Form.Control
                   as="textarea"
                   rows={6}

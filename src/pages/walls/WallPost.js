@@ -21,7 +21,7 @@ const WallPost = (props) => {
         `https://djangorestframework-api-38c4a098777a.herokuapp.com/walls/${id}/`,
         {
           content: editedContent,
-        }
+        },
       );
 
       if (response.status === 200) {
@@ -46,14 +46,17 @@ const WallPost = (props) => {
           <div className={wallPostStyles.wallPostHeader}>
             <div>
               <span className={wallPostStyles.wallPostOwner}>{owner}</span>
-              <span className={wallPostStyles.wallPostDate}>• {updated_at}</span>
+              <span className={wallPostStyles.wallPostDate}>
+                • {updated_at}
+              </span>
             </div>
             {currentUser && isOwner && (
               <button
                 className={`${styles.editButton} ${styles.editButtonDate}`}
                 onClick={handleEditClick}
               >
-                <i className="fa-solid fa-pen-to-square fa-sm"></i><span className="sr-only">Edit</span>
+                <i className="fa-solid fa-pen-to-square fa-sm"></i>
+                <span className="sr-only">Edit</span>
               </button>
             )}
           </div>
@@ -65,7 +68,9 @@ const WallPost = (props) => {
                 onChange={(e) => setEditedContent(e.target.value)}
                 style={{ width: "100%" }}
               />
-              <div className={`d-flex justify-content-center align-items-center ${wallPostStyles.editButtonContainer}`}>
+              <div
+                className={`d-flex justify-content-center align-items-center ${wallPostStyles.editButtonContainer}`}
+              >
                 <Button
                   type="submit"
                   className={`${btnStyles.Button} ${btnStyles.Bright}`}

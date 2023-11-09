@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import Collapse from "react-bootstrap/Collapse";
 import Alert from "react-bootstrap/Alert";
 import { Rating } from "react-simple-star-rating";
-import styles from '../../styles/ReviewForm.module.css';
+import styles from "../../styles/ReviewForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
 const ReviewCreateForm = ({ profile_id, createReview, currentUser }) => {
@@ -32,7 +32,7 @@ const ReviewCreateForm = ({ profile_id, createReview, currentUser }) => {
       setErrors([
         <div className={styles.errorMessage}>
           Please provide a rating and review content.
-        </div>
+        </div>,
       ]);
       return;
     }
@@ -56,7 +56,8 @@ const ReviewCreateForm = ({ profile_id, createReview, currentUser }) => {
     setIsFormOpen(!isFormOpen);
   };
 
-  if (formSubmitted) { // Success message for Wall submission
+  if (formSubmitted) {
+    // Success message for Wall submission
     return (
       <Alert variant="secondary">
         You have successfully reviewed this profile.
@@ -82,7 +83,7 @@ const ReviewCreateForm = ({ profile_id, createReview, currentUser }) => {
       <Collapse in={isFormOpen}>
         <Form
           onSubmit={handleSubmit}
-          className={styles['reviewCreateForm']}
+          className={styles["reviewCreateForm"]}
           id="review-form-collapse"
         >
           <Form.Group>

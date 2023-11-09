@@ -1,7 +1,7 @@
 import React from "react";
 import { useRef } from "react";
 import { useState } from "react";
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 import { axiosReq } from "../../api/axiosDefaults";
 
@@ -37,7 +37,7 @@ function PostEditForm() {
 
   const imageInput = useRef(null);
   const history = useHistory();
-  const {id} = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
     const handleMount = async () => {
@@ -126,14 +126,14 @@ function PostEditForm() {
         </Alert>
       ))}
 
+      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
+        Update
+      </Button>
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
         onClick={() => history.goBack()}
       >
         Cancel
-      </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        Update
       </Button>
     </div>
   );

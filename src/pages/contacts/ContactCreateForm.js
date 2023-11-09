@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import axios from 'axios';
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import axios from "axios";
 
 import appStyles from "../../App.module.css";
 import styles from "../../styles/Contact.module.css";
@@ -12,24 +12,29 @@ import btnStyles from "../../styles/Button.module.css";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-import Footer from '../../components/Footer';
-import ContactSuccessForm from './ContactSuccessForm';
+import Footer from "../../components/Footer";
+import ContactSuccessForm from "./ContactSuccessForm";
 
 // ContactCreateForm Component
 const ContactCreateForm = () => {
   const { register, handleSubmit, reset } = useForm();
-  const [successMessage, setSuccessMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const onSubmit = async (data) => {
     try {
-      await axios.post('https://djangorestframework-api-38c4a098777a.herokuapp.com/contacts/', data);
-      setSuccessMessage('Thank you for the feedback! We are reading your message!');
-      setErrorMessage('');
+      await axios.post(
+        "https://djangorestframework-api-38c4a098777a.herokuapp.com/contacts/",
+        data,
+      );
+      setSuccessMessage(
+        "Thank you for the feedback! We are reading your message!",
+      );
+      setErrorMessage("");
       reset();
     } catch (error) {
-      setErrorMessage('Something went wrong! Make sure to fill in all fields!');
-      setSuccessMessage('');
+      setErrorMessage("Something went wrong! Make sure to fill in all fields!");
+      setSuccessMessage("");
       console.error(error);
     }
   };
@@ -58,51 +63,51 @@ const ContactCreateForm = () => {
                   <div className="d-flex flex-column">
                     <label
                       htmlFor="email"
-                      className={`${styles.Input} mb-3 ${appStyles['visually-hidden']}`}
+                      className={`${styles.Input} mb-3 ${appStyles["visually-hidden"]}`}
                     >
                       Email
                     </label>
                     <input
-                      {...register('email', { required: true })}
+                      {...register("email", { required: true })}
                       id="email"
                       className={`${styles.Input} mb-3`}
                       placeholder="Email"
                     />
-  
+
                     <label
                       htmlFor="name"
-                      className={`${styles.Input} mb-3 ${appStyles['visually-hidden']}`}
+                      className={`${styles.Input} mb-3 ${appStyles["visually-hidden"]}`}
                     >
                       Name
                     </label>
                     <input
-                      {...register('name', { required: true })}
+                      {...register("name", { required: true })}
                       id="name"
                       className={`${styles.Input} mb-3`}
                       placeholder="Name"
                     />
-  
+
                     <label
                       htmlFor="subject"
-                      className={`${styles.Input} mb-3 ${appStyles['visually-hidden']}`}
+                      className={`${styles.Input} mb-3 ${appStyles["visually-hidden"]}`}
                     >
                       Subject
                     </label>
                     <input
-                      {...register('subject', { required: true })}
+                      {...register("subject", { required: true })}
                       id="subject"
                       className={`${styles.Input} mb-3`}
                       placeholder="Subject"
                     />
-  
+
                     <label
                       htmlFor="message"
-                      className={`${styles.Input} mb-2 ${appStyles['visually-hidden']}`}
+                      className={`${styles.Input} mb-2 ${appStyles["visually-hidden"]}`}
                     >
                       Message
                     </label>
                     <textarea
-                      {...register('message', { required: true })}
+                      {...register("message", { required: true })}
                       id="message"
                       className={`${styles.Input} mb-2`}
                       placeholder="Message"

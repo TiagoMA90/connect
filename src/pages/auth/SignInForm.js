@@ -20,12 +20,12 @@ import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { useRedirect } from "../../hooks/useRedirect";
 
 import { setTokenTimestamp } from "../../utils/utils";
-import Footer from '../../components/Footer';
+import Footer from "../../components/Footer";
 
 // SignInForm Component
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
-  useRedirect('loggedIn')
+  useRedirect("loggedIn");
 
   const [signInData, setSignInData] = useState({
     username: "",
@@ -52,7 +52,11 @@ function SignInForm() {
       setTokenTimestamp(data);
       history.goBack();
     } catch (err) {
-      if (err.response && err.response.data && typeof err.response.data === "object") {
+      if (
+        err.response &&
+        err.response.data &&
+        typeof err.response.data === "object"
+      ) {
         setErrors(err.response.data);
       } else {
         setErrors({ non_field_errors: ["An unexpected error occurred."] });
@@ -126,7 +130,9 @@ function SignInForm() {
       >
         <Image
           className={`${appStyles.FillerImage}`}
-          src={"https://res.cloudinary.com/dmbdqco85/image/upload/v1693137911/image_processing20210901-11231-oyj2ll_itmw6o.gif"}
+          src={
+            "https://res.cloudinary.com/dmbdqco85/image/upload/v1693137911/image_processing20210901-11231-oyj2ll_itmw6o.gif"
+          }
           alt="SignIn Image"
         />
       </Col>

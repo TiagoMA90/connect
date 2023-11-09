@@ -6,7 +6,8 @@ import styles from "../../styles/Review.module.css";
 import Avatar from "../../components/Avatar";
 
 const Review = (props) => {
-  const { id, owner, updated_at, content, rating, currentUser, profile_image } = props;
+  const { id, owner, updated_at, content, rating, currentUser, profile_image } =
+    props;
   const [isEditing, setIsEditing] = useState(false);
   const [isReviewVisible, setIsReviewVisible] = useState(true);
   const [originalContent, setOriginalContent] = useState(content);
@@ -31,7 +32,9 @@ const Review = (props) => {
       <Media.Body className={`align-self-center ${styles.reviewContainer}`}>
         {isReviewVisible && (
           <Media>
-            <div className={`align-self-start mr-2 ${styles.profileImageContainer}`}>
+            <div
+              className={`align-self-start mr-2 ${styles.profileImageContainer}`}
+            >
               <div className={styles.centeredAvatar}>
                 <Avatar src={profile_image} />
               </div>
@@ -43,8 +46,12 @@ const Review = (props) => {
                 <span>Rating: </span>
                 <Rating readonly initialValue={rating} size={15} />
                 {currentUser && currentUser.username === owner && (
-                  <button className={`${styles.editButton} ${styles.editButtonDate}`} onClick={handleEditClick}>
-                    <i className="fa-solid fa-pen-to-square fa-sm"></i><span className="sr-only">Edit</span>
+                  <button
+                    className={`${styles.editButton} ${styles.editButtonDate}`}
+                    onClick={handleEditClick}
+                  >
+                    <i className="fa-solid fa-pen-to-square fa-sm"></i>
+                    <span className="sr-only">Edit</span>
                   </button>
                 )}
               </div>

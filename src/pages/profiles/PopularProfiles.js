@@ -22,7 +22,11 @@ const PopularProfiles = ({ mobile }) => {
       }`}
       style={{ marginTop: "10px" }} // Keep the marginTop style
     >
-      <div className="text-center" onClick={toggleCollapse} style={{ cursor: "pointer" }}>
+      <div
+        className="text-center"
+        onClick={toggleCollapse}
+        style={{ cursor: "pointer" }}
+      >
         <p>
           <i className="fa-solid fa-users-viewfinder fa-lg"></i>Popular Profiles
         </p>

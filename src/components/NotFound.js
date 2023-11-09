@@ -1,6 +1,6 @@
-import React from 'react';
-import NoResults from '../assets/no-results.png';
-import styles from '../styles/NotFound.module.css';
+import React from "react";
+import NoResults from "../assets/no-results.png";
+import styles from "../styles/NotFound.module.css";
 
 // Not Fount Component
 const Asset = ({ src, message }) => {
@@ -16,7 +16,10 @@ const Asset = ({ src, message }) => {
 const NotFound = () => {
   return (
     <div className={styles.container}>
-      <Asset src={NoResults} message="Sorry, the page you reached does not exist" />
+      <Asset
+        src={NoResults}
+        message="Sorry, the page you reached does not exist"
+      />
     </div>
   );
 };

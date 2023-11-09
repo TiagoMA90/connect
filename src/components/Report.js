@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import { axiosReq } from '../api/axiosDefaults';
-import Modal from 'react-modal';
-import styles from '../styles/Report.module.css';
-import btnStyles from '../styles/Button.module.css';
-import Button from 'react-bootstrap/Button';
+import React, { useState } from "react";
+import { axiosReq } from "../api/axiosDefaults";
+import Modal from "react-modal";
+import styles from "../styles/Report.module.css";
+import btnStyles from "../styles/Button.module.css";
+import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 // Set the App element for react-modal
-Modal.setAppElement('#root');
+Modal.setAppElement("#root");
 
 // Report functionality for the Post Id - Opens a Modal to report the Post that has been flagged, 1/3-Reasons + Description
 const Report = ({ postId }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [reason, setReason] = useState('spam');
-  const [description, setDescription] = useState('');
+  const [reason, setReason] = useState("spam");
+  const [description, setDescription] = useState("");
   const [success, setSuccess] = useState(false);
 
   // Opens &/or closes the Modal according to Submit or Cancel
@@ -40,14 +40,14 @@ const Report = ({ postId }) => {
     event.preventDefault();
 
     try {
-      await axiosReq.post('/reports/', {
+      await axiosReq.post("/reports/", {
         post: postId,
         reason,
         description,
       });
       setSuccess(true);
     } catch (error) {
-      console.error('Error reporting post:', error);
+      console.error("Error reporting post:", error);
     }
   };
 
@@ -57,7 +57,9 @@ const Report = ({ postId }) => {
         <i className="fa-regular fa-flag"></i>
       </span>
       {success ? (
-        <p className="alert alert-secondary alert-secondary">This Post has been successfully reported!</p>
+        <p className="alert alert-secondary alert-secondary">
+          This Post has been successfully reported!
+        </p>
       ) : (
         <ReportModal
           isOpen={isOpen}
@@ -71,57 +73,86 @@ const Report = ({ postId }) => {
       )}
     </span>
   );
-  
 };
 
 // Report Structure - Modal
-const ReportModal = ({ isOpen, onRequestClose, onSubmit, reason, handleReasonChange, description, handleDescriptionChange }) => {
+const ReportModal = ({
+  isOpen,
+  onRequestClose,
+  onSubmit,
+  reason,
+  handleReasonChange,
+  description,
+  handleDescriptionChange,
+}) => {
   return (
     <Modal
       isOpen={isOpen}
       onRequestClose={onRequestClose}
       contentLabel="Report Post"
-      className={styles['reportModal']}
-      overlayClassName={styles['reportOverlay']}
+      className={styles["reportModal"]}
+      overlayClassName={styles["reportOverlay"]}
     >
       <h5>
-        <i className="fa-solid fa-triangle-exclamation"></i> You are about to make a report!
+        <i className="fa-solid fa-triangle-exclamation"></i> You are about to
+        make a report!
       </h5>
       <p>
-        We highly encourage our community to participate and share posts. However, if the post falls under Spam, Inappropriate content or any other sort of inadequate submission, we will take action.
+        We highly encourage our community to participate and share posts.
+        However, if the post falls under Spam, Inappropriate content or any
+        other sort of inadequate submission, we will take action.
       </p>
       <p>
-        Before you file a report against a fellow community user, make sure this Post goes against the Rules & Community guidelines of the "Code of Conduct" in the Terms of Service.
+        Before you file a report against a fellow community user, make sure this
+        Post goes against the Rules & Community guidelines of the "Code of
+        Conduct" in the Terms of Service.
       </p>
       <Form onSubmit={onSubmit}>
         <div>
           <Form.Label htmlFor="reason">Reason:</Form.Label>
-          <br/>
-          <select id="reason" className={styles['reasonInput']} value={reason} onChange={handleReasonChange}>
+          <br />
+          <select
+            id="reason"
+            className={styles["reasonInput"]}
+            value={reason}
+            onChange={handleReasonChange}
+          >
             <option value="spam">Spam</option>
             <option value="inappropriate">Inappropriate Content</option>
             <option value="other">Other...</option>
           </select>
         </div>
         <div>
-          <br/>
-          <p>Please, give in a brief description as to why you are reporting this post.</p>
+          <br />
+          <p>
+            Please, give in a brief description as to why you are reporting this
+            post.
+          </p>
           <Form.Label htmlFor="description">Description (optional):</Form.Label>
           <textarea
             id="description"
             value={description}
             onChange={handleDescriptionChange}
-            className={styles['descriptionInput']}
+            className={styles["descriptionInput"]}
           />
         </div>
-        <div className={styles['buttonContainer']}>
-          <div style={{ textAlign: 'center' }}>
-            <Button className={`${btnStyles.Button} ${btnStyles.Bright}`} type="submit">
+        <div className={styles["buttonContainer"]}>
+          <div style={{ textAlign: "center" }}>
+            <Button
+              className={`${btnStyles.Button} ${btnStyles.Bright}`}
+              type="submit"
+            >
               Report
-            </Button> {/* Submits the Report */}
-            <Button className={`${btnStyles.Button} ${btnStyles.Bright}`} type="button" onClick={onRequestClose}>
+            </Button>{" "}
+            {/* Submits the Report */}
+            <Button
+              className={`${btnStyles.Button} ${btnStyles.Bright}`}
+              type="button"
+              onClick={onRequestClose}
+            >
               Cancel
-            </Button> {/* Cancels the Report */}
+            </Button>{" "}
+            {/* Cancels the Report */}
           </div>
         </div>
       </Form>

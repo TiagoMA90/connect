@@ -7,7 +7,7 @@ import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
-import Footer from '../../components/Footer';
+import Footer from "../../components/Footer";
 
 import {
   Form,
@@ -24,7 +24,7 @@ import { useRedirect } from "../../hooks/useRedirect";
 
 // SignUpForm Component
 const SignUpForm = () => {
-  useRedirect('loggedIn')
+  useRedirect("loggedIn");
   const [signUpData, setSignUpData] = useState({
     username: "",
     password1: "",
@@ -49,7 +49,7 @@ const SignUpForm = () => {
       await axios.post("/dj-rest-auth/registration/", signUpData);
       history.push("/signin");
     } catch (err) {
-      console.log(err)
+      console.log(err);
       setErrors(err.response?.data);
     }
   };
@@ -63,7 +63,9 @@ const SignUpForm = () => {
       >
         <Image
           className={`${appStyles.FillerImage}`}
-          src={"https://res.cloudinary.com/dmbdqco85/image/upload/v1693137912/de6646bd23f002763369a3fc4d85ed35_bz8czt.gif"}
+          src={
+            "https://res.cloudinary.com/dmbdqco85/image/upload/v1693137912/de6646bd23f002763369a3fc4d85ed35_bz8czt.gif"
+          }
           alt="SignUp Image"
         />
       </Col>
@@ -144,7 +146,6 @@ const SignUpForm = () => {
         </Container>
         <Footer />
       </Col>
-      
     </Row>
   );
 };

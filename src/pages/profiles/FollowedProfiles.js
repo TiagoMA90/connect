@@ -32,7 +32,7 @@ const FollowedProfiles = ({ mobile, followedId }) => {
   const fetchProfileDetails = async (profileId) => {
     try {
       const response = await axios.get(
-        `https://djangorestframework-api-38c4a098777a.herokuapp.com/profiles/${profileId}/`
+        `https://djangorestframework-api-38c4a098777a.herokuapp.com/profiles/${profileId}/`,
       );
       return response.data;
     } catch (error) {
@@ -45,11 +45,11 @@ const FollowedProfiles = ({ mobile, followedId }) => {
     const fetchData = async () => {
       try {
         const allProfiles = await fetchAllPages(
-          `https://djangorestframework-api-38c4a098777a.herokuapp.com/followers/`
+          `https://djangorestframework-api-38c4a098777a.herokuapp.com/followers/`,
         );
 
         const filteredProfiles = allProfiles.filter(
-          (profile) => profile.followed_name === followedId
+          (profile) => profile.followed_name === followedId,
         );
 
         const profileDetailsPromises = filteredProfiles.map(async (profile) => {
@@ -60,13 +60,19 @@ const FollowedProfiles = ({ mobile, followedId }) => {
               profileDetails,
             };
           } catch (error) {
-            console.error("Error fetching profile details for profile:", profile, error);
+            console.error(
+              "Error fetching profile details for profile:",
+              profile,
+              error,
+            );
             return null;
           }
         });
 
         const profilesWithDetails = await Promise.all(profileDetailsPromises);
-        const validProfiles = profilesWithDetails.filter((profile) => profile !== null);
+        const validProfiles = profilesWithDetails.filter(
+          (profile) => profile !== null,
+        );
         setFollowedProfiles(validProfiles);
         setErrorFetchingData(false); // Reset error flag
       } catch (error) {
@@ -93,7 +99,11 @@ const FollowedProfiles = ({ mobile, followedId }) => {
       }`}
       style={{ marginTop: "10px" }}
     >
-      <div className="text-center" onClick={toggleCollapse} style={{ cursor: "pointer" }}>
+      <div
+        className="text-center"
+        onClick={toggleCollapse}
+        style={{ cursor: "pointer" }}
+      >
         <p>
           <i className="fa-solid fa-users fa-lg"></i>
           {followedId}'s Followers
@@ -102,7 +112,9 @@ const FollowedProfiles = ({ mobile, followedId }) => {
       <hr />
       <Collapse in={!isCollapsed}>
         <div
-          className={`text-center ${mobile ? "d-flex flex-wrap justify-content-center" : ""}`}
+          className={`text-center ${
+            mobile ? "d-flex flex-wrap justify-content-center" : ""
+          }`}
         >
           {followedProfiles.length > 0 ? (
             <div

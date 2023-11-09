@@ -14,7 +14,7 @@ const WallPostsList = ({ profileId, currentUser, mobile }) => {
   const fetchWallPosts = async () => {
     try {
       const response = await axios.get(
-        `https://djangorestframework-api-38c4a098777a.herokuapp.com/walls/?profile_id=${profileId}`
+        `https://djangorestframework-api-38c4a098777a.herokuapp.com/walls/?profile_id=${profileId}`,
       );
       setWallPosts(response.data.results);
       setLoading(false);
@@ -39,8 +39,16 @@ const WallPostsList = ({ profileId, currentUser, mobile }) => {
 
   // WallPostList Structure
   return (
-    <Container className={`${appStyles.Content} ${mobile ? "d-lg-none text-center mb-3" : ""}`}>
-      <div className="text-center" onClick={toggleCollapse} style={{ cursor: "pointer" }}>
+    <Container
+      className={`${appStyles.Content} ${
+        mobile ? "d-lg-none text-center mb-3" : ""
+      }`}
+    >
+      <div
+        className="text-center"
+        onClick={toggleCollapse}
+        style={{ cursor: "pointer" }}
+      >
         <p>
           <i className="fa-regular fa-comment-dots fa-lg"></i>Community Wall
         </p>

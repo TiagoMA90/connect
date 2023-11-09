@@ -5,15 +5,15 @@ import { useHistory } from "react-router";
 
 // Dropdown menu for Posts & Comments
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
-    <i
-    className ="fa-solid fa-ellipsis-vertical fa-lg"
-      ref={ref}
-      onClick={(e) => {
-        e.preventDefault();
-        onClick(e);
-      }}
-    />
-  ));
+  <i
+    className="fa-solid fa-ellipsis-vertical fa-lg"
+    ref={ref}
+    onClick={(e) => {
+      e.preventDefault();
+      onClick(e);
+    }}
+  />
+));
 
 // Dropdown menu for Posts & Comments
 export const MoreDropdown = ({ handleEdit, handleDelete }) => {
@@ -54,7 +54,8 @@ export function ProfileEditDropdown({ id }) {
           onClick={() => history.push(`/profiles/${id}/edit`)}
           aria-label="edit-profile"
         >
-          <i className="fas fa-edit" /> {/* Edits the Profile image & Description */}
+          <i className="fas fa-edit" />{" "}
+          {/* Edits the Profile image & Description */}
           Edit Profile
         </Dropdown.Item>
         <Dropdown.Item
@@ -77,8 +78,10 @@ export function ProfileEditDropdown({ id }) {
           onClick={() => history.push(`/profiles/${id}/delete`)}
           aria-label="delete-profile"
         >
-          <i className="fa-solid fa-user-xmark" /> {/* Deletes the User account (!) - Bugged - Del. Cookies + CTRL+R the page in order to successfully eliminate the User acc. */}
-          Delete Account
+          <i className="fa-solid fa-user-xmark" />{" "}
+          {/* Deletes the User account (!) - Bugged - Del. Cookies + CTRL+R the page in order to successfully eliminate the User acc. (Will be dealth with when time allows)*/}
+          <s>Delete Account</s>
+          <i className="fa-solid fa-mosquito-net fa-shake fa-sm"></i>
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>

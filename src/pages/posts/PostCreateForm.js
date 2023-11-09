@@ -22,7 +22,7 @@ import { useRedirect } from "../../hooks/useRedirect";
 
 // PostCreateForm Component
 function PostCreateForm() {
-  useRedirect('loggedOut')
+  useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
 
   const [postData, setPostData] = useState({
@@ -104,14 +104,14 @@ function PostCreateForm() {
         </Alert>
       ))}
 
+      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
+        Create
+      </Button>
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
         onClick={() => history.goBack()}
       >
         Cancel
-      </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        Create
       </Button>
     </div>
   );
@@ -143,7 +143,7 @@ function PostCreateForm() {
                 <Form.Label
                   className="d-flex justify-content-center"
                   htmlFor="image-upload"
-                  style={{ cursor: 'pointer' }}
+                  style={{ cursor: "pointer" }}
                 >
                   <Asset
                     src={Upload}

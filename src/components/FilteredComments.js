@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import axios from 'axios';
-import { Container, Collapse } from 'react-bootstrap'; // Import Collapse
-import styles from '../styles/CommunityComments.module.css';
-import SnipetComments from './SnipetComments';
+import React, { useState, useEffect, useCallback } from "react";
+import axios from "axios";
+import { Container, Collapse } from "react-bootstrap"; // Import Collapse
+import styles from "../styles/CommunityComments.module.css";
+import SnipetComments from "./SnipetComments";
 
 // Filtered Comments Component
 const FilteredComments = ({ profileId }) => {
@@ -16,10 +16,12 @@ const FilteredComments = ({ profileId }) => {
         // Avoids making the request when profileId is undefined
         return;
       }
-      const response = await axios.get(`https://djangorestframework-api-38c4a098777a.herokuapp.com/profiles/${profileId}/`);
+      const response = await axios.get(
+        `https://djangorestframework-api-38c4a098777a.herokuapp.com/profiles/${profileId}/`,
+      );
       setProfile(response.data);
     } catch (error) {
-      console.error('Error fetching profile details:', error);
+      console.error("Error fetching profile details:", error);
     }
   }, [profileId]);
 
@@ -30,8 +32,12 @@ const FilteredComments = ({ profileId }) => {
         // Avoids making the request when profileId is undefined
         return;
       }
-      const response = await axios.get('https://djangorestframework-api-38c4a098777a.herokuapp.com/comments/');
-      const filteredComments = response.data.results.filter(comment => comment.profile_id === profileId);
+      const response = await axios.get(
+        "https://djangorestframework-api-38c4a098777a.herokuapp.com/comments/",
+      );
+      const filteredComments = response.data.results.filter(
+        (comment) => comment.profile_id === profileId,
+      );
       setComments(filteredComments);
     } catch (error) {
       // console.error('Error fetching comments:', error);
@@ -51,9 +57,16 @@ const FilteredComments = ({ profileId }) => {
   // Filtered(User) Comments Structure
   return (
     <Container className={`${styles.container} ${styles.Content}`}>
-      <div className="text-center" onClick={toggleCollapse} style={{ cursor: 'pointer' }}>
+      <div
+        className="text-center"
+        onClick={toggleCollapse}
+        style={{ cursor: "pointer" }}
+      >
         {profile ? (
-          <p><i className="fa-regular fa-comment fa-lg"></i>{profile.owner}'s Comments</p>
+          <p>
+            <i className="fa-regular fa-comment fa-lg"></i>
+            {profile.owner}'s Comments
+          </p>
         ) : (
           <p className="text-center">Loading...</p>
         )}

@@ -33,7 +33,7 @@ const FollowingProfiles = ({ mobile, ownerId }) => {
   const fetchProfileDetails = async (profileId) => {
     try {
       const response = await axios.get(
-        `https://djangorestframework-api-38c4a098777a.herokuapp.com/profiles/${profileId}/`
+        `https://djangorestframework-api-38c4a098777a.herokuapp.com/profiles/${profileId}/`,
       );
       return response.data;
     } catch (error) {
@@ -46,7 +46,7 @@ const FollowingProfiles = ({ mobile, ownerId }) => {
     const fetchOwnerUsername = async () => {
       try {
         const response = await axios.get(
-          `https://djangorestframework-api-38c4a098777a.herokuapp.com/profiles/${ownerId}/`
+          `https://djangorestframework-api-38c4a098777a.herokuapp.com/profiles/${ownerId}/`,
         );
         setOwnerUsername(response.data.owner);
       } catch (error) {
@@ -64,28 +64,38 @@ const FollowingProfiles = ({ mobile, ownerId }) => {
   useEffect(() => {
     if (ownerId) {
       fetchAllPages(
-        `https://djangorestframework-api-38c4a098777a.herokuapp.com/followers/`
+        `https://djangorestframework-api-38c4a098777a.herokuapp.com/followers/`,
       )
         .then(async (allProfiles) => {
           const filteredProfiles = allProfiles.filter(
-            (profile) => profile.owner_id === ownerId
+            (profile) => profile.owner_id === ownerId,
           );
 
-          const profileDetailsPromises = filteredProfiles.map(async (profile) => {
-            try {
-              const profileDetails = await fetchProfileDetails(profile.followed);
-              return {
-                ...profile,
-                profileDetails,
-              };
-            } catch (error) {
-              console.error("Error fetching profile details for profile:", profile, error);
-              return null;
-            }
-          });
+          const profileDetailsPromises = filteredProfiles.map(
+            async (profile) => {
+              try {
+                const profileDetails = await fetchProfileDetails(
+                  profile.followed,
+                );
+                return {
+                  ...profile,
+                  profileDetails,
+                };
+              } catch (error) {
+                console.error(
+                  "Error fetching profile details for profile:",
+                  profile,
+                  error,
+                );
+                return null;
+              }
+            },
+          );
 
           const profilesWithDetails = await Promise.all(profileDetailsPromises);
-          const validProfiles = profilesWithDetails.filter((profile) => profile !== null);
+          const validProfiles = profilesWithDetails.filter(
+            (profile) => profile !== null,
+          );
 
           setFollowingProfiles(validProfiles);
           setErrorFetchingData(false); // Reset error flag
@@ -105,9 +115,15 @@ const FollowingProfiles = ({ mobile, ownerId }) => {
   // FollowingProfiles Structure
   return (
     <Container
-      className={`${appStyles.Content} ${mobile ? "d-lg-none text-center mb-3" : ""}`}
+      className={`${appStyles.Content} ${
+        mobile ? "d-lg-none text-center mb-3" : ""
+      }`}
     >
-      <div className="text-center" onClick={toggleCollapse} style={{ cursor: "pointer" }}>
+      <div
+        className="text-center"
+        onClick={toggleCollapse}
+        style={{ cursor: "pointer" }}
+      >
         <p>
           <i className="fa-solid fa-user-group fa-sm"></i>
           {ownerUsername}'s Followings
@@ -116,7 +132,9 @@ const FollowingProfiles = ({ mobile, ownerId }) => {
       <hr />
       <Collapse in={!isCollapsed}>
         <div
-          className={`text-center ${mobile ? "d-flex flex-wrap justify-content-center" : ""}`}
+          className={`text-center ${
+            mobile ? "d-flex flex-wrap justify-content-center" : ""
+          }`}
         >
           {followingProfiles.length > 0 ? (
             <div

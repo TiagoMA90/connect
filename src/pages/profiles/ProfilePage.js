@@ -20,10 +20,10 @@ import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
 import FollowingProfiles from "../profiles/FollowingProfiles";
 import FollowedProfiles from "../profiles/FollowedProfiles";
-import Footer from '../../components/Footer';
-import FilteredComments from '../../components/FilteredComments';
-import ReviewCreateForm from '../../pages/reviews/ReviewCreateForm';
-import ProfileReviews from '../../pages/reviews/ProfileReviews';
+import Footer from "../../components/Footer";
+import FilteredComments from "../../components/FilteredComments";
+import ReviewCreateForm from "../../pages/reviews/ReviewCreateForm";
+import ProfileReviews from "../../pages/reviews/ProfileReviews";
 
 // ProfilePage Component
 function ProfilePage() {
@@ -111,7 +111,10 @@ function ProfilePage() {
             ))}
         </Col>
         {profile?.content && (
-          <Col className="p-3" style={{ border: '0.5px dashed #dadadf', marginTop: '20px' }}>
+          <Col
+            className="p-3"
+            style={{ border: "0.5px dashed #dadadf", marginTop: "20px" }}
+          >
             {profile.content}
           </Col>
         )}
@@ -147,7 +150,10 @@ function ProfilePage() {
   const createReview = async (reviewData) => {
     // console.log({reviewData})
     try {
-      await axiosReq.post("https://djangorestframework-api-38c4a098777a.herokuapp.com/reviews/", reviewData);
+      await axiosReq.post(
+        "https://djangorestframework-api-38c4a098777a.herokuapp.com/reviews/",
+        reviewData,
+      );
     } catch (error) {
       // console.error("Error creating review:", error);
     }
@@ -171,19 +177,25 @@ function ProfilePage() {
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         <FollowingProfiles ownerId={profile?.id} />
         <FollowedProfiles followedId={profile?.owner} />
-        {profile?.id && (
-          <FilteredComments profileId={profile.id} />
-        )}
+        {profile?.id && <FilteredComments profileId={profile.id} />}
         <ProfileReviews profileId={id} currentUser={currentUser} />
-        <ReviewCreateForm profile_id={id} currentUser={currentUser} createReview={createReview} />
+        <ReviewCreateForm
+          profile_id={id}
+          currentUser={currentUser}
+          createReview={createReview}
+        />
         <Footer />
       </Col>
       <Col className="d-block d-md-block d-lg-none p-0 p-md-2">
-        <FilteredComments profileId={profile?.id}/>
+        <FilteredComments profileId={profile?.id} />
         {id && (
           <>
             <ProfileReviews profileId={id} currentUser={currentUser} />
-            <ReviewCreateForm profile_id={id} currentUser={currentUser} createReview={createReview} />
+            <ReviewCreateForm
+              profile_id={id}
+              currentUser={currentUser}
+              createReview={createReview}
+            />
           </>
         )}
         <Footer />

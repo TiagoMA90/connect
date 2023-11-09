@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Container, Collapse } from 'react-bootstrap';
-import styles from '../styles/CommunityComments.module.css';
-import ChatComment from './SnipetComments';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Container, Collapse } from "react-bootstrap";
+import styles from "../styles/CommunityComments.module.css";
+import ChatComment from "./SnipetComments";
 
 const CommunityComments = () => {
   const [comments, setComments] = useState([]);
@@ -10,10 +10,12 @@ const CommunityComments = () => {
   const [error, setError] = useState(null);
   const [isCollapsed, setIsCollapsed] = useState(false);
 
-  // Fetches all Comments from the endpoint 
+  // Fetches all Comments from the endpoint
   const fetchComments = async () => {
     try {
-      const response = await axios.get('https://djangorestframework-api-38c4a098777a.herokuapp.com/comments');
+      const response = await axios.get(
+        "https://djangorestframework-api-38c4a098777a.herokuapp.com/comments",
+      );
       setComments(response.data.results);
     } catch (error) {
       setError(error);
@@ -33,8 +35,14 @@ const CommunityComments = () => {
 
   return (
     <Container className={`${styles.container} ${styles.Content}`}>
-      <div className="text-center" onClick={toggleCollapse} style={{ cursor: 'pointer' }}>
-        <p><i className="fa-regular fa-comments fa-lg"></i> Latest Comments</p>
+      <div
+        className="text-center"
+        onClick={toggleCollapse}
+        style={{ cursor: "pointer" }}
+      >
+        <p>
+          <i className="fa-regular fa-comments fa-lg"></i> Latest Comments
+        </p>
         <hr />
       </div>
       <Collapse in={!isCollapsed}>

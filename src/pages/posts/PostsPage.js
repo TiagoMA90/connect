@@ -30,11 +30,14 @@ function PostsPage({ message, filter = "" }) {
   const id = "id";
   const createWallPost = async (wallPostData) => {
     try {
-      await axiosReq.post("https://djangorestframework-api-38c4a098777a.herokuapp.com/walls/", wallPostData);
+      await axiosReq.post(
+        "https://djangorestframework-api-38c4a098777a.herokuapp.com/walls/",
+        wallPostData,
+      );
     } catch (error) {
       // Handle the error
     }
-  }
+  };
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -67,7 +70,7 @@ function PostsPage({ message, filter = "" }) {
           className={styles.SearchBar}
           onSubmit={(event) => event.preventDefault()}
         >
-          <label htmlFor="searchInput" className={appStyles['visually-hidden']}>
+          <label htmlFor="searchInput" className={appStyles["visually-hidden"]}>
             Search
           </label>
           <Form.Control
@@ -107,7 +110,11 @@ function PostsPage({ message, filter = "" }) {
       <Col className="d-block p-0 p-lg-2">
         <div className="tablet-and-mobile-only">
           <WallPostsList profileId={id} currentUser={currentUser} />
-          <WallPostCreateForm profileId={id} createWallPost={createWallPost} currentUser={currentUser} />
+          <WallPostCreateForm
+            profileId={id}
+            createWallPost={createWallPost}
+            currentUser={currentUser}
+          />
         </div>
         <div className="d-none d-lg-block">
           <PopularProfiles />

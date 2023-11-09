@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import Review from "../../pages/reviews/Review";
 import styles from "../../styles/ProfileReviews.module.css";
-import { Collapse } from 'react-bootstrap';
+import { Collapse } from "react-bootstrap";
 
 const ProfileReviews = ({ profileId, currentUser }) => {
   const [reviews, setReviews] = useState([]);
@@ -11,7 +11,7 @@ const ProfileReviews = ({ profileId, currentUser }) => {
   const fetchReviews = useCallback(async () => {
     try {
       const response = await axios.get(
-        `https://djangorestframework-api-38c4a098777a.herokuapp.com/reviews/?profile=${profileId}`
+        `https://djangorestframework-api-38c4a098777a.herokuapp.com/reviews/?profile=${profileId}`,
       );
       setReviews(response.data.results);
     } catch (error) {
@@ -45,14 +45,22 @@ const ProfileReviews = ({ profileId, currentUser }) => {
   // ProfileReviews Structure
   return (
     <div className={styles.reviewContainer}>
-      <div className="text-center" onClick={toggleCollapse} style={{ cursor: 'pointer' }}>
-        <p><i className="fa-solid fa-star-half-stroke fa-lg"></i> Reviews Wall</p>
+      <div
+        className="text-center"
+        onClick={toggleCollapse}
+        style={{ cursor: "pointer" }}
+      >
+        <p>
+          <i className="fa-solid fa-star-half-stroke fa-lg"></i> Reviews Wall
+        </p>
       </div>
       <hr className={styles.hr} />
       <Collapse in={!isCollapsed}>
         <div style={scrollableReviewsStyle}>
           {reviews.length === 0 ? (
-            <p className={styles.centerText}>No one has reviewed this user so far...</p>
+            <p className={styles.centerText}>
+              No one has reviewed this user so far...
+            </p>
           ) : (
             reviews.map((review) => (
               <div className={styles.review} key={review.id}>

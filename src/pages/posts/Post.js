@@ -133,7 +133,9 @@ const Post = (props) => {
           {likes_count}
           <Link to={`/posts/${id}`}>
             <i className="fa-regular fa-comment"></i>
-            <span className={appStyles['visually-hidden']}> {/* CSS - Hides Text for Screen readers, to prevent Empty Link */}
+            <span className={appStyles["visually-hidden"]}>
+              {" "}
+              {/* CSS - Hides Text for Screen readers, to prevent Empty Link */}
               Comment
             </span>
           </Link>

@@ -1,11 +1,11 @@
-import React from 'react';
-import styles from '../../styles/Profile.module.css';
-import { Button } from 'react-bootstrap';
-import btnStyles from '../../styles/Button.module.css';
-import { useCurrentUser } from '../../contexts/CurrentUserContext';
-import { useSetProfileData } from '../../contexts/ProfileDataContext';
-import { Link } from 'react-router-dom';
-import Avatar from '../../components/Avatar';
+import React from "react";
+import styles from "../../styles/Profile.module.css";
+import { Button } from "react-bootstrap";
+import btnStyles from "../../styles/Button.module.css";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { useSetProfileData } from "../../contexts/ProfileDataContext";
+import { Link } from "react-router-dom";
+import Avatar from "../../components/Avatar";
 
 const Profile = (props) => {
   const { profile, mobile, imageSize = 55, showButtons = true } = props;
@@ -22,7 +22,9 @@ const Profile = (props) => {
   const { id, following_id, image, owner } = profile;
 
   return (
-    <div className={`my-3 d-flex align-items-center ${mobile && 'flex-column'}`}>
+    <div
+      className={`my-3 d-flex align-items-center ${mobile && "flex-column"}`}
+    >
       <div>
         <Link className="align-self-center" to={`/profiles/${id}`}>
           <Avatar src={image} height={imageSize} />
@@ -31,7 +33,7 @@ const Profile = (props) => {
       <div className={`mx-2 ${styles.WordBreak}`}>
         <strong>{owner}</strong>
       </div>
-      <div className={`text-right ${!mobile && 'ml-auto'}`}>
+      <div className={`text-right ${!mobile && "ml-auto"}`}>
         {showButtons && // Conditionally renders buttons based on the showButtons prop(hidden on Following/FollowedProfiles.js)
           !mobile &&
           currentUser &&

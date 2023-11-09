@@ -93,31 +93,38 @@ After various examinations, tests and corrections for all its pages the website 
 
 The website is responsive and displays a pleasing style to the viewers, with colors contrasting each other. Aria labels have been applied together with Structural Elements and Features.
 
-UPDATE:
-## Validation 
-Via URL of the deployed website on Heroku, all pages were validated through validator.w3.org & jigsaw.w3.org.
-No errors or warnings were found whatsoever, after several corrections have been applied.
+# Validation
+## ESLit
+Via URL of the deployed website on Heroku, all pages were validated through ESLint & jigsaw.w3.org.
+Series of errors & warnings were found and addressed accordingly, after several corrections have been applied a few remained.
 
+When installing ESLint the following commands ran:
+- ```npm install eslint --save-dev```
+- ```npx eslint --init```
 
-LIST OF LINKS TO VALIDATION
--
--
--
--
--
--
--
+After a series of immediate questions prompted and wanswerd. Thus:
 
+<img src="readme/img/ESLintSetup.png" alt="ESLint Setup">
 
-- The .html template structure for the component and format passed through the official [W3validator](https://validator.w3.org/) with no issues whatsoever. [See the Report]()
-LINK
-IMG
+Addtionaly "Prettier - Code Formatter" and "Prettier ESLint" were installed.
+When running the command ```npx eslint src```, 648 errors were retrieved, mostly associated with syntax and indentation:
 
+<img src="readme/img/ESLintErrors.png" alt="ESLint Errors">
+
+The errors were addressed by runnig the following command ```npx eslint src --fix```
+The outcome, errors have been reduced to 141, associated to react/prop-types:
+
+<img src="readme/img/ESLintErrors1.png" alt="ESLint Errors">
+
+Eventually the eslintrc.js was deleted. Leaving 9 remaining warnings.
+
+<img src="readme/img/ESLintErrors2.png" alt="ESLint Errors">
+
+- [This tutorial](https://code.visualstudio.com/docs/nodejs/reactjs-tutorial#_linting) was used a reference, when testing with ESLint.
+
+## CSS
 - The .css styling file was tested and validated through [W3jigsaw](https://jigsaw.w3.org/css-validator/) with no issues, via direct input. [See the Report](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fconnect-network-ee92c70de293.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 <img src="readme/img/W3Jigsaw.png" alt="W3 Jigsaw">
-
-- The React components were tested and validated through [JSHint](https://jshint.com/) with no issues whatsoever.
-IMG
 
 # Errors & Bugs
 ## Bug while Spamming
@@ -126,8 +133,11 @@ Through out development errors were found, confronted and solved.
 Console Errors were caught on try blocks commented out and dealt accordingly.
 Currently, the only errors still being logged are 401 (Unauthorized) when accessing the [Sign Up](https://connect-network-ee92c70de293.herokuapp.com/signup) and [Sign In](https://connect-network-ee92c70de293.herokuapp.com/signin) pages.
 
-<img src="readme/img/ConsoleError.png" alt="401">
+<img src="readme/img/ConsoleError401.png" alt="401">
 
+If the internet is slow is will lag and the console will log 500 errors on consecutive runs.
+
+<img src="readme/img/ConsoleError500.png" alt="500">
 
 Upon manual testing, if an authenticated User tries to delete a profile, it fails to properly eliinate the user profile.
 After various attempts on how to correct this bug, the developer sought to delete this functionality altogether, but decided to keep it instead is and work on it when time allows.
@@ -143,6 +153,8 @@ After various attempts on how to correct this bug, the developer sought to delet
 - See the Image below for a visual take:
 
 <img src="readme/img/DeleteUserProfile.png" alt="Delete User profile Solution">
+
+- * <i class="fa-solid fa-mosquito-net"></i> This functionality was not deleted or commented out upon deployment, to keep it documented both for personal knowldege of the developer and continous imporvment*
 
 ## Browser Compatibility
 This website was tested on Chrome, Firefox and Microsoft Edge.

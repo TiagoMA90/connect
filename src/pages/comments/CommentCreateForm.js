@@ -48,12 +48,12 @@ function CommentCreateForm(props) {
     } catch (err) {
       console.log(err);
     }
-  }
+  };
 
   // CommentCreateForm Structure
   return (
     <div>
-      <div style={{ textAlign: 'center' }}>
+      <div style={{ textAlign: "center" }}>
         <i className="fa-regular fa-comment fa-lg"></i>Comments
         <hr />
       </div>
@@ -65,7 +65,10 @@ function CommentCreateForm(props) {
         <Form className="mt-2" onSubmit={handleSubmit}>
           <Form.Group>
             <InputGroup>
-              <label htmlFor="commentTextarea" className={appStyles['visually-hidden']}>
+              <label
+                htmlFor="commentTextarea"
+                className={appStyles["visually-hidden"]}
+              >
                 Comment section
               </label>
               <Form.Control

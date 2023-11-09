@@ -34,13 +34,13 @@ export const ProfileDataProvider = ({ children }) => {
         ...prevState,
         pageProfile: {
           results: prevState.pageProfile.results.map((profile) =>
-            followHelper(profile, clickedProfile, data.id)
+            followHelper(profile, clickedProfile, data.id),
           ),
         },
         popularProfiles: {
           ...prevState.popularProfiles,
           results: prevState.popularProfiles.results.map((profile) =>
-            followHelper(profile, clickedProfile, data.id)
+            followHelper(profile, clickedProfile, data.id),
           ),
         },
       }));
@@ -56,13 +56,13 @@ export const ProfileDataProvider = ({ children }) => {
         ...prevState,
         pageProfile: {
           results: prevState.pageProfile.results.map((profile) =>
-            unfollowHelper(profile, clickedProfile)
+            unfollowHelper(profile, clickedProfile),
           ),
         },
         popularProfiles: {
           ...prevState.popularProfiles,
           results: prevState.popularProfiles.results.map((profile) =>
-            unfollowHelper(profile, clickedProfile)
+            unfollowHelper(profile, clickedProfile),
           ),
         },
       }));
@@ -75,7 +75,7 @@ export const ProfileDataProvider = ({ children }) => {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(
-          "/profiles/?ordering=-followers_count"
+          "/profiles/?ordering=-followers_count",
         );
         setProfileData((prevState) => ({
           ...prevState,
@@ -91,7 +91,9 @@ export const ProfileDataProvider = ({ children }) => {
 
   return (
     <ProfileDataContext.Provider value={profileData}>
-      <SetProfileDataContext.Provider value={{ setProfileData, handleFollow, handleUnfollow }}>
+      <SetProfileDataContext.Provider
+        value={{ setProfileData, handleFollow, handleUnfollow }}
+      >
         {children}
       </SetProfileDataContext.Provider>
     </ProfileDataContext.Provider>
