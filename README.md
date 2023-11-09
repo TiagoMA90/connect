@@ -17,7 +17,8 @@ It is a website where Users can share their pictures, give feedback to others & 
 The website was designed with the intent to allow users to browse posts, read comments and navigate throughout the website at ease.
 It allows users to access all components easily, and lets users perform all CRUD functionalities for their, Posts, Comments, Likes & Profiles, to CRU Reviews and Wall messages. Furthermore, users can C Reports for posts & C messages using the Contact for the moderation panel.
 
-## Wireframes 
+# Wireframes
+## Desktop
 - Read a Post on /home /feed /liked
 
 <img src="readme/img/ReadPost.png" alt="Read a Post">
@@ -61,6 +62,17 @@ It allows users to access all components easily, and lets users perform all CRUD
 - Delete the Profile
 
 <img src="readme/img/DeleteProfile.png" alt="Delete Profile">
+
+# Mobile
+
+For mobiles, the structure of the website remained the same with the exception of the Posts and Profile pages, where the horizontal components adopted a more vertical fashion.
+- Read a Post on /home /feed /liked
+
+<img src="readme/img/ReadPostMobile.png" alt="Read a Post">
+
+- Read Profile 
+
+<img src="readme/img/ReadProfileMobile.png" alt="Read a Profile">
 
 ## Colour palette
 It relied heavily on colors that should be appealing to the user, especially for those who might visit the website on a daily basis.
