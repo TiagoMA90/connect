@@ -242,6 +242,8 @@ The fonts used for this website were "DM sans" and "sans serif" by default. A ch
 - Users can create Reviews on each other profiles, (/profiles/(id)/).
 - Users can update their Reviews from their reviews associated to a profile, via a profile page.
 
+<img src="readme/img/DiagramAndRelationship.png" alt="Relationship between components">
+
 ## Planning & Agile
 
 This [project](https://github.com/users/TiagoMA90/projects/9) was planned using Agile methodology and MoSCoW prioritization.
