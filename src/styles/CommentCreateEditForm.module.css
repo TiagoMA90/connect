@@ -1,8 +1,8 @@
 .Form {
   border: 1px solid #dadadf;
   box-sizing: border-box;
-  color: #7177a1;
   padding: 10px;
+  background-color: #f8f8f8;
 }
   
 .Button {
