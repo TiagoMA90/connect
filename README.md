@@ -389,7 +389,7 @@ The following sources and references were resorted for the creation of this webs
 
 - The lessons and tutorials provided by Code Institute, on the final module entitled "Moments" for the 'Advanced Front-End' specialization
 - The Tutor team provided by Code Institutes Student Support
-- The mentor Gareth McGirr for (react-simple-star-rating)[https://react-simple-star-rating.vercel.app/?path=/story/introduction--page] and his examplar repo [body-doodles](https://github.com/Gareth-McGirr/body-doodles/tree/main).
+- The mentor Gareth McGirr for [react-simple-star-rating](https://react-simple-star-rating.vercel.app/?path=/story/introduction--page) and his examplar repo [body-doodles](https://github.com/Gareth-McGirr/body-doodles/tree/main).
 - Slack(#project-portfolio-5-advanced-frontend) as a solution platform for broken code and guidance on how to procceed to blockades
 - [React](https://legacy.reactjs.org/docs/getting-started.html) documentation
 - [React Bootstrap](https://react-bootstrap.netlify.app/) documetation

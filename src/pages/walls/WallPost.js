@@ -10,9 +10,11 @@ const WallPost = (props) => {
   const { id, owner, updated_at, content, currentUser, isOwner } = props;
   const [isEditing, setIsEditing] = useState(false);
   const [editedContent, setEditedContent] = useState(content);
+  const [showAlert, setShowAlert] = useState(false);
 
   const handleEditClick = () => {
     setIsEditing(true);
+    setShowAlert(false);
   };
 
   const handleSaveClick = async () => {
@@ -21,16 +23,17 @@ const WallPost = (props) => {
         `https://djangorestframework-api-38c4a098777a.herokuapp.com/walls/${id}/`,
         {
           content: editedContent,
-        },
+        }
       );
 
       if (response.status === 200) {
         setIsEditing(false);
+        setShowAlert(true);
       } else {
-        // console.error("Error updating wall post:", response.statusText);
+        // Handle the error case if needed
       }
     } catch (error) {
-      // console.error("Error updating wall post:", error);
+      // Handle the error case if needed
     }
   };
 
@@ -38,7 +41,6 @@ const WallPost = (props) => {
     setIsEditing(false);
   };
 
-  // WallPost Structure
   return (
     <div className={wallPostStyles.wallPostContainer}>
       <Media>
@@ -89,6 +91,11 @@ const WallPost = (props) => {
             </>
           ) : (
             <p>{editedContent}</p>
+          )}
+          {showAlert && (
+            <div className="alert alert-secondary text-center" role="alert">
+              Wall Post successfully updated!
+            </div>
           )}
         </Media.Body>
       </Media>
