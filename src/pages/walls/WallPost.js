@@ -41,6 +41,7 @@ const WallPost = (props) => {
     setIsEditing(false);
   };
 
+  // WallPost Structure
   return (
     <div className={wallPostStyles.wallPostContainer}>
       <Media>
@@ -94,7 +95,7 @@ const WallPost = (props) => {
           )}
           {showAlert && (
             <div className="alert alert-secondary text-center" role="alert">
-              Wall Post successfully updated!
+              Wall Post updated!
             </div>
           )}
         </Media.Body>

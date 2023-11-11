@@ -59,7 +59,7 @@ function CommentCreateForm(props) {
       </div>
       {commentCreated ? (
         <Alert variant="secondary" className="text-center">
-          You wrote a comment to this post.
+          Comment created!
         </Alert>
       ) : (
         <Form className="mt-2" onSubmit={handleSubmit}>

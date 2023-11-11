@@ -22,7 +22,7 @@ const Review = (props) => {
     setIsEditing(false);
     setIsReviewVisible(true);
     setUpdatedContent(updatedContent);
-    setUpdateMessage("Your review has been updated!");
+    setUpdateMessage("Review updated!");
   };
 
   useEffect(() => {
