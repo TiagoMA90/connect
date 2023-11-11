@@ -94,6 +94,7 @@ const ProfileEditForm = () => {
           onChange={handleChange}
           name="content"
           rows={7}
+          style={{ backgroundColor: "#f8f8f8" }}
         />
       </Form.Group>
 

@@ -99,6 +99,7 @@ const WallPostCreateForm = ({ profileId, createWallPost, currentUser }) => {
                   onChange={(e) => setContent(e.target.value)}
                   id="wallPostContent"
                   placeholder="Write a message on the wall..."
+                  style={{ backgroundColor: "#f8f8f8" }} // Inline styling for the form backgroundcolor
                 />
               </Form.Group>
               {errors.length > 0 && (

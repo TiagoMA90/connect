@@ -67,6 +67,7 @@ const UserPasswordForm = () => {
                 value={new_password1}
                 onChange={handleChange}
                 name="new_password1"
+                style={{ backgroundColor: "#f8f8f8" }}
               />
             </Form.Group>
             {errors?.new_password1?.map((message, idx) => (
@@ -82,6 +83,7 @@ const UserPasswordForm = () => {
                 value={new_password2}
                 onChange={handleChange}
                 name="new_password2"
+                style={{ backgroundColor: "#f8f8f8" }}
               />
             </Form.Group>
             {errors?.new_password2?.map((message, idx) => (

@@ -66,6 +66,7 @@ const UsernameForm = () => {
                 type="text"
                 value={username}
                 onChange={(event) => setUsername(event.target.value)}
+                style={{ backgroundColor: "#f8f8f8" }}
               />
             </Form.Group>
             {errors?.username?.map((message, idx) => (

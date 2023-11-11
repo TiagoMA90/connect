@@ -97,6 +97,7 @@ const ReviewCreateForm = ({ profile_id, createReview, currentUser }) => {
               onChange={(e) => setContent(e.target.value)}
               id="reviewContent"
               placeholder="Write a review for this user profile..."
+              style={{ backgroundColor: "#f8f8f8" }} // Inline styling for the form backgroundcolor
             />
           </Form.Group>
           {errors.map((error, index) => (
