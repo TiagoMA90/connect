@@ -80,6 +80,7 @@ function PostCreateForm() {
           name="title"
           value={title}
           onChange={handleChange}
+          style={{ backgroundColor: "#f8f8f8" }}
         />
       </Form.Group>
       {errors?.title?.map((message, idx) => (
@@ -96,6 +97,7 @@ function PostCreateForm() {
           name="content"
           value={content}
           onChange={handleChange}
+          style={{ backgroundColor: "#f8f8f8" }}
         />
       </Form.Group>
       {errors?.content?.map((message, idx) => (
