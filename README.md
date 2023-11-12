@@ -77,7 +77,7 @@ For mobiles, the structure of the website remained the same with the exception o
 
 ## Colour palette
 It relied heavily on colors that should be appealing to the user, especially for those who might visit the website on a daily basis.
-For such, it makes use of a colour palette of a mere white & gray blend for the navigation bar and Orange, close to Vermillion, for the Logo, buttons and active Links. The background is best defined by a grayish white and the body of the post white, bordered by solid lines. Blue and Dark tinted blue was also used on a couple of occasions, such as usernames for comments and button for the follow/unfollow on PopularProfiles.
+For such, it makes use of a colour palette of a mere white & gray blend for the navigation bar and Orange, close to Vermillion, for the Logo, buttons and active Links. The background is best defined by a grayish white and the body of the post white, bordered by solid lines.
 
 <img src="readme/img/ColorPalette.png" alt="Colour palette">
 

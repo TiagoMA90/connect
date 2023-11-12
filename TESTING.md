@@ -139,6 +139,12 @@ If the internet is slow is will lag and the console will log 500 errors on conse
 
 <img src="readme/img/ConsoleError500.png" alt="500">
 
+Upon deploying the project to Heroku, after installing the [react-simple-star-rating](https://react-simple-star-rating.vercel.app/?path=/story/introduction--page), Heroku failed to resolve this dependecy. The component worked without problems on production, but failed to work properly when using an older ver. of React.
+
+- Solution: Update/Reinstall React running ```npm install react react-dom``` on the console, over the old ver.
+
+<img src="readme/img/ReactSimpleStarRating.png" alt="Heroku error">
+
 Upon manual testing, if an authenticated User tries to delete a profile, it fails to properly eliinate the user profile.
 After various attempts on how to correct this bug, the developer sought to delete this functionality altogether, but decided to keep it instead is and work on it when time allows.
 
@@ -146,7 +152,7 @@ After various attempts on how to correct this bug, the developer sought to delet
 - (1) From inside of a User profile click on "Delete Account)
 - (2) Access the Sote information (padlock icon, left to the URL) 
 - (3) Navigate to Cookies and Website
-- (4) Delete the Cookies associated with the API. In this case, (me)[https://djangorestframework-api-38c4a098777a.herokuapp.com/]
+- (4) Delete the Cookies associated with the API. In this case, [me](https://djangorestframework-api-38c4a098777a.herokuapp.com/)
 - (5) Confirm
 - (6) Manually Refresh the page (or Ctrl+R)
 
