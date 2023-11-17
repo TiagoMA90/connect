@@ -15,7 +15,7 @@ const ProfileReviews = ({ profileId, currentUser }) => {
       );
       setReviews(response.data.results);
     } catch (error) {
-      // Handle the error here
+      // Handles the error
     }
   }, [profileId]);
 

@@ -35,10 +35,10 @@ const ReviewUpdateForm = ({
         // console.log("Review updated successfully!");
         onSave(); // Callback to show the review content after saving
       } else {
-        // console.error("Review update failed:", response.statusText);
+        // Handles the error
       }
     } catch (error) {
-      // console.error("Error updating review:", error);
+      // Handles the error
     }
   };
 

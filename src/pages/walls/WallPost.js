@@ -30,10 +30,10 @@ const WallPost = (props) => {
         setIsEditing(false);
         setShowAlert(true);
       } else {
-        // Handle the error case if needed
+        // Handles the error
       }
     } catch (error) {
-      // Handle the error case if needed
+      // Handles the error
     }
   };
 

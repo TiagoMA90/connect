@@ -13,6 +13,11 @@ It is a website where Users can share their pictures, give feedback to others & 
 - To create a community of users and like minded individuals.
 - To connect with people.
 
+## Set Goals
+- To create a fully functional social media app
+- To allow user accessibility, interaction & control over their data
+- To create a Community and build content on the platform (imagery)
+
 ## Design:
 The website was designed with the intent to allow users to browse posts, read comments and navigate throughout the website at ease.
 It allows users to access all components easily, and lets users perform all CRUD functionalities for their, Posts, Comments, Likes & Profiles, to CRU Reviews and Wall messages. Furthermore, users can C Reports for posts & C messages using the Contact for the moderation panel.
@@ -88,121 +93,270 @@ The fonts used for this website were "DM sans" and "sans serif" by default. A ch
 
 <img src="readme/img/GoogleFont.png" alt="Font">
 
-# Components & Functionality:
-## Navbar, Header & Favicon
-- The Navbar located at the upper end of the page, serves as the menu for the user to navigate between pages. From left to right is the "Logo", followed by "Add post" (if the user is authenticated), then "Home", "Feed", "Liked", "Sign In" (if not authenticated) "Sign Out" and "Profile".
-- The user can then access these components by clicking the desired icon. A hover effect is in place and the cursor turns into a pointer to advert users of its accessibility.
+# Components, Functionality & Reusability:
+This project includes several functional and reusable React components that are used for different parts of the application. Below are the key components:
+
+# Navbar, Header & Favicon
+The Navbar located at the upper end of the page, serves as the menu for the user to navigate between pages. From left to right is the "Logo", followed by "Add post" (if the user is authenticated), then "Home", "Feed", "Liked", "Sign In" (if not authenticated) "Sign Out" and "Profile".
+The user can then access these components by clicking the desired icon. A hover effect is in place and the cursor turns into a pointer to advert users of its accessibility.
 
 <img src="readme/img/NavBar.png" alt="Navigation Bar">
 
-## Posts
-- Users can then create Posts (if authenticated) by navigating to "Add post" next to the logo. From there, users will be prompt to upload an image and write the title and a brief description of the post. Once users click the Create/Submit button, the post will be displayed at "/" or "Home", for the whole community to see. Posts can also be Edited or Deleted by the author of the post, if desired, by navigating inside the Post and clicking the little dropdown menu defined by a Pencil or Bin icons, accordingly.
-- Posts may also be Liked/Disliked, Commented and Reported. This functionality allows the community to stay active and the users engaged.
+# Posts
+Users can then create Posts (if authenticated) by navigating to "Add post" next to the logo. From there, users will be prompt to upload an image and write the title and a brief description of the post. Once users click the Create/Submit button, the post will be displayed at "/" or "Home", for the whole community to see. Posts can also be Edited or Deleted by the author of the post, if desired, by navigating inside the Post and clicking the little dropdown menu defined by a Pencil or Bin icons, accordingly.
+Posts may also be Liked/Disliked, Commented and Reported. This functionality allows the community to stay active and the users engaged.
+
+- ## Post.js
+- Component used for rendering individual posts. It displays post details such as owner, profile image, title, content, and associated functionalities.
+- Allows users to navigate to the post details page by clicking on the post image or title.
+- Handles like, unlike, edit, and delete actions based on user permissions.
+- Shows the number of likes, comments and allows users to make use of the report button for flagging a post.
+
+- ## PostCreateForm.js
+- Component used for creating new posts with title, description, and image upload.
+
+- ## PostEditForm.js
+- Component used for editing existing posts with title, description, and image upload.
+- Alows users to modify their post details.
+
+- ## PostPage.js
+- Component used for displaying a single post along with its comments.
+- Fetches and presents detailed information about the post and associated comments.
+- Allows authenticated users to create comments, displays existing comments, and supports infinite scrolling.
+
+- ## PostsPage.js
+- Component responsible for displaying a list of posts, including infinite scrolling for additional posts.
+- Allows users to search for posts based on a provided query.
+- Provides a layout for the search bar, popular profiles, and community comments. It also Includes a wall section for wall posts, allowing users to create new wall posts.
+
 
 <img src="readme/img/PostPage.png" alt="Post page">
 
-## Likes
-- From a Post, Users (if authenticated) can also leave likes and consequently remove the like (dislike) to Posts. This shows appreciation from users to the community.
-- The counter for Likes then rises per user, by +1 or -1, but never below 0.
-- Owners of a Post cannot like/dislike their own posts.
+# Likes
+From a Post, Users (if authenticated) can also leave likes and consequently remove the like (dislike) to Posts. This shows appreciation from users to the community.
+The counter for Likes then rises per user, by +1 or -1, but never below 0.
+Owners of a Post cannot like/dislike their own posts.
 
 <img src="readme/img/Likes.png" alt="Likes">
 
-## Report
-- Users (if authenticated) also have the ability to Report Posts. From a Post click on the Flag icon. From there a modal is displayed with a Reason of choice and an optional description field.
-- This supports the Administration panel to moderate and fight Spam &/or Innapropriate content.
+# Report
+Users (if authenticated) also have the ability to Report Posts. From a Post click on the Flag icon. From there a modal is displayed with a Reason of choice and an optional description field. This supports the Administration panel to moderate and fight Spam &/or Innapropriate content.
+
+- ## Report.js
+- Component used to report a post by providing a reason and an optional description. It opens a modal for the reporting process and submits the report to a remote API.
+- To use this component, one must import it and pass the postId prop. Users can report posts by clicking the flag icon, which opens a modal to submit reports.
+
+- ## ReportModal.js
+- Sub-component used by the `Report` component to create the reporting modal. It provides a user interface for selecting a reason, entering a description, and submitting the report.
+- Used internally by the `Report` component and does not need to be imported separately. It creates the modal interface for reporting a post by a user.
 
 <img src="readme/img/Reports.png" alt="Reports">
 
-## Comments
-- Users (if authenticated) can write Comments on Posts. This functionality encourages users to give feedback on posts. Comments, like Posts, can also be Edited or Deleted, by following the same pattern in Posts.
-- From the Post page, users ought to click on the Dialogue icon to access the list of Comments. From there a comment can be written via the input form, from the Comment section and hit submit. If no characters have been written and the submit button pushed, a warning message will be displayed.
-- If successfully submitted, a confirmation message is shown, while the form goes hidden, preventing users from spamming.
+# Comments
+Users (if authenticated) can write Comments on Posts. This functionality encourages users to give feedback on posts. Comments, like Posts, can also be Edited or Deleted, by following the same pattern in Posts.
+From the Post page, users ought to click on the Dialogue icon to access the list of Comments. From there a comment can be written via the input form, from the Comment section and hit submit. If no characters have been written and the submit button pushed, a warning message will be displayed.
+If successfully submitted, a confirmation message is shown, while the form goes hidden, preventing users from spamming.
+
+- ## Comment.js
+- Component used for rendering individual comments within the app.
+- Provides functionality for displaying, editing, and deleting comments and make use of the MoreDropdown component for additional actions (Editing and Deleting).
+- To use this component, one must import it and pass it in the rendering of comments within the app.
+
+- ## CommentCreateForm.js
+- Component used for creating new comments within the app. It Renders a form with a textarea for users to input their comments.
+- axiosRes API for is used for making requests to the backend.
+- Provides visual feedback to users with alerts for successful comment creation or warnings for empty submissions.
+- To use this component, one mst import it and include it in the rendering of comment creation forms within the app.
+
+- ## CommentEditForm.js
+- Component used for editing existing comments within the app.
+- Renders a form with a textarea for users to modify their comments and give the possibility for users to Update the comment or Cancel the edit.
+- To use this component, one must import it and include it in the rendering of comment edit forms within the app.
 
 <img src="readme/img/Comments.png" alt="Comments">
 
-## Footer
-- Located on the right panel, just below the "Latest/Users Comments" component (Home/Profile), or SignIn/Up (Components), the footer contains access to the "Contact" component, the social media links & the modal to the "Terms of Service". It is best defined by icons easily recognizable and navigable by Users.
+# Footer
+Located on the right panel, just below the "Latest/Users Comments" component (Home/Profile), or SignIn/Up (Components), the footer contains access to the "Contact" component, the social media links & the modal to the "Terms of Service". It is best defined by icons easily recognizable and navigable by Users.
+
+- ## Footer.js
+- Component used for rendering the footer section of the web app.
+- Provides contact information and links to social media and the Terms of Service. It also contains a modal for the "Terms of Service."
+- To use this component, import it and include it in your app's layout to display the footer.
 
 <img src="readme/img/Footer.png" alt="Footer">
 
-## Wall
-- Presented at "/" or "Home", the Wall component is the first component rendered on the right side of the page. It allows users to create/update messages accordingly, so the community can voice their input or simply introduce themselves. Similar to a chat room, Users are encouraged to use that component as chitchat.
-- From the Home page, users ought to open the Wall form and write a message in the form and then click the submit button. Else a warning message is displayed informing users to try again.
-- If successfully submitted, a confirmation message is shown, while the form and submit buttons go hidden, preventing users from spamming.
+# Wall
+Presented at "/" or "Home", the Wall component is the first component rendered on the right side of the page. It allows users to create/update messages accordingly, so the community can voice their input or simply introduce themselves. Similar to a chat room, Users are encouraged to use that component as chitchat.
+From the Home page, users ought to open the Wall form and write a message in the form and then click the submit button. Else a warning message is displayed informing users to try again.
+If successfully submitted, a confirmation message is shown, while the form and submit buttons go hidden, preventing users from spamming.
+
+- ## WallPost.js
+- Component used for displaying and managing wall posts. It provides functionality for viewing and editing wall posts.
+- To use this component, one must import and pass the necessary props. It includes features for editing and saving wall posts.
+
+- ## WallPostCreateForm.js
+- Component used for creating new wall posts. It includes a form for users to write and submit wall posts.
+- To use this component, one must import and apss the required props, such as `profileId`, `createWallPost`, and `currentUser`. Users can write wall posts, and the component handles form submission and error handling.
+
+- ## WallPostsList.js
+- Component used to display a list of wall posts. It fetches wall posts from an API and continuously updates them every 1sec.
+- To use this component, one must import and pass the `profileId` and `currentUser` props. It renders a list of wall posts and provides a collapsible interface for viewing them.
+
 
 <img src="readme/img/Walls.png" alt="Wall">
 
-## Contact
-- The "Contact" component grants users the possibility to contact the administration panel regarding any issues they are having with the platform. Users (authentication not necessary) need to input a valid e-mail*, a username, subject of concern and the message they wish to send to the Support team. Upon a successful submission, Users are notified a message has been sent.
+# Contact
+The "Contact" component grants users the possibility to contact the administration panel regarding any issues they are having with the platform. Users (authentication not necessary) need to input a valid e-mail*, a username, subject of concern and the message they wish to send to the Support team. Upon a successful submission, Users are notified a message has been sent.
+
+- ## ContactCreateForm.js
+- Component used for creating and submitting contact forms. It uses the `react-hook-form` library for form handling and sends data to a remote API upon submission.
+- To use this component, one must import it and pass the component in the app. It provides a form for users to submit their contact information and messages. After submission, it displays a success message or error message as appropriate.
+
+- ## ContactSuccessForm.js
+- Component used to displayed when a contact form is successfully submitted. It provides a success message to the user.
+- To use this component import it and pass the component in the app to display a costumized success message after a user successful submission to a contact form.
 
 <img src="readme/img/Contacts.png" alt="Contacts">
 
-## Terms of Service
-- When clicking the Terms Of Service link, located at the Footer, Users should be able to read the the "~~legal agreements~~" between Connect and a person who wants to use that service. This is defined by a modal that pops up and only goes away when the terms are met by clicking the button at the end.
+# Terms of Service
+When clicking the Terms Of Service link, located at the Footer, Users should be able to read the the "~~legal agreements~~" between Connect and a person who wants to use that service. This is defined by a modal that pops up and only goes away when the terms are met by clicking the button at the end.
+
+- ## TermsOfService.js
+- Component used for displaying the Terms of Service. It opens a modal that provides users with the terms and conditions for using the Connect app.
+- To use this component, one must import it and pass the isOpen (to control modal visibility) and onRequestClose (to handle modal closing) props.
 
 <img src="readme/img/TermsOfService.png" alt="Terms of Service">
 
-## Signin
-- After creating an account, Users may log in onto their users accounts, through the Sign In component. Users will then have the possibility perform CRUD functionalities in the platform and interact with the community. To sign in Users are requested to input their log in credentials, such as Username and Password, previously created in the Sign Up page.
-- The Sign in page is best defined by a a Sign in form and an image. (Ideally the image should be dynamic and change its theme according to the season (unapplied), for the time being summer)
+# Signin
+After creating an account, Users may log in onto their users accounts, through the Sign In component. Users will then have the possibility perform CRUD functionalities in the platform and interact with the community. To sign in Users are requested to input their log in credentials, such as Username and Password, previously created in the Sign Up page.
+The Sign in page is best defined by a a Sign in form and an image. (Ideally the image should be dynamic and change its theme according to the season (unapplied), for the time being summer)
 
 <img src="readme/img/SignIn.png" alt="SignIn">
 
-## Signup
-- To be part of this community, Users must create an account. For such, users must input a Username, Password & Password confirmation and hit Sign Up. Upon a successful account creation, users can then log in via Sign In.
-- The Sign up page is best defined by a a Sign Up form and an image. (Ideally the image should be dynamic and change its theme according to the season (unapplied), for the time being summer)
+# Signup
+To be part of this community, Users must create an account. For such, users must input a Username, Password & Password confirmation and hit Sign Up. Upon a successful account creation, users can then log in via Sign In.
+The Sign up page is best defined by a a Sign Up form and an image. (Ideally the image should be dynamic and change its theme according to the season (unapplied), for the time being summer)
 
 <img src="readme/img/SignUp.png" alt="SignUp">
 
-## Profile
-- Once a User account is created and a user is authenticated, one can access a User "Profile".
-- The User Profile details all activity performed by a given user, such a latest Posts & Comments and the number & List of Followers and Followings. Owners of a profile and visitors can then easily track the latest motions and be on pair with their followings.
+# Profile
+Once a User account is created and a user is authenticated, one can access a User "Profile".
+The User Profile details all activity performed by a given user, such a latest Posts & Comments and the number & List of Followers and Followings. Owners of a profile and visitors can then easily track the latest motions and be on pair with their followings.
 
-<img src="readme/img/Profile.png" alt="Profile">
+- ## Profile.js
+- Component used to display user profiles with optional buttons for follow/unfollow actions.
+- Uses `useCurrentUser` and `useSetProfileData` from context to access current user data and manage profile actions.
+- Handles conditional rendering of follow/unfollow buttons based on ownership and relationship status.
+- To use this component, one must import Profile and pass `profile` data.
 
-## Reviews
-- Displayed in a user Profile, the Review component can be found at the lower right side of the profile page of a user. It allows users to create/update reviews accordingly, so the community can rate themselves and their content. It makes use of the react-simple-star-rating when classifying a user.
-- From a user Profile page, users ought to write a review and select the number of stars in the form. If the form is not populated a warning message is displayed informing users on how to proceed.
-- If successfully submitted, a confirmation message is shown, while the form and submit buttons go hidden, preventing users from spamming.
+- ## ProfilePage.js
+- Component used to display the user profile page. Depends on custom components like Asset, Post, ProfileEditDropdown, FollowingProfiles, FollowedProfiles, FilteredComments, ProfileReviews, ReviewCreateForm, and Footer.
+- Makes use of InfiniteScroll to load more posts, under `asLoaded` and keep track if the profile data has loaded. 
+- Makes use of `useEffect` to fetch profiles and posts and renders the Follow/unfollow buttons based on the relationship between the current user and the profile owner.
+- To use this component, one must import the ProfilePage component and render it within the app to display a user's profile page.
 
-<img src="readme/img/Reviews.png" alt="Reviews">
 
-## Edit Profile, Change Username, Update Password, Delete Profile
-- As the owner of a Profile (if authenticated), one may Edit the user handle, avatar, password or entirely delete the Profile. This allows the user to have total control of the User profile and CRUD at will. For such, each functionality is accessed from the dropdown menu, from within a profile owned by a user.
+# Edit Profile, Change Username, Update Password, Delete Profile
+As the owner of a Profile (if authenticated), one may Edit the user handle, avatar, password or entirely delete the Profile. This allows the user to have total control of the User profile and CRUD at will. For such, each functionality is accessed from the dropdown menu, from within a profile owned by a user.
 
-- Change Username
-
-<img src="readme/img/ProfileChange.png" alt="Profile">
-
-- Change Bio/Description
+- ## ProfileEditForm.js
+- Component used for Updating the User profile.
+- Uses axiosReq for API requests and depends on context hooks from `CurrentUserContext` for managing user data.
+- The state `profileData` holds data for the name, content, and image.
+- To use this component, one must import and render ProfileEditForm in the app for allowing users to edit their profile.
 
 <img src="readme/img/ProfileEdit.png" alt="Profile">
 
-- Update Password
+- ## UsernameForm.js
+- Component used for changing a user's username.
+- Utilizes `useCurrentUser` and `useSetCurrentUser` context hooks for user-related actions.
+
+<img src="readme/img/ProfileChange.png" alt="Profile">
+
+- ## UserPasswordForm.js
+- Component used for updating a userser password, requiring external props but the `useCurrentUser` context hook for user-related actions.
+- To use this component, one must import it into a user profile page. Integrate it within the parent component with the necessary context providers, allowing users to update their passwords.
 
 <img src="readme/img/ProfileUpdate.png" alt="Profile">
 
-- Delete Profile
+- ## ProfileDeleteForm.js (BUGGED)
+- Component used for eliminating user profile accounts.
+- Upon confirmation, the component should triggers an asynchronous request to delete the user's profile. The handleDelete function, responsible for this deletion process should have ensured that the user is appropriately logged out by removing the access token and updating the current user context.
+- BUGGED: Please, read the TESTING.md linked at the end of this README.md
 
 <img src="readme/img/ProfileDelete.png" alt="Profile">
 
-## Follow
-- As a User (if authenticated), one can follow/unfollow other users. This functionality allows users to stay updated with the posts of their Followings. When following another user profile, the feed of all followings can be accessed via the "Feed" tab and will display the posts chronologically. To Follow a user one may do it through a user profile or from the PopularProfiles component. Thus, the number for each functionality will be incremented accordinglly in the Profile page.
+This component integrates seamlessly into a user settings or profile page, offering a clear and user-friendly way for individuals to manage their account preferences. It adheres to a clean and minimalist design, following the application's visual style defined by the appStyles and buttonStyles. Importing this component into the desired location within the React application allows users to interact with the deletion functionality effortlessly.
 
-## Popular Profiles
-- The PopularProfiles component located at "/" (/home), (/feed), (/liked) displays the 10 most active Profiles. This component lets the whole community access and follow these particular users. It further promotes less popular Profiles to be more active in order to climb the ladder and be connected by other users.
+<img src="readme/img/Profile.png" alt="Profile">
+
+# Reviews
+Displayed in a user Profile, the Review component can be found at the lower right side of the profile page of a user. It allows users to create/update reviews accordingly, so the community can rate themselves and their content. It makes use of the react-simple-star-rating when classifying a user.
+From a user Profile page, users ought to write a review and select the number of stars in the form. If the form is not populated a warning message is displayed informing users on how to proceed.
+If successfully submitted, a confirmation message is shown, while the form and submit buttons go hidden, preventing users from spamming.
+
+- ## ProfileReviews.js
+- Cmponent used for displaying and managing user reviews. It fetches and displays reviews for a given user profile.
+- To use this component, one must import and pass the `profileId` and `currentUser` props. It automatically fetches and updates reviews for the specified user profile.
+
+- ## Review.js
+- Component used for displaying individual reviews. It includes options for editing and updating reviews.
+- To use this coponent one must import and pass the necessary props `owner`, `updated_at`, `content`, `rating`, and `currentUser`. It allows users to edit their reviews and displays review information.
+
+- ## ReviewCreateForm.js
+- Component used for creating reviews. It makes use of a form for users to rate and write reviews upon.
+- To use this component one must pass the `profile_id`, `createReview`, and `currentUser` props. It allows users to submit reviews and handles form validation and submission.
+
+- ## ReviewUpdateForm.js
+- Component used for updating existing reviews. It provides options for changing the rating and content of a review.
+- To use this component one must pass the necessary props, such as `reviewId`, `content`, `rating`, and `onSave` (a callback function to handle the updated content). Users can update their reviews.
+
+<img src="readme/img/Reviews.png" alt="Reviews">
+
+# Follow
+As a User (if authenticated), one can follow/unfollow other users. This functionality allows users to stay updated with the posts of their Followings. When following another user profile, the feed of all followings can be accessed via the "Feed" tab and will display the posts chronologically. To Follow a user one may do it through a user profile or from the PopularProfiles component. Thus, the number for each functionality will be incremented accordinglly in the Profile page.
+
+# Popular Profiles
+The PopularProfiles component located at "/" (/home), (/feed), (/liked) displays the 10 most active Profiles. This component lets the whole community access and follow these particular users. It further promotes less popular Profiles to be more active in order to climb the ladder and be connected by other users.
+
+- ## PopularProfiles.js
+- Component used for displaying popular profiles.
+- Maksw use of useProfileData to access popular profiles data from the profile context.
+- To use this component, one must import PopularProfiles.
 
 <img src="readme/img/PopularProfiles.png" alt="Popular Profiles">
 
-## Followers & Following
-- The Followers and Followings component located only on the users Profile page displays a list, truncated by 5 users, of all the users that a user is either following or being followed by.
+# Followers & Following
+The Followers and Followings component located only on the users Profile page displays a list, truncated by 5 users, of all the users that a user is either following or being followed by.
+
+- ## FollowedProfiles.js
+- Component used for displaying a list of profiles that follow a specific user.
+- Fetches profiles following the specified user from the API.
+- To use this component, one must import FollowedProfiles and pass `followedId` as props.
+
+- ## FollowingProfiles.js
+- Component used to render profiles followed by a user.
+- Uses fetchProfileDetails to get details for each followed profile.
+- To use this component, one must import FollowingProfiles and pass `ownerId` as props.
 
 <img src="readme/img/FollowersFollowings.png" alt="Followers & Following">
 
-## Filtered Comments by User & Community Comments
-- Respectively, the Filtered Comments & Community Comments components render in the Profile page and "/" accordingly.
-- Filtered Comments lists all comments & details submited by a user to a list of posts from latest to oldest. Ergo, for each comment a link is attributted to the post of a comment, if a user wishes to read the parent Post.
+# Filtered Comments by User & Community Comments
+Respectively, the Filtered Comments & Community Comments components render in the Profile page and "/" accordingly.
+Filtered Comments lists all comments & details submited by a user to a list of posts from latest to oldest. Ergo, for each comment a link is attributted to the post of a comment, if a user wishes to read the parent Post.
+
+- ## SnipetComments.js
+- Component used to display user comments within a snippet format.
+- Properties to load include profile_id, profile_image, owner, updated_at, content, and post.
+- To use this component, import it and pass the required props to display user comments within a snippet format.
+
+- ## CommunityComments.js
+- Component used to display the latest comments from the community. It fetches comments from an API and displays them in a chat-like format.
+- To use this component, import it, and it will automatically fetch and display the latest comments from the community.
+
+- ## FilteredComments.js
+- Component used to display filtered comments based on a specific profileId. It fetches comments from an API and filters them by profileId.
+- To use this component, one must import import it and pass the profileId prop. It will automatically fetch and display comments related to the specified profile.
 
 <img src="readme/img/FilteredComments.png" alt="Filtered Comments">
 
