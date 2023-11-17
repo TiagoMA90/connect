@@ -87,15 +87,16 @@ const ReviewCreateForm = ({ profile_id, createReview, currentUser }) => {
           id="review-form-collapse"
         >
           <Form.Group>
-            <Form.Label htmlFor="reviewContent" srOnly>
+            {/* <Form.Label htmlFor="CreateReviewContent" srOnly>
               Review
-            </Form.Label>
+            </Form.Label> - NOTE: Commented to remove 2 Label issues registered by WAVE Evaluation Tool*/}
             <Form.Control
               as="textarea"
               rows={6}
               value={content}
               onChange={(e) => setContent(e.target.value)}
-              id="reviewContent"
+              id="CreateReviewContent"
+              aria-label="Review"
               placeholder="Write a review for this user profile..."
               style={{ backgroundColor: "#f8f8f8" }} // Inline styling for the form backgroundcolor
             />

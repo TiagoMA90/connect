@@ -26,7 +26,7 @@ const Review = (props) => {
   };
 
   useEffect(() => {
-    // When the `content` prop changes, update the `originalContent`
+    // When the content prop changes, update the originalContent`
     setOriginalContent(content);
   }, [content]);
 

@@ -143,12 +143,12 @@ Owners of a Post cannot like/dislike their own posts.
 Users (if authenticated) also have the ability to Report Posts. From a Post click on the Flag icon. From there a modal is displayed with a Reason of choice and an optional description field. This supports the Administration panel to moderate and fight Spam &/or Innapropriate content.
 
 - ## Report.js
-- Component used to report a post by providing a reason and an optional description. It opens a modal for the reporting process and submits the report to a remote API.
-- To use this component, one must import it and pass the postId prop. Users can report posts by clicking the flag icon, which opens a modal to submit reports.
+- Component used to report a post by providing a reason and an optional description. It opens a modal for the reporting process and submits the report to the backend.
+- To use this component, one must import it and pass the `postId` prop. Users can report posts by clicking the flag icon, which opens a modal to submit reports.
 
 - ## ReportModal.js
-- Sub-component used by the `Report` component to create the reporting modal. It provides a user interface for selecting a reason, entering a description, and submitting the report.
-- Used internally by the `Report` component and does not need to be imported separately. It creates the modal interface for reporting a post by a user.
+- Sub-component used by the Report component to create the reporting modal. It provides a user interface for selecting a reason, entering a description, and submitting the report.
+- Used internally by the Report component and does not need to be imported separately. It creates the modal interface for reporting a post by a user.
 
 <img src="readme/img/Reports.png" alt="Reports">
 

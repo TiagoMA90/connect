@@ -127,10 +127,11 @@ Eventually the eslintrc.js was deleted. Leaving 9 remaining warnings.
 <img src="readme/img/W3Jigsaw.png" alt="W3 Jigsaw">
 
 # Errors & Bugs
-## Bug while Spamming
+## Sign Up & Sign In
 
 Through out development errors were found, confronted and solved.
 Console Errors were caught on try blocks commented out and dealt accordingly.
+
 Currently, the only errors still being logged are 401 (Unauthorized) when accessing the [Sign Up](https://connect-network-ee92c70de293.herokuapp.com/signup) and [Sign In](https://connect-network-ee92c70de293.herokuapp.com/signin) pages.
 
 <img src="readme/img/ConsoleError401.png" alt="401">
@@ -139,16 +140,28 @@ If the internet is slow is will lag and the console will log 500 errors on conse
 
 <img src="readme/img/ConsoleError500.png" alt="500">
 
+## React Simple Star Rating & React Version
+
 Upon deploying the project to Heroku, after installing the [react-simple-star-rating](https://react-simple-star-rating.vercel.app/?path=/story/introduction--page), Heroku failed to resolve this dependecy. The component worked without problems on production, but failed to work properly when using an older ver. of React.
 
 - Solution: Update/Reinstall React running ```npm install react react-dom``` on the console, over the old ver.
 
 <img src="readme/img/ReactSimpleStarRating.png" alt="Heroku error">
 
+## Errors on the Review Form
+Upon using WAVE Evaluation Tool when testing the app components, 2 Errors for Multiple form labels have been registered.
+The Form for the reviews component on ReviewCreateForm.js throws 2 errors for the labels. Presumably 'htmlFor="CreateReviewContent"' & 'srOnly' in Form.Label, but not related, as WallPostCreateForm.js makes use of the same syntax.
+
+- Solution: Comment out the <Form.Label> from the ReviewCreateForm.js component altogether. Outcome: It does not affect the user experience or throw any errors.
+
+<img src="readme/img/ErrorLabels.png" alt="Labels and Errors">
+
+## Deleting a User Profile
 Upon manual testing, if an authenticated User tries to delete a profile, it fails to properly eliinate the user profile.
 After various attempts on how to correct this bug, the developer sought to delete this functionality altogether, but decided to keep it instead is and work on it when time allows.
 
-- Solution: Unsolved. No solution was founded yet. There is a work aruond that is not User friendly. So how to proceed?
+- Solution: Unsolved. No solution was founded yet. There is a work around that is not User friendly though. So how to proceed?
+
 - (1) From inside of a User profile click on "Delete Account)
 - (2) Access the Sote information (padlock icon, left to the URL) 
 - (3) Navigate to Cookies and Website
@@ -156,11 +169,10 @@ After various attempts on how to correct this bug, the developer sought to delet
 - (5) Confirm
 - (6) Manually Refresh the page (or Ctrl+R)
 
+- This functionality was not deleted or commented out upon deployment, to keep it documented both for personal records of the developer and continous improvement*
 - See the Image below for a visual take:
 
 <img src="readme/img/DeleteUserProfile.png" alt="Delete User profile Solution">
-
-- * <i class="fa-solid fa-mosquito-net"></i> This functionality was not deleted or commented out upon deployment, to keep it documented both for personal knowldege of the developer and continous imporvment*
 
 ## Browser Compatibility
 This website was tested on Chrome, Firefox and Microsoft Edge.
