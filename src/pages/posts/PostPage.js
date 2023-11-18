@@ -49,49 +49,51 @@ function PostPage() {
 
   // PostPage Structure
   return (
-    <Row className="h-100">
-      <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <Post {...post.results[0]} setPosts={setPost} postPage />
-      </Col>
-      <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        <Container className={appStyles.Content}>
-          {currentUser ? (
-            <CommentCreateForm
-              profile_id={currentUser.profile_id}
-              profileImage={profile_image}
-              post={id}
-              setPost={setPost}
-              setComments={setComments}
-            />
-          ) : comments.results.length ? (
-            <div style={{ textAlign: "center" }}>
-              <i className="fa-regular fa-comment fa-lg"></i>Comments
-            </div>
-          ) : null}
-          {comments.results.length ? (
-            <InfiniteScroll
-              children={comments.results.map((comment) => (
-                <Comment
-                  key={comment.id}
-                  {...comment}
-                  setPost={setPost}
-                  setComments={setComments}
-                />
-              ))}
-              dataLength={comments.results.length}
-              loader={<Asset spinner />}
-              hasMore={!!comments.next}
-              next={() => fetchMoreData(comments, setComments)}
-            />
-          ) : currentUser ? null : ( //Commented: <span>No comments, be the first one to submit!</span>
-            <div style={{ textAlign: "center" }}>
-              No comments... This section is empty.
-            </div>
-          )}
-        </Container>
-        <Footer />
-      </Col>
-    </Row>
+    <Container fluid className="h-100">
+      <Row className="h-100">
+        <Col xs={12} lg={8} className="py-2 p-0 p-lg-2">
+          <Post {...post.results[0]} setPosts={setPost} postPage />
+        </Col>
+        <Col xs={12} lg={4} className="p-0 p-lg-2">
+          <Container className={appStyles.Content}>
+            {currentUser ? (
+              <CommentCreateForm
+                profile_id={currentUser.profile_id}
+                profileImage={profile_image}
+                post={id}
+                setPost={setPost}
+                setComments={setComments}
+              />
+            ) : comments.results.length ? (
+              <div style={{ textAlign: "center" }}>
+                <i className="fa-regular fa-comment fa-lg"></i>Comments
+              </div>
+            ) : null}
+            {comments.results.length ? (
+              <InfiniteScroll
+                children={comments.results.map((comment) => (
+                  <Comment
+                    key={comment.id}
+                    {...comment}
+                    setPost={setPost}
+                    setComments={setComments}
+                  />
+                ))}
+                dataLength={comments.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!comments.next}
+                next={() => fetchMoreData(comments, setComments)}
+              />
+            ) : currentUser ? null : (
+              <div style={{ textAlign: "center" }}>
+                No comments... This section is empty.
+              </div>
+            )}
+          </Container>
+          <Footer />
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
