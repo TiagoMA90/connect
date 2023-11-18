@@ -26,7 +26,7 @@ const WallPostsList = ({ profileId, currentUser, mobile }) => {
 
   // Fetch new wall posts every 1 second
   useEffect(() => {
-    const intervalId = setInterval(fetchWallPosts, 1000); // set the millisecods = 1 seconds
+    const intervalId = setInterval(fetchWallPosts, 5000); // set the millisecods = 1 seconds
 
     return () => {
       clearInterval(intervalId);
@@ -69,7 +69,9 @@ const WallPostsList = ({ profileId, currentUser, mobile }) => {
               ))}
             </div>
           ) : (
-            <p className="text-center">No wall posts available...</p>
+            <p className={`${styles.centerText} text-center`}>
+              <i class="fa-solid fa-spinner fa-spin-pulse fa-xs"></i> Loading Wall Posts...
+            </p>
           )}
         </div>
       </Collapse>

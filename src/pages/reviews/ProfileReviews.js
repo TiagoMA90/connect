@@ -24,7 +24,7 @@ const ProfileReviews = ({ profileId, currentUser }) => {
     fetchReviews();
 
     // Fetch new reviews every 1 second
-    const intervalId = setInterval(fetchReviews, 1000); // set the millisecods = 1 seconds
+    const intervalId = setInterval(fetchReviews, 5000); // set the millisecods = 5 seconds
 
     return () => {
       clearInterval(intervalId);
@@ -59,7 +59,7 @@ const ProfileReviews = ({ profileId, currentUser }) => {
         <div style={scrollableReviewsStyle}>
           {reviews.length === 0 ? (
             <p className={styles.centerText}>
-              No one has reviewed this user so far...
+              No one has reviews this user!
             </p>
           ) : (
             reviews.map((review) => (

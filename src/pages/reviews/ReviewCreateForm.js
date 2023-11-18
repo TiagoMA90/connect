@@ -60,7 +60,7 @@ const ReviewCreateForm = ({ profile_id, createReview, currentUser }) => {
     // Success message for Wall submission
     return (
       <Alert variant="secondary">
-        You have successfully reviewed this profile.
+        <i class="fa-solid fa-circle-check fa-bounce"></i> You have successfully reviewed this profile.
       </Alert>
     );
   }

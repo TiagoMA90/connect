@@ -88,6 +88,7 @@ This website was scanned for Errors, Contrast Errors, Alerts, Features, Structur
 In order to achieve auspicious ratings, the website underwent multiple changes on its styling in order to please both WAVE and Lighthouse.
 
 After various examinations, tests and corrections for all its pages the website retrieved no withering Errors.
+The only errors are associated with the contrast, for the buttons. WAVE Evaluation Tool recommended to change the font coloring of the buttons to be black ot the background to something darker (unapplied).
 
 <img src="readme/img/WaveEvaluation.png" alt="Wave">
 

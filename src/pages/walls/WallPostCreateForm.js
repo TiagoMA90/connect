@@ -69,7 +69,7 @@ const WallPostCreateForm = ({ profileId, createWallPost, currentUser }) => {
     <div>
       {formSubmitted ? (
         <Alert variant="secondary">
-          You have successfully posted on the Community Wall.
+          <i class="fa-solid fa-circle-check fa-bounce"></i> You have successfully posted on the Community Wall.
         </Alert>
       ) : (
         <>

@@ -95,7 +95,7 @@ const WallPost = (props) => {
           )}
           {showAlert && (
             <div className="alert alert-secondary text-center" role="alert">
-              Wall Post updated!
+              <i class="fa-solid fa-circle-check fa-bounce"></i> Wall Post updated!
             </div>
           )}
         </Media.Body>
