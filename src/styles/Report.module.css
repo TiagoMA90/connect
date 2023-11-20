@@ -16,6 +16,11 @@
   /* Media Query for Mobile Devices */
   @media (max-width: 768px) {
     width: 90%;
+    max-width: 90vw;
+    padding: 15px;
+    height: 60vh;
+    overflow-y: auto;
+    box-sizing: border-box;
   }
 }
 
