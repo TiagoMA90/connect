@@ -4,9 +4,7 @@ import axios from "axios";
 import { Col, Container, Row } from "react-bootstrap";
 import appStyles from "../../App.module.css";
 import buttonStyles from "../../styles/Button.module.css";
-
 import { removeTokenTimestamp } from "../../utils/utils";
-
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
 // ProfileDeleteForm Component - (Note to self: BUGGED)
