@@ -12,11 +12,12 @@ It is a website where Users can share their pictures, give feedback to others & 
 - To provide a platform where users can share their posts/pictures and comments.
 - To create a community of users and like minded individuals.
 - To connect with people.
+- To develope a project keen to a starting point for my private and future projects.
 
 ## Set Goals
-- To create a fully functional social media app
-- To allow user accessibility, interaction & control over their data
-- To create a Community and build content on the platform (imagery)
+- To create a fully functional and generic social media app.
+- To allow user accessibility, interaction & control over their data.
+- To create a Community and build content on the platform (such as imagery).
 
 ## Design:
 The website was designed with the intent to allow users to browse posts, read comments and navigate throughout the website at ease.
@@ -487,12 +488,12 @@ Through development the following commands ran:
 - ```npm run start``` <- Runs the app in local environment
 
 Additionally, the following:
-- ```npm install react```
-- ```npm install axios```
-- ```npm install react-bootstrap```
-- ```npm install react-router-dom```
-- ```npm install react-modal```
-- ```npm install react-simple-star-rating```
+- ```npm install react``` <- Installs React library. JavaScript library for building user interfaces.
+- ```npm install react-router-dom``` <- Installs React Rounter DOM. Library for handling navigation and routing in React applications.
+- ```npm install axios``` <- Installs Axios library. Library used for making HTTP requests.
+- ```npm install react-bootstrap``` <- Installs React Bootstrap. Library components that have been re-implemented using React.
+- ```npm install react-modal``` <- Installs Pop up Modal. Library for using modal dialogs and pop-up windows.
+- ```npm install react-simple-star-rating``` <- Installs Rating Star for reviews. Library for costumizing a star rating component in React.
 
 The database is being hosted on ElephantSQL:
 - Create an account(with GitHub) and select TinyTurtle plan.
