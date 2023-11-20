@@ -23,6 +23,8 @@ It is a website where Users can share their pictures, give feedback to others & 
 The website was designed with the intent to allow users to browse posts, read comments and navigate throughout the website at ease.
 It allows users to access all components easily, and lets users perform all CRUD functionalities for their, Posts, Comments, Likes & Profiles, to CRU Reviews and Wall messages. Furthermore, users can C Reports for posts & C messages using the Contact for the moderation panel.
 
+Rather than focusing on the structure and colours, the developer focused his intentions on creating more components and their functionality and arranging them accordingly.
+
 # Wireframes
 ## Desktop
 

@@ -77,7 +77,7 @@ Manual testing has been performed by exploiting test case scenarios.
 ## Lighthouse & WAVE
 This website, under Incognito mode, was scanned for Performance, Accessibility, Best Practices and SEO for both Desktop and Mobile devices under the Lighthouse function provided by Chrome DevTools, with favorable scores.
 
-Both devices exhibited scores above 90% for Performance, Accessibility and SEO, with the exception for Performance (This went to the extreme on mobile devices), due to image size and extension, when uploaded by Users.
+Both devices exhibited scores above 90% for Performance, Accessibility and SEO, with the exception for Performance (This went to the extreme on mobile devices), due to image size and extension for posts and profiles, when uploaded by Users.
 
 Refer to the links for the templates:
 
@@ -88,7 +88,7 @@ This website was scanned for Errors, Contrast Errors, Alerts, Features, Structur
 In order to achieve auspicious ratings, the website underwent multiple changes on its styling in order to please both WAVE and Lighthouse.
 
 After various examinations, tests and corrections for all its pages the website retrieved no withering Errors.
-The only errors are associated with the contrast, for the buttons. WAVE Evaluation Tool recommended to change the font coloring of the buttons to be black ot the background to something darker (unapplied).
+The only errors are associated with the contrast, for the buttons. WAVE Evaluation Tool recommended to change the font coloring of the buttons to be black or the background to something darker (unapplied). This is rather debatable, and ultimatly does not affect the experience for screen readers. Ergo, the developer decided to keep the original colors from the begining as intended.
 
 <img src="readme/img/WaveEvaluation.png" alt="Wave">
 
@@ -137,7 +137,9 @@ Currently, the only errors still being logged are 401 (Unauthorized) when access
 
 <img src="readme/img/ConsoleError401.png" alt="401">
 
-If the internet is slow is will lag and the console will log 500 errors on consecutive runs.
+If the internet is slow is will lag and the console will log 500 errors on consecutive runs, due to elephantSQL.
+
+- Solution: Change the useffect interval to fetch data from 1000 milliseconds to 5000 milliseconds, since loading multiple components at the same time causes this batch of consecutive errors.
 
 <img src="readme/img/ConsoleError500.png" alt="500">
 
@@ -158,8 +160,10 @@ The Form for the reviews component on ReviewCreateForm.js throws 2 errors for th
 <img src="readme/img/ErrorLabels.png" alt="Labels and Errors">
 
 ## Deleting a User Profile
-Upon manual testing, if an authenticated User tries to delete a profile, it fails to properly eliinate the user profile.
+Upon manual testing, if an authenticated User tries to delete a profile, it fails to properly eliminate the user profile.
 After various attempts on how to correct this bug, the developer sought to delete this functionality altogether, but decided to keep it instead is and work on it when time allows.
+
+(It is encourage no to use it, but if the assessor feels like it, see the solution below)
 
 - Solution: Unsolved. No solution was founded yet. There is a work around that is not User friendly though. So how to proceed?
 
